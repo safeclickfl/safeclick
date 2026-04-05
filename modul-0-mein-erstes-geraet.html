@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modul 0: Mein erstes Gerät – SafeClick FL</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f7fb; --card:#ffffff; --text:#1f2937; --muted:#6b7280; --line:#e5e7eb;
+  --accent:#4f46e5; --soft:#eef2ff; --good:#065f46; --goodbg:#ecfdf5; --warn:#92400e; --warnbg:#fffbeb;
+  --bad:#991b1b; --badbg:#fef2f2;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+header.modul-header{background:linear-gradient(135deg,#0f172a 0%,#FF6B6B55 100%);color:white;padding:48px 24px}
+header .wrap, main{max-width:1000px;margin:0 auto}
+h1{font-size:2.1rem;line-height:1.15;margin:0 0 10px}
+h2{margin-top:36px;font-size:1.4rem;border-bottom:2px solid var(--line);padding-bottom:8px}
+h3{margin-top:24px;font-size:1.08rem}
+p,li{font-size:1rem}
+main{padding:28px 24px 40px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;margin:16px 0;box-shadow:0 10px 25px rgba(15,23,42,.05)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.kpi{font-size:.95rem;color:var(--muted)}
+.badge{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--soft);color:var(--accent);font-weight:700;font-size:.84rem;margin:4px 6px 0 0}
+.good{background:var(--goodbg);color:var(--good)}
+.warn{background:var(--warnbg);color:var(--warn)}
+.bad{background:var(--badbg);color:var(--bad)}
+ul,ol{padding-left:22px}
+a{color:#1d4ed8;text-decoration:none}a:hover{text-decoration:underline}
+.table{width:100%;border-collapse:collapse;margin-top:12px}
+.table th,.table td{border:1px solid var(--line);padding:10px;vertical-align:top;text-align:left}
+blockquote{margin:12px 0;padding:14px 16px;background:#f8fafc;border-left:4px solid #FF6B6B;border-radius:10px}
+code{background:#f3f4f6;padding:2px 6px;border-radius:6px}
+.bc{font-size:13px;color:rgba(255,255,255,.5);margin-bottom:8px}.bc a{color:rgba(255,255,255,.7)}
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+/* SafeClick FL Navigation */
+.topbar{background:#1B4965;color:rgba(255,255,255,.6);font-size:11px;padding:6px 24px;display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
+.topbar a{color:#5FA8D3;text-decoration:none;font-weight:600}
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid #e5e7eb;padding:0 24px}
+.nav-inner{max-width:1000px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:52px}
+.nav-brand{font-family:'Space Grotesk',system-ui,sans-serif;font-size:18px;font-weight:700;color:#1B4965;text-decoration:none;display:flex;align-items:center;gap:8px}
+.nav-brand .sc{color:#7C4DFF}
+.nav-shield{width:28px;height:28px;background:linear-gradient(135deg,#7C4DFF,#FF6B6B);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#fff}
+.nav-links{display:flex;gap:16px;list-style:none;align-items:center}
+.nav-links a{color:#6b7280;text-decoration:none;font-size:13px;font-weight:600;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:#7C4DFF}
+.nav-cta{background:linear-gradient(135deg,#7C4DFF,#FF6B6B);color:#fff!important;padding:6px 14px;border-radius:7px;font-weight:700!important;font-size:11px!important}
+.nav-toggle{display:none;background:none;border:none;color:#1B4965;font-size:20px;cursor:pointer}
+.fl-banner{background:linear-gradient(90deg,#002B7F 50%,#CE1126 50%);height:3px}
+footer{background:#0F2D44;color:rgba(255,255,255,.4);padding:32px 24px;text-align:center;margin-top:40px}
+.fb{font-family:'Space Grotesk',system-ui;font-size:16px;font-weight:700;color:#fff;margin-bottom:4px}.fb span{color:#5FA8D3}
+footer p{font-size:11px;margin-bottom:2px}
+.fl{display:flex;gap:14px;justify-content:center;margin:10px 0;flex-wrap:wrap}
+.fl a{color:#5FA8D3;text-decoration:none;font-size:11px;font-weight:600}
+.ff{display:inline-flex;gap:3px;margin-top:6px}.ff div{width:24px;height:3px;border-radius:2px}
+/* Module navigation */
+.mod-nav{max-width:1000px;margin:0 auto;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;border-top:1px solid #e5e7eb}
+.mod-nav a{color:#7C4DFF;text-decoration:none;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:5px}
+.mod-nav a:hover{text-decoration:underline}
+.mod-nav .mn-back{color:#6b7280}
+.mod-grid{max-width:1000px;margin:0 auto;padding:0 24px 24px}
+.mod-grid h3{font-size:1.1rem;margin:24px 0 12px;color:#1f2937}
+.mg-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.mg-card{display:flex;align-items:center;gap:10px;padding:12px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;text-decoration:none;transition:box-shadow .2s}
+.mg-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.06)}
+.mg-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.mg-card .mg-t{font-size:12px;font-weight:700;color:#1f2937}.mg-card .mg-s{font-size:10px;color:#6b7280}
+@media(max-width:768px){
+  .nav-links{display:none;position:absolute;top:52px;left:0;right:0;background:#fff;flex-direction:column;padding:12px 24px;gap:10px;border-bottom:1px solid #e5e7eb}
+  .nav-links.open{display:flex}.nav-toggle{display:block}
+}
+</style>
+</head>
+<body>
+<div class="topbar"><span>🇱🇮 SafeClick FL – Think. Click. Act!</span><span>
+<a href="https://aha.li">aha</a> · <a href="https://www.uni.li">Uni FL</a> · <a href="https://medienkompetenz.li">medienkompetenz.li</a></span></div>
+<nav><div class="nav-inner">
+<a href="index.html" class="nav-brand"><div class="nav-shield">🛡</div>Safe<span class="sc">Click</span>&nbsp;FL</a>
+<ul class="nav-links" id="nv">
+<li><a href="index.html">Home</a></li>
+<li><a href="module-uebersicht.html" class="active">Module</a></li>
+<li><a href="https://safeclickfl.netlify.app/downloads.html">Downloads</a></li>
+<li><a href="https://safeclickfl.netlify.app/notfall.html">Notfall</a></li>
+<li><a href="mailto:safeclickfl@proton.me" class="nav-cta"><i class="fas fa-envelope"></i> Kontakt</a></li>
+</ul>
+<button class="nav-toggle" onclick="document.getElementById('nv').classList.toggle('open')"><i class="fas fa-bars"></i></button>
+</div></nav><div class="fl-banner"></div>
+<header class="modul-header">
+  <div class="wrap">
+    <div class="bc"><a href="index.html">Home</a> / <a href="module-uebersicht.html">Module</a> / Modul 0</div>
+    <div class="badge" style="background:rgba(255,255,255,.15);color:#fff"><i class="fas fa-tablet-screen-button"></i> Modul 0 · 20 Min. · 7–10 J.</div>
+    <h1>Modul 0: Mein erstes Gerät</h1>
+    <p>Kindgerechte Einführung in sichere Tablet- und Smartphone-Nutzung mit Elternhandout.</p>
+  </div>
+</header>
+<main>
+
+
+<div class="grid">
+  <div class="card"><strong>Dauer</strong><div class="kpi">ca. 20 Minuten</div></div>
+  <div class="card"><strong>Zielgruppe</strong><div class="kpi">ca. 7–10 Jahre, Primarschule, auch mit Elternbezug</div></div>
+  <div class="card"><strong>Ziel</strong><div class="kpi">Kinder verstehen Grundregeln für ein erstes eigenes Gerät.</div></div>
+</div>
+
+<div class="card">
+  <h2>Worum es in diesem Modul geht</h2>
+  <p>Der Einstieg in die digitale Welt entscheidet oft darüber, wie Kinder später mit Medien umgehen. Dieses Modul soll deshalb keine Angst machen, sondern klare und einfache Regeln geben: Was ist erlaubt, was ist riskant, wo brauche ich Hilfe und welche Absprachen gelten zuhause oder in der Schule? Im Zentrum steht ein sicherer, altersgerechter Start mit Smartphone oder Tablet.</p>
+</div>
+
+<div class="card">
+  <h2>Lernziele</h2>
+  <ul>
+    <li>Kinder können erklären, dass ein eigenes Gerät Freiheit <em>und</em> Verantwortung bedeutet.</li>
+    <li>Sie kennen einfache Regeln zu Bildschirmzeit, Downloads, Chats, Fotos und In-App-Käufen.</li>
+    <li>Sie wissen, dass sie bei Unsicherheit immer eine erwachsene Vertrauensperson einbeziehen dürfen.</li>
+    <li>Sie verstehen, dass persönliche Daten nicht einfach weitergegeben werden sollen.</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>Kernbotschaften</h2>
+  <span class="badge good">Fragen ist stark</span>
+  <span class="badge good">Nicht alles anklicken</span>
+  <span class="badge warn">Keine Fremden in Chats</span>
+  <span class="badge warn">Keine Käufe ohne Erlaubnis</span>
+  <span class="badge good">Persönliche Daten schützen</span>
+  <span class="badge good">Pausen gehören dazu</span>
+</div>
+
+<div class="card">
+  <h2>Didaktischer Ablauf</h2>
+  <table class="table">
+    <tr><th>Phase</th><th>Zeit</th><th>Inhalt</th></tr>
+    <tr><td>Einstieg</td><td>3 Min.</td><td>Frage an die Gruppe: „Wofür braucht man ein Smartphone oder Tablet?“ Sammeln: Spielen, Fotos, Nachrichten, Lernen, Musik, Videos.</td></tr>
+    <tr><td>Regeln sichtbar machen</td><td>7 Min.</td><td>Mit Karten oder Tafel in zwei Spalten arbeiten: <strong>Das darf ich</strong> und <strong>Da frage ich zuerst</strong>. So lernen Kinder, dass nicht alles verboten ist, aber vieles abgesprochen werden muss.</td></tr>
+    <tr><td>Risikosituationen</td><td>5 Min.</td><td>Kurzbeispiele besprechen: Fremde Nachricht, App will Kamera-Zugriff, unbekannter Link, Spiel will Geld, peinliches Foto von Freund:in.</td></tr>
+    <tr><td>Abschluss</td><td>5 Min.</td><td>Jedes Kind formuliert 2 persönliche Regeln für sein erstes Gerät. Optional Elternhandout mitgeben.</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h2>Inhalte, die unbedingt drauf sollten</h2>
+  <h3>1. Was Kinder mit dem Gerät dürfen</h3>
+  <ul>
+    <li>Apps nur mit Erlaubnis installieren.</li>
+    <li>Nur altersgerechte Inhalte ansehen.</li>
+    <li>Mit bekannten Personen schreiben, nicht mit Fremden.</li>
+    <li>Bei komischen Nachrichten oder Bildern sofort Hilfe holen.</li>
+  </ul>
+  <h3>2. Was Kinder nicht allein entscheiden sollen</h3>
+  <ul>
+    <li>Käufe, Abos, Spielekäufe, Premiumfunktionen.</li>
+    <li>Standort teilen.</li>
+    <li>Passwörter weitergeben.</li>
+    <li>Eigene Fotos, Schule, Adresse oder Telefonnummer öffentlich teilen.</li>
+  </ul>
+  <h3>3. Gesunde Nutzung</h3>
+  <ul>
+    <li>Gerätefreie Zeiten festlegen, zum Beispiel beim Essen, vor dem Schlafen oder bei Hausaufgaben.</li>
+    <li>Bewegung, Schlaf und reale Treffen bleiben wichtiger als der Bildschirm.</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>Materialien</h2>
+  <ul>
+    <li>Moderationskarten oder ausgedruckte Situationen</li>
+    <li>Tafel, Beamer oder Plakat</li>
+    <li>Elternhandout mit Familienregeln</li>
+    <li>Optional: Gerätevertrag für zuhause</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>Vorlage für ein Elternhandout</h2>
+  <ol>
+    <li>Wir sprechen offen über alles, was online komisch oder unangenehm ist.</li>
+    <li>Neue Apps und Käufe werden vorher besprochen.</li>
+    <li>Passwörter bleiben geheim, ausser bei den Eltern als Notfallregel.</li>
+    <li>Fotos von anderen werden nur mit Erlaubnis verschickt.</li>
+    <li>Es gibt klare Bildschirmzeiten und Schlafenszeiten.</li>
+    <li>Das Gerät ist kein Geheimraum: Bei Problemen schauen wir gemeinsam hin.</li>
+  </ol>
+</div>
+
+<div class="card">
+  <h2>Moderationshinweise</h2>
+  <ul>
+    <li>Nicht moralisieren. Kinder merken schnell, wenn digitale Medien nur negativ dargestellt werden.</li>
+    <li>Mit klaren Beispielen arbeiten, nicht mit abstrakten Datenschutzbegriffen.</li>
+    <li>Positive Sprache hilft: „So schützt du dich“, statt nur „Das darfst du nicht“.</li>
+  </ul>
+</div>
+
+<div class="footer">Erstellt als eigenständig nutzbare HTML-Seite zur Vorbereitung, Durchführung und Nachbereitung des Moduls.</div>
+
+</main>
+<div class="mod-nav"><span></span><a href="module-uebersicht.html" class="mn-back"><i class="fas fa-th-large"></i> Alle Module</a><a href="modul-1-echt-oder-fake.html">Modul 1: Echt oder Fake? <i class="fas fa-arrow-right"></i></a></div><div class="mod-grid"><h3>📎 Weitere Module</h3><div class="mg-cards"><a href="modul-1-echt-oder-fake.html" class="mg-card"><div class="mg-icon" style="background:#FF6B6B18;color:#FF6B6B"><i class="fas fa-user-secret"></i></div><div><div class="mg-t">Modul 1: Echt oder Fake?</div><div class="mg-s">15 Min. · 11–16 J.</div></div></a>
+<a href="modul-2-phishing-und-manipulation.html" class="mg-card"><div class="mg-icon" style="background:#5FA8D318;color:#5FA8D3"><i class="fas fa-fish"></i></div><div><div class="mg-t">Modul 2: Phishing & Manipulation</div><div class="mg-s">15 Min. · 11–18 J.</div></div></a>
+<a href="modul-3-passwort-challenge.html" class="mg-card"><div class="mg-icon" style="background:#FFD16618;color:#FFD166"><i class="fas fa-key"></i></div><div><div class="mg-t">Modul 3: Passwort-Challenge</div><div class="mg-s">15 Min. · 10–18 J.</div></div></a>
+<a href="modul-4-privatsphaere-live.html" class="mg-card"><div class="mg-icon" style="background:#7C4DFF18;color:#7C4DFF"><i class="fas fa-eye-slash"></i></div><div><div class="mg-t">Modul 4: Privatsphäre live</div><div class="mg-s">20 Min. · 11–16 J.</div></div></a>
+<a href="modul-5-cybermobbing-fallbeispiel.html" class="mg-card"><div class="mg-icon" style="background:#06D6A018;color:#06D6A0"><i class="fas fa-heart-crack"></i></div><div><div class="mg-t">Modul 5: Cybermobbing-Fallbeispiel</div><div class="mg-s">20 Min. · 11–16 J.</div></div></a>
+<a href="modul-6-notfallplan-und-hilfestellen.html" class="mg-card"><div class="mg-icon" style="background:#FF8C4218;color:#FF8C42"><i class="fas fa-life-ring"></i></div><div><div class="mg-t">Modul 6: Notfallplan & Hilfestellen</div><div class="mg-s">10 Min. · 7–18 J.</div></div></a>
+</div></div>
+<footer>
+<div class="fb">Safe<span>Click</span> FL 🇱🇮</div>
+<p>Think. Click. Act!</p>
+<p>Pro Bono Projekt · Universität Liechtenstein · 2026</p>
+<div class="fl">
+<a href="mailto:safeclickfl@proton.me"><i class="fas fa-envelope"></i> safeclickfl@proton.me</a>
+<a href="https://instagram.com/safeclickfl"><i class="fab fa-instagram"></i> @safeclickfl</a>
+<a href="https://aha.li">aha.li</a>
+</div>
+<div class="ff"><div style="background:#002B7F"></div><div style="background:#CE1126"></div><div style="background:#FFD700"></div></div>
+</footer>
+</body>
+</html>
