@@ -21,7 +21,9 @@ section{padding:70px 24px}.container{max-width:1100px;margin:0 auto}
 .ph::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 70%,rgba(255,107,107,.12),transparent 50%),radial-gradient(circle at 70% 30%,rgba(6,214,160,.1),transparent 50%)}.ph>*{position:relative;z-index:1}
 .ph h1{font-family:'Space Grotesk';font-size:clamp(28px,5vw,42px);font-weight:700;color:#fff;margin-bottom:8px}.ph p{font-size:15px;color:rgba(255,255,255,.55);max-width:500px;margin:0 auto}
 .g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
 .ib{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+
 .dl-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px;display:flex;gap:14px;align-items:flex-start;transition:transform .2s,box-shadow .2s;position:relative;overflow:hidden}
 .dl-card:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,.07)}
 .dl-card .dl-info{flex:1;min-width:0}
@@ -29,23 +31,47 @@ section{padding:70px 24px}.container{max-width:1100px;margin:0 auto}
 .dl-card .dl-desc{font-size:12px;color:var(--muted);margin-bottom:8px;line-height:1.5}
 .dl-card .dl-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .dl-format{font-size:10px;font-weight:700;padding:3px 8px;border-radius:6px;letter-spacing:.5px}
-.fmt-docx{background:#2B579A15;color:#2B579A}.fmt-pdf{background:#E7252515;color:#E72525}.fmt-pptx{background:#D2472615;color:#D24726}.fmt-link{background:#FFD16620;color:#B8860B}
+.fmt-docx{background:#2B579A15;color:#2B579A}.fmt-pdf{background:#E7252515;color:#E72525}.fmt-pptx{background:#D2472615;color:#D24726}.fmt-zip{background:#8B4FBE15;color:#8B4FBE}.fmt-link{background:#FFD16620;color:#B8860B}
 .dl-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:8px;font-size:11px;font-weight:700;text-decoration:none;color:#fff;background:linear-gradient(135deg,var(--purple),#6C3CE0);transition:transform .15s,box-shadow .15s;white-space:nowrap;margin-top:2px}
 .dl-btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(124,77,255,.3)}
-.dl-btn-alt{background:linear-gradient(135deg,var(--teal),#4A90D9)}
 .dl-btn-ext{background:linear-gradient(135deg,var(--yellow),var(--orange));color:var(--navy-dark)}
 .dl-btns{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+
+.mod-dl-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:0;overflow:hidden;transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column}
+.mod-dl-card:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(0,0,0,.08)}
+.mod-dl-head{padding:18px 20px 14px;border-bottom:1px solid var(--border);display:flex;gap:12px;align-items:flex-start}
+.mod-dl-ic{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;color:#fff}
+.mod-dl-num{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:2px}
+.mod-dl-title{font-size:15px;font-weight:700;color:var(--navy);line-height:1.3}
+.mod-dl-body{padding:14px 20px;flex:1}
+.mod-dl-meta{display:flex;gap:12px;font-size:11px;color:var(--muted);margin-bottom:10px}
+.mod-dl-meta span{display:inline-flex;align-items:center;gap:4px}
+.mod-dl-desc{font-size:12px;color:var(--muted);line-height:1.5}
+.mod-dl-foot{padding:14px 20px;background:#fafafa;border-top:1px solid var(--border)}
+.mod-dl-btn{display:flex;align-items:center;justify-content:center;gap:8px;padding:10px 16px;border-radius:10px;font-size:12px;font-weight:700;text-decoration:none;color:#fff;width:100%;transition:all .2s}
+.mod-dl-btn:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(0,0,0,.12)}
+
 .dl-divider{margin:36px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--border);font-family:'Space Grotesk';font-size:18px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:10px}
 .dl-divider .dl-div-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px}
 .dl-note{background:linear-gradient(135deg,#f0f4ff,#faf5ff);border:1px solid #e0d4f5;border-radius:14px;padding:18px 22px;margin:28px 0 8px;display:flex;gap:12px;align-items:flex-start}
 .dl-note i{color:var(--purple);font-size:18px;margin-top:2px;flex-shrink:0}
 .dl-note p{font-size:13px;color:var(--muted);line-height:1.6}
 .dl-note strong{color:var(--navy)}
+
+.bulk-dl{background:linear-gradient(135deg,#1a0533,#5228a0);border-radius:20px;padding:28px;margin:20px 0 36px;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;position:relative;overflow:hidden}
+.bulk-dl::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;background:radial-gradient(circle,rgba(255,107,107,.35),transparent 70%)}
+.bulk-dl::after{content:'';position:absolute;bottom:-30px;left:-30px;width:120px;height:120px;background:radial-gradient(circle,rgba(6,214,160,.25),transparent 70%)}
+.bulk-dl-info{position:relative;z-index:1;flex:1;min-width:240px}
+.bulk-dl h3{font-family:'Space Grotesk';font-size:20px;font-weight:700;margin-bottom:4px}
+.bulk-dl p{font-size:13px;opacity:.8}
+.bulk-dl-btn{position:relative;z-index:1;background:#fff;color:var(--navy-dark);padding:12px 22px;border-radius:10px;font-weight:700;font-size:13px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:transform .15s}
+.bulk-dl-btn:hover{transform:translateY(-2px)}
+
 footer{background:var(--navy-dark);color:rgba(255,255,255,.4);padding:36px 24px;text-align:center}
 .fb{font-family:'Space Grotesk';font-size:18px;font-weight:700;color:#fff;margin-bottom:6px}.fb span{color:var(--teal)}
 footer p{font-size:12px;margin-bottom:3px}.fl{display:flex;gap:18px;justify-content:center;margin:12px 0;flex-wrap:wrap}.fl a{color:var(--teal);text-decoration:none;font-size:12px;font-weight:600}
 .ff{display:inline-flex;gap:3px;margin-top:8px}.ff div{width:30px;height:4px;border-radius:2px}
-@media(max-width:768px){.nav-links{display:none;position:absolute;top:56px;left:0;right:0;background:#fff;flex-direction:column;padding:16px 24px;gap:12px;border-bottom:1px solid var(--border);box-shadow:0 4px 12px rgba(0,0,0,.08)}.nav-links.open{display:flex}.nav-toggle{display:block}section{padding:50px 16px}.g2{grid-template-columns:1fr}.topbar{font-size:10px}.dl-btns{flex-direction:column}.dl-btn{justify-content:center}}
+@media(max-width:768px){.nav-links{display:none;position:absolute;top:56px;left:0;right:0;background:#fff;flex-direction:column;padding:16px 24px;gap:12px;border-bottom:1px solid var(--border);box-shadow:0 4px 12px rgba(0,0,0,.08)}.nav-links.open{display:flex}.nav-toggle{display:block}section{padding:50px 16px}.g2,.g3{grid-template-columns:1fr}.topbar{font-size:10px}.dl-btns{flex-direction:column}.dl-btn{justify-content:center}.bulk-dl{text-align:center;justify-content:center}}
 </style></head><body>
 
 <div class="topbar"><span>🇱🇮 SafeClick FL – Think. Click. Act!</span><span>
@@ -53,10 +79,11 @@ footer p{font-size:12px;margin-bottom:3px}.fl{display:flex;gap:18px;justify-cont
 
 <nav><div class="nav-inner"><a href="index.html" class="nav-brand"><div class="nav-shield">🛡</div>Safe<span class="sc">Click</span>&nbsp;FL</a>
 <ul class="nav-links" id="nv"><li><a href="index.html">Home</a></li>
+<li><a href="mehrwert.html">Mehrwert</a></li>
 <li><a href="module.html">Module</a></li>
 <li><a href="downloads.html" class="active">Downloads</a></li>
 <li><a href="notfall.html">Notfall</a></li>
-<li><a href="partner.html">Partner</a></li><li><a href="/cdn-cgi/l/email-protection#5122303734323d38323a373d1121233e253e3f7f3c34" class="nav-cta"><i class="fas fa-envelope"></i> Kontakt</a></li></ul>
+<li><a href="partner.html">Partner</a></li><li><a href="mailto:safeclickfl@proton.me" class="nav-cta"><i class="fas fa-envelope"></i> Kontakt</a></li></ul>
 <button class="nav-toggle" onclick="document.getElementById('nv').classList.toggle('open')"><i class="fas fa-bars"></i></button></div></nav>
 <div class="fl-banner"></div>
 
@@ -67,37 +94,164 @@ footer p{font-size:12px;margin-bottom:3px}.fl{display:flex;gap:18px;justify-cont
 
 <section><div class="container">
 
-<!-- Hinweis -->
 <div class="dl-note">
 <i class="fas fa-info-circle"></i>
-<p><strong>Hinweis:</strong> Alle Dateien sind kostenlos unter CC BY-NC-SA 4.0 lizenziert. Klicke auf den jeweiligen Download-Button, um die Datei herunterzuladen. Bei Fragen: <a href="/cdn-cgi/l/email-protection#9eedfff8fbfdf2f7fdf5f8f2deeeecf1eaf1f0b0f3fb" style="color:var(--purple);font-weight:600"><span class="__cf_email__" data-cfemail="92e1f3f4f7f1fefbf1f9f4fed2e2e0fde6fdfcbcfff7">[email&#160;protected]</span></a></p>
+<p><strong>Hinweis:</strong> Alle Dateien sind kostenlos unter CC BY-NC-SA 4.0 lizenziert. Jedes Modul-Paket enthält die Präsentation und das Moderationsdokument als ZIP-Datei. Bei Fragen: <a href="mailto:safeclickfl@proton.me" style="color:var(--purple);font-weight:600">safeclickfl@proton.me</a></p>
 </div>
 
-<!-- ═══════════ WORKSHOP-KERN ═══════════ -->
-<div class="dl-divider"><div class="dl-div-icon" style="background:#7C4DFF18;color:#7C4DFF"><i class="fas fa-chalkboard-teacher"></i></div> Workshop-Kernmaterial</div>
+<!-- ═══════════ MODUL-PAKETE ═══════════ -->
+<div class="dl-divider"><div class="dl-div-icon" style="background:#7C4DFF18;color:#7C4DFF"><i class="fas fa-cubes"></i></div> Modul-Pakete (ZIP)</div>
+
+<p style="font-size:13px;color:var(--muted);margin-bottom:16px">Jedes Paket enthält die <strong>Präsentation (PPTX)</strong> und das <strong>Moderationsdokument (DOCX)</strong> als ZIP-Datei – perfekt für den direkten Workshop-Einsatz.</p>
+
+<div class="bulk-dl">
+<div class="bulk-dl-info">
+<h3>🎁 Alle 7 Module auf einmal</h3>
+<p>Lade alle Workshop-Module als ein einziges ZIP-Paket herunter.</p>
+</div>
+<a href="downloads/SafeClick_Alle_Module.zip" download class="bulk-dl-btn"><i class="fas fa-download"></i> Alle Module (ZIP)</a>
+</div>
+
+<div class="g3">
+
+<!-- Modul 0 -->
+<div class="mod-dl-card">
+<div class="mod-dl-head">
+<div class="mod-dl-ic" style="background:linear-gradient(135deg,#FF6B6B,#E74C4C)"><i class="fas fa-tablet-screen-button"></i></div>
+<div>
+<div class="mod-dl-num">Modul 0</div>
+<div class="mod-dl-title">Mein erstes Gerät</div>
+</div>
+</div>
+<div class="mod-dl-body">
+<div class="mod-dl-meta"><span><i class="far fa-clock"></i> 20 Min.</span><span><i class="far fa-user"></i> 7–10 J.</span></div>
+<p class="mod-dl-desc">Grundregeln für ein erstes eigenes Gerät. 6 goldene Regeln, interaktives Spiel.</p>
+</div>
+<div class="mod-dl-foot">
+<a href="downloads/SafeClick_Modul0.zip" download class="mod-dl-btn" style="background:linear-gradient(135deg,#FF6B6B,#E74C4C)"><i class="fas fa-file-archive"></i> Modul 0 herunterladen</a>
+</div>
+</div>
+
+<!-- Modul 1 -->
+<div class="mod-dl-card">
+<div class="mod-dl-head">
+<div class="mod-dl-ic" style="background:linear-gradient(135deg,#FF6B6B,#FF8C42)"><i class="fas fa-user-secret"></i></div>
+<div>
+<div class="mod-dl-num">Modul 1</div>
+<div class="mod-dl-title">Echt oder Fake?</div>
+</div>
+</div>
+<div class="mod-dl-body">
+<div class="mod-dl-meta"><span><i class="far fa-clock"></i> 15 Min.</span><span><i class="far fa-user"></i> 11–16 J.</span></div>
+<p class="mod-dl-desc">KI-Fakes und Fake-Profile erkennen. 4 Red Flags und praktisches Quiz.</p>
+</div>
+<div class="mod-dl-foot">
+<a href="downloads/SafeClick_Modul1.zip" download class="mod-dl-btn" style="background:linear-gradient(135deg,#FF6B6B,#FF8C42)"><i class="fas fa-file-archive"></i> Modul 1 herunterladen</a>
+</div>
+</div>
+
+<!-- Modul 2 -->
+<div class="mod-dl-card">
+<div class="mod-dl-head">
+<div class="mod-dl-ic" style="background:linear-gradient(135deg,#5FA8D3,#4A90D9)"><i class="fas fa-fish"></i></div>
+<div>
+<div class="mod-dl-num">Modul 2</div>
+<div class="mod-dl-title">Phishing &amp; Manipulation</div>
+</div>
+</div>
+<div class="mod-dl-body">
+<div class="mod-dl-meta"><span><i class="far fa-clock"></i> 15 Min.</span><span><i class="far fa-user"></i> 11–18 J.</span></div>
+<p class="mod-dl-desc">Phishing-Versuche und Manipulations-Tricks erkennen. 3-Check-Regel.</p>
+</div>
+<div class="mod-dl-foot">
+<a href="downloads/SafeClick_Modul2.zip" download class="mod-dl-btn" style="background:linear-gradient(135deg,#5FA8D3,#4A90D9)"><i class="fas fa-file-archive"></i> Modul 2 herunterladen</a>
+</div>
+</div>
+
+<!-- Modul 3 -->
+<div class="mod-dl-card">
+<div class="mod-dl-head">
+<div class="mod-dl-ic" style="background:linear-gradient(135deg,#FFD166,#E6B44F)"><i class="fas fa-key"></i></div>
+<div>
+<div class="mod-dl-num">Modul 3</div>
+<div class="mod-dl-title">Passwort-Challenge</div>
+</div>
+</div>
+<div class="mod-dl-body">
+<div class="mod-dl-meta"><span><i class="far fa-clock"></i> 15 Min.</span><span><i class="far fa-user"></i> 10–18 J.</span></div>
+<p class="mod-dl-desc">Sichere Passwörter erstellen mit der Passphrase-Methode. Challenge inklusive.</p>
+</div>
+<div class="mod-dl-foot">
+<a href="downloads/SafeClick_Modul3.zip" download class="mod-dl-btn" style="background:linear-gradient(135deg,#FFD166,#E6B44F);color:#1A1A2E"><i class="fas fa-file-archive"></i> Modul 3 herunterladen</a>
+</div>
+</div>
+
+<!-- Modul 4 -->
+<div class="mod-dl-card">
+<div class="mod-dl-head">
+<div class="mod-dl-ic" style="background:linear-gradient(135deg,#7C4DFF,#6C3CE0)"><i class="fas fa-eye-slash"></i></div>
+<div>
+<div class="mod-dl-num">Modul 4</div>
+<div class="mod-dl-title">Privatsphäre live</div>
+</div>
+</div>
+<div class="mod-dl-body">
+<div class="mod-dl-meta"><span><i class="far fa-clock"></i> 20 Min.</span><span><i class="far fa-user"></i> 11–16 J.</span></div>
+<p class="mod-dl-desc">Digitaler Fussabdruck und Privatsphäre-Check. Live-Check in Instagram, TikTok &amp; Co.</p>
+</div>
+<div class="mod-dl-foot">
+<a href="downloads/SafeClick_Modul4.zip" download class="mod-dl-btn" style="background:linear-gradient(135deg,#7C4DFF,#6C3CE0)"><i class="fas fa-file-archive"></i> Modul 4 herunterladen</a>
+</div>
+</div>
+
+<!-- Modul 5 -->
+<div class="mod-dl-card">
+<div class="mod-dl-head">
+<div class="mod-dl-ic" style="background:linear-gradient(135deg,#06D6A0,#05B089)"><i class="fas fa-heart-crack"></i></div>
+<div>
+<div class="mod-dl-num">Modul 5</div>
+<div class="mod-dl-title">Cybermobbing – Fallbeispiel</div>
+</div>
+</div>
+<div class="mod-dl-body">
+<div class="mod-dl-meta"><span><i class="far fa-clock"></i> 20 Min.</span><span><i class="far fa-user"></i> 11–16 J.</span></div>
+<p class="mod-dl-desc">Fallbeispiel «Lina» mit Think-Pair-Share. Empathie entwickeln, Handlungsschritte.</p>
+</div>
+<div class="mod-dl-foot">
+<a href="downloads/SafeClick_Modul5.zip" download class="mod-dl-btn" style="background:linear-gradient(135deg,#06D6A0,#05B089)"><i class="fas fa-file-archive"></i> Modul 5 herunterladen</a>
+</div>
+</div>
+
+<!-- Modul 6 -->
+<div class="mod-dl-card">
+<div class="mod-dl-head">
+<div class="mod-dl-ic" style="background:linear-gradient(135deg,#FF8C42,#E6722D)"><i class="fas fa-life-ring"></i></div>
+<div>
+<div class="mod-dl-num">Modul 6</div>
+<div class="mod-dl-title">Notfallplan &amp; Hilfestellen</div>
+</div>
+</div>
+<div class="mod-dl-body">
+<div class="mod-dl-meta"><span><i class="far fa-clock"></i> 10 Min.</span><span><i class="far fa-user"></i> 7–18 J.</span></div>
+<p class="mod-dl-desc">Anlaufstellen in FL/CH, persönlicher Notfallplan, Notfallkarte zum Ausfüllen.</p>
+</div>
+<div class="mod-dl-foot">
+<a href="downloads/SafeClick_Modul6.zip" download class="mod-dl-btn" style="background:linear-gradient(135deg,#FF8C42,#E6722D)"><i class="fas fa-file-archive"></i> Modul 6 herunterladen</a>
+</div>
+</div>
+
+</div>
+
+<!-- ═══════════ ZUSATZMATERIAL ═══════════ -->
+<div class="dl-divider"><div class="dl-div-icon" style="background:#5FA8D318;color:#5FA8D3"><i class="fas fa-folder-plus"></i></div> Zusatzmaterial</div>
 
 <div class="g2">
 
-<!-- Workshop-Baukasten -->
-<div class="dl-card">
-<div class="ib" style="background:#7C4DFF18;color:#7C4DFF"><i class="fas fa-book"></i></div>
-<div class="dl-info">
-<h4>Workshop-Baukasten</h4>
-<p class="dl-desc">7 Module, Moderationstexte, Altersanpassungen.</p>
-<div class="dl-meta"><span class="dl-format fmt-docx">DOCX</span><span class="dl-format fmt-pdf">PDF</span></div>
-<div class="dl-btns">
-<a href="downloads/SafeClick_Workshop_Baukasten.docx" download class="dl-btn"><i class="fas fa-download"></i> DOCX</a>
-<a href="downloads/SafeClick_Workshop_Baukasten.pdf" download class="dl-btn dl-btn-alt"><i class="fas fa-download"></i> PDF</a>
-</div>
-</div>
-</div>
-
-<!-- Handbuch Lehrpersonen -->
 <div class="dl-card">
 <div class="ib" style="background:#06D6A018;color:#06D6A0"><i class="fas fa-user-graduate"></i></div>
 <div class="dl-info">
 <h4>Handbuch für Lehrpersonen</h4>
-<p class="dl-desc">Alle 7 Module ausführlich mit Theorie, Ablauf & Moderationshinweisen.</p>
+<p class="dl-desc">Alle 7 Module ausführlich mit Theorie, Ablauf &amp; Moderationshinweisen in einem Dokument.</p>
 <div class="dl-meta"><span class="dl-format fmt-docx">DOCX</span></div>
 <div class="dl-btns">
 <a href="downloads/SafeClick_Workshop_Handbuch.docx" download class="dl-btn"><i class="fas fa-download"></i> DOCX herunterladen</a>
@@ -105,20 +259,6 @@ footer p{font-size:12px;margin-bottom:3px}.fl{display:flex;gap:18px;justify-cont
 </div>
 </div>
 
-<!-- Cybermobbing Präsentation -->
-<div class="dl-card">
-<div class="ib" style="background:#FF6B6B18;color:#FF6B6B"><i class="fas fa-desktop"></i></div>
-<div class="dl-info">
-<h4>Cybermobbing-Präsentation</h4>
-<p class="dl-desc">Präsentation zum Thema Cybermobbing für den Workshop-Einsatz.</p>
-<div class="dl-meta"><span class="dl-format fmt-pptx">PPTX</span></div>
-<div class="dl-btns">
-<a href="downloads/Cybermobbing.pptx" download class="dl-btn"><i class="fas fa-download"></i> PPTX herunterladen</a>
-</div>
-</div>
-</div>
-
-<!-- Kahoot-Quiz -->
 <div class="dl-card">
 <div class="ib" style="background:#FFD16618;color:#FFD166"><i class="fas fa-gamepad"></i></div>
 <div class="dl-info">
@@ -132,14 +272,18 @@ footer p{font-size:12px;margin-bottom:3px}.fl{display:flex;gap:18px;justify-cont
 </div>
 </div>
 
+<div class="dl-card">
+<div class="ib" style="background:#06D6A018;color:#06D6A0"><i class="fas fa-id-card"></i></div>
+<div class="dl-info">
+<h4>Notfallkarte FL</h4>
+<p class="dl-desc">Kreditkartenformat, alle Nummern, 4 Karten pro A4-Seite.</p>
+<div class="dl-meta"><span class="dl-format fmt-pdf">PDF</span></div>
+<div class="dl-btns">
+<a href="downloads/safeclick_notfallkarte_4xA4.pdf" download class="dl-btn"><i class="fas fa-download"></i> PDF herunterladen</a>
+</div>
+</div>
 </div>
 
-<!-- ═══════════ ARBEITSBLÄTTER & ÜBUNGEN ═══════════ -->
-<div class="dl-divider"><div class="dl-div-icon" style="background:#FF8C4218;color:#FF8C42"><i class="fas fa-pencil-alt"></i></div> Arbeitsblätter & Übungen</div>
-
-<div class="g2">
-
-<!-- Arbeitsblatt Lina -->
 <div class="dl-card">
 <div class="ib" style="background:#FF8C4218;color:#FF8C42"><i class="fas fa-file-alt"></i></div>
 <div class="dl-info">
@@ -154,31 +298,14 @@ footer p{font-size:12px;margin-bottom:3px}.fl{display:flex;gap:18px;justify-cont
 
 </div>
 
-<!-- ═══════════ DRUCKMATERIAL ═══════════ -->
-<div class="dl-divider"><div class="dl-div-icon" style="background:#06D6A018;color:#06D6A0"><i class="fas fa-print"></i></div> Druckmaterial</div>
-
-<div class="g2">
-
-<!-- Notfallkarte FL -->
-<div class="dl-card">
-<div class="ib" style="background:#06D6A018;color:#06D6A0"><i class="fas fa-id-card"></i></div>
-<div class="dl-info">
-<h4>Notfallkarte FL</h4>
-<p class="dl-desc">Kreditkartenformat, alle Nummern, 4 Karten pro A4-Seite.</p>
-<div class="dl-meta"><span class="dl-format fmt-pdf">PDF</span></div>
-<div class="dl-btns">
-<a href="downloads/safeclick_notfallkarte_4xA4.pdf" download class="dl-btn"><i class="fas fa-download"></i> PDF herunterladen</a>
-</div>
-</div>
-</div>
-
-</div>
-
 </div></section>
 
 <footer><div class="fb">Safe<span>Click</span> FL 🇱🇮</div><p>Think. Click. Act!</p><p>Pro Bono Projekt · Universität Liechtenstein · 2026</p>
-<div class="fl"><a href="/cdn-cgi/l/email-protection#2a594b4c4f49464349414c466a5a58455e454404474f"><i class="fas fa-envelope"></i> <span class="__cf_email__" data-cfemail="e390828586808f8a8088858fa393918c978c8dcd8e86">[email&#160;protected]</span></a>
+<div class="fl"><a href="mailto:safeclickfl@proton.me"><i class="fas fa-envelope"></i> safeclickfl@proton.me</a>
 <a href="https://instagram.com/safeclickfl" target="_blank"><i class="fab fa-instagram"></i> @safeclickfl</a>
 <a href="https://aha.li" target="_blank">aha.li</a><a href="https://medienkompetenz.li" target="_blank">medienkompetenz.li</a></div>
 <p style="margin-top:12px;font-size:10px">CC BY-NC-SA 4.0 · Kostenlos für Bildungszwecke</p>
-<div class="ff"><div style="background:#002B7F"></
+<div class="ff"><div style="background:#002B7F"></div><div style="background:#CE1126"></div><div style="background:#FFD700"></div></div></footer>
+
+<script>document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'})})});</script>
+</body></html>
