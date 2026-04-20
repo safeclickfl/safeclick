@@ -1,0 +1,207 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Modul 4: Privatsphäre live – SafeClick FL</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+:root{--navy:#1B4965;--navy-dark:#0F2D44;--teal:#5FA8D3;--coral:#FF6B6B;--green:#06D6A0;--yellow:#FFD166;--purple:#7C4DFF;--orange:#FF8C42;--pink:#F472B6;--bg:#FAFBFF;--text:#1A1A2E;--muted:#64748B;--border:#E2E8F0}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Plus Jakarta Sans',Inter,system-ui,sans-serif;color:var(--text);background:var(--bg);line-height:1.6}
+.topbar{background:var(--navy);color:rgba(255,255,255,.6);font-size:11px;padding:6px 24px;display:flex;justify-content:center;gap:20px;flex-wrap:wrap}.topbar a{color:var(--teal);text-decoration:none;font-weight:600}
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+.nav-brand{font-family:'Space Grotesk';font-size:20px;font-weight:700;color:var(--navy);text-decoration:none;display:flex;align-items:center;gap:8px}.nav-brand .sc{color:var(--purple)}
+.nav-shield{width:32px;height:32px;background:linear-gradient(135deg,var(--purple),var(--coral));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;color:#fff}
+.nav-links{display:flex;gap:18px;list-style:none;align-items:center}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:600;transition:color .2s}.nav-links a:hover,.nav-links a.active{color:var(--purple)}
+.nav-cta{background:linear-gradient(135deg,var(--purple),var(--coral));color:#fff!important;padding:7px 16px;border-radius:8px;font-weight:700!important;font-size:12px!important}
+.nav-toggle{display:none;background:none;border:none;color:var(--navy);font-size:22px;cursor:pointer}
+.fl-banner{background:linear-gradient(90deg,#002B7F 50%,#CE1126 50%);height:3px}
+section{padding:70px 24px}.container{max-width:1100px;margin:0 auto}
+.ph{padding:100px 24px 50px;text-align:center;position:relative;overflow:hidden}
+.ph::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 70%,rgba(255,107,107,.12),transparent 50%),radial-gradient(circle at 70% 30%,rgba(6,214,160,.1),transparent 50%)}.ph>*{position:relative;z-index:1}
+.ph h1{font-family:'Space Grotesk';font-size:clamp(28px,5vw,42px);font-weight:700;color:#fff;margin-bottom:8px}.ph p{font-size:15px;color:rgba(255,255,255,.55);max-width:500px;margin:0 auto}
+.bc{font-size:13px;color:rgba(255,255,255,.4);margin-bottom:12px}.bc a{color:rgba(255,255,255,.6);text-decoration:none}.bc a:hover{color:#fff}
+.m-card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:22px;margin:16px 0;box-shadow:0 10px 25px rgba(15,23,42,.05)}
+.m-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.m-kpi{font-size:.95rem;color:var(--muted)}
+.m-badge{display:inline-block;padding:6px 10px;border-radius:999px;font-weight:700;font-size:.84rem;margin:4px 6px 0 0}
+.m-good{background:#ecfdf5;color:#065f46}.m-warn{background:#fffbeb;color:#92400e}
+.m-table{width:100%;border-collapse:collapse;margin-top:12px}.m-table th,.m-table td{border:1px solid var(--border);padding:10px;vertical-align:top;text-align:left}.m-table th{background:#f8fafc;font-size:.9rem}
+h2.m-h2{margin-top:36px;font-size:1.4rem;border-bottom:2px solid var(--border);padding-bottom:8px;display:flex;align-items:center;gap:8px}
+h3.m-h3{margin-top:24px;font-size:1.08rem}
+.mod-nav{max-width:1100px;margin:0 auto;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;border-top:1px solid var(--border)}
+.mod-nav a{text-decoration:none;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:5px;color:var(--purple)}.mod-nav a:hover{text-decoration:underline}
+.mg{max-width:1100px;margin:0 auto;padding:0 24px 32px}
+.mg h3{font-size:1.1rem;margin:24px 0 12px;color:var(--navy)}
+.mg-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.mg-card{display:flex;align-items:center;gap:10px;padding:12px;background:#fff;border:1px solid var(--border);border-radius:12px;text-decoration:none;transition:box-shadow .2s}.mg-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.06)}
+.mg-ic{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.mg-card .mg-t{font-size:12px;font-weight:700;color:var(--navy)}.mg-card .mg-s{font-size:10px;color:var(--muted)}
+/* Phase cards */
+.phase-card{background:#fff;border:1px solid var(--border);border-radius:18px;margin:20px 0;overflow:hidden;box-shadow:0 4px 20px rgba(15,23,42,.04)}
+.phase-header{padding:20px 22px 14px;border-bottom:1px solid var(--border)}
+.phase-time{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;color:#7C4DFF;background:#7C4DFF15;padding:4px 10px;border-radius:6px;margin-bottom:8px}
+.phase-title{font-family:'Space Grotesk';font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:4px}
+.phase-ziel{font-size:.85rem;color:var(--muted);display:flex;align-items:center;gap:6px}
+.speech-box{margin:0;padding:20px 22px;background:linear-gradient(135deg,#f8f9ff,#f0f4ff);border-bottom:1px solid var(--border)}
+.speech-label{font-size:11px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.speech-text{font-size:.92rem;color:var(--text);line-height:1.7;font-style:italic}
+.hint-box{padding:16px 22px;background:#fffef5}
+.hint-label{font-size:11px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.hint-box p{font-size:.88rem;color:var(--muted);line-height:1.6}
+/* Altersanpassungen */
+.alter-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:12px}
+.alter-card{background:#f8fafc;border:1px solid var(--border);border-radius:14px;padding:18px}
+.alter-card h4{font-size:.95rem;color:var(--navy);margin-bottom:8px}
+.alter-card ul{padding-left:18px;font-size:.88rem;color:var(--muted)}
+.alter-card li{margin-bottom:4px}
+footer{background:var(--navy-dark);color:rgba(255,255,255,.4);padding:36px 24px;text-align:center}
+.fb{font-family:'Space Grotesk';font-size:18px;font-weight:700;color:#fff;margin-bottom:6px}.fb span{color:var(--teal)}
+footer p{font-size:12px;margin-bottom:3px}.fl{display:flex;gap:18px;justify-content:center;margin:12px 0;flex-wrap:wrap}.fl a{color:var(--teal);text-decoration:none;font-size:12px;font-weight:600}
+.ff{display:inline-flex;gap:3px;margin-top:8px}.ff div{width:30px;height:4px;border-radius:2px}
+@media(max-width:768px){.nav-links{display:none;position:absolute;top:56px;left:0;right:0;background:#fff;flex-direction:column;padding:16px 24px;gap:12px;border-bottom:1px solid var(--border);box-shadow:0 4px 12px rgba(0,0,0,.08)}.nav-links.open{display:flex}.nav-toggle{display:block}section{padding:50px 16px}.m-grid,.alter-grid,.mg-cards{grid-template-columns:1fr}.topbar{font-size:10px}}
+</style></head><body>
+<div class="topbar"><span>🇱🇮 SafeClick FL – Think. Click. Act!</span><span>Ein Pro-Bono-Projekt der <a href="https://www.uni.li" target="_blank">Universität Liechtenstein</a> mit <a href="https://aha.li" target="_blank">aha Vaduz</a></span></div>
+<nav><div class="nav-inner"><a href="index.html" class="nav-brand"><div class="nav-shield">🛡</div>Safe<span class="sc">Click</span>&nbsp;FL</a>
+<ul class="nav-links" id="nv"><li><a href="index.html">Home</a></li>
+<li><a href="module.html" class=active>Module</a></li>
+<li><a href="downloads.html">Downloads</a></li>
+<li><a href="notfall.html">Notfall</a></li>
+<li><a href="partner.html">Partner</a></li><li><a href="mailto:safeclickfl@proton.me" class="nav-cta"><i class="fas fa-envelope"></i> Kontakt</a></li></ul>
+<button class="nav-toggle" onclick="document.getElementById('nv').classList.toggle('open')"><i class="fas fa-bars"></i></button></div></nav><div class="fl-banner"></div>
+
+<div class="ph" style="background:linear-gradient(160deg,#0f172a 0%,#7C4DFF55 100%)">
+<div class="bc"><a href="index.html">Home</a> / <a href="module.html">Module</a> / Modul 4</div>
+<div style="display:inline-block;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.12);color:#fff;font-weight:700;font-size:.84rem;margin-bottom:12px"><i class="fas fa-eye-slash"></i> Modul 4 · 20 Minuten · 11–16 Jahre</div>
+<h1>Modul 4: Privatsphäre live</h1>
+</div>
+
+<section style="padding-top:32px"><div class="container">
+
+<div class="m-grid">
+  <div class="m-card"><strong>Dauer</strong><div class="m-kpi">20 Minuten</div></div>
+  <div class="m-card"><strong>Zielgruppe</strong><div class="m-kpi">11–16 Jahre</div></div>
+  <div class="m-card"><strong>Ziel</strong><div class="m-kpi">Teilnehmende verstehen den Wert ihrer Daten und können Privatsphäre-Einstellungen anpassen.</div></div>
+</div>
+
+<div class="m-card">
+  <h2 class="m-h2"><i class="fas fa-bullseye"></i> Lernziele</h2>
+  <ul><li>Teilnehmende verstehen den Wert persönlicher Daten im digitalen Raum.</li><li>Sie können Privatsphäre-Einstellungen in gängigen Apps anpassen.</li><li>Sie erkennen, welche Daten sie (bewusst und unbewusst) hinterlassen.</li><li>Sie verstehen «Digitaler Fussabdruck» und «Datenminimierung».</li></ul>
+</div>
+
+<div class="m-card">
+  <h2 class="m-h2"><i class="fas fa-tags"></i> Kernbotschaften</h2>
+  <span class="m-badge m-good">Eure Daten gehören euch</span>
+<span class="m-badge m-warn">Aktiver vs. passiver Fussabdruck</span>
+<span class="m-badge m-good">Datenminimierung</span>
+<span class="m-badge m-good">Einstellungen regelmässig prüfen</span>
+<span class="m-badge m-warn">Standort deaktivieren</span>
+
+</div>
+
+<div class="m-card">
+  <h2 class="m-h2"><i class="fas fa-box-open"></i> Benötigtes Material</h2>
+  <ul><li>Beamer / Bildschirm für die Präsentation (PPTX) – Digitaler Fussabdruck</li><li>Arbeitsblatt «Privatsphäre live» (PDF, 1x pro Teilnehmende:n)</li><li>Optional: Smartphones der Teilnehmenden für den Live-Check</li><li>Falls keine Geräte: Screenshots in der Präsentation vorbereiten</li></ul>
+</div>
+
+<div class="m-card">
+  <h2 class="m-h2"><i class="fas fa-clipboard-check"></i> Vorbereitung</h2>
+  <ul><li>Präsentation durchgehen, insbesondere die Screenshots der App-Einstellungen.</li><li>Arbeitsblätter in ausreichender Anzahl ausdrucken.</li><li>Klären, ob die Teilnehmenden ihre Smartphones verwenden dürfen.</li><li>Sensibilität: Nicht alle möchten ihre Profile zeigen. Der Live-Check ist freiwillig!</li></ul>
+</div>
+
+<div class="m-card" style="background:transparent;border:none;box-shadow:none;padding:0">
+  <h2 class="m-h2"><i class="fas fa-chalkboard-teacher"></i> Detaillierter Ablauf mit Sprechtexten</h2>
+</div>
+
+
+<div class="phase-card">
+  <div class="phase-header">
+    <div class="phase-time"><i class="fas fa-clock"></i> 5 Min.</div>
+    <h3 class="phase-title">Phase 1: Einstieg – Das gläserne Profil</h3>
+    <p class="phase-ziel"><i class="fas fa-bullseye"></i> Bewusstsein schaffen, wie viel ein öffentliches Profil verrät.</p>
+  </div>
+  <div class="speech-box">
+    <div class="speech-label"><i class="fas fa-comment-dots"></i> Sprechtext</div>
+    <div class="speech-text">Heute geht es um eure Privatsphäre im Netz.<br><br>Ich zeige euch ein fiktives Social-Media-Profil. Schaut genau hin – was wisst ihr über diese Person?<br><br>• Alter?<br>• Wohnort?<br>• Schule?<br>• Hobbys?<br>• Freundeskreis?<br><br>Krass, oder? All das war öffentlich sichtbar. Jeder – wirklich JEDER – hätte das sehen können.<br><br>Jetzt die Frage: Was würde jemand über EUCH herausfinden?</div>
+  </div>
+  <div class="hint-box">
+    <div class="hint-label"><i class="fas fa-lightbulb"></i> Moderationshinweis</div>
+    <p>Nutzen Sie ein FIKTIVES Profil – NIEMALS ein echtes! Falls jemand sagt «Bei mir ist alles privat»: Loben Sie das und erklären Sie, dass wir das gleich prüfen.</p>
+  </div>
+</div>
+<div class="phase-card">
+  <div class="phase-header">
+    <div class="phase-time"><i class="fas fa-clock"></i> 5 Min.</div>
+    <h3 class="phase-title">Phase 2: Digitaler Fussabdruck</h3>
+    <p class="phase-ziel"><i class="fas fa-bullseye"></i> Konzepte «digitaler Fussabdruck» und «Datenminimierung» vermitteln.</p>
+  </div>
+  <div class="speech-box">
+    <div class="speech-label"><i class="fas fa-comment-dots"></i> Sprechtext</div>
+    <div class="speech-text">Jedes Mal, wenn ihr das Internet nutzt, hinterlasst ihr Spuren – euren digitalen Fussabdruck.<br><br>Aktiver Fussabdruck: Alles, was ihr bewusst online stellt – Posts, Fotos, Kommentare, Likes.<br>Passiver Fussabdruck: Daten, die ohne euer Zutun gesammelt werden – Standort, IP-Adresse, Cookies.<br><br>Persönliche Daten können missbraucht werden für:<br>• Identitätsdiebstahl<br>• Cybermobbing<br>• Stalking<br>• Gezielte Manipulation<br><br>Was einmal im Internet ist, bleibt oft dauerhaft – auch wenn ihr es löscht!<br><br>Datenminimierung: Teile nur das Nötigste. Vor jedem Post: Welche Daten gebe ich preis?</div>
+  </div>
+  <div class="hint-box">
+    <div class="hint-label"><i class="fas fa-lightbulb"></i> Moderationshinweis</div>
+    <p>Konkretes Beispiel: «Wenn ihr ein Foto mit Standort postet, weiss jeder, wo ihr seid.» Für FL/CH: Erwähnen Sie DSGVO/DSG-Rechte.</p>
+  </div>
+</div>
+<div class="phase-card">
+  <div class="phase-header">
+    <div class="phase-time"><i class="fas fa-clock"></i> 8 Min.</div>
+    <h3 class="phase-title">Phase 3: Live-Check – Privatsphäre-Einstellungen</h3>
+    <p class="phase-ziel"><i class="fas fa-bullseye"></i> Praktisch die eigenen Einstellungen überprüfen und anpassen.</p>
+  </div>
+  <div class="speech-box">
+    <div class="speech-label"><i class="fas fa-comment-dots"></i> Sprechtext</div>
+    <div class="speech-text">Jetzt wird es praktisch! Wir machen einen Privatsphäre-Check.<br><br>Auf dem Arbeitsblatt findet ihr für Instagram, TikTok und WhatsApp eine Checkliste.<br><br>Die wichtigsten Einstellungen:<br>1. Konto auf privat stellen<br>2. Nachrichten von Unbekannten einschränken<br>3. Standortfreigabe deaktivieren<br>4. Zwei-Schritt-Verifizierung aktivieren<br><br>Notiert auf dem Arbeitsblatt: Was war eure wichtigste Änderung heute?</div>
+  </div>
+  <div class="hint-box">
+    <div class="hint-label"><i class="fas fa-lightbulb"></i> Moderationshinweis</div>
+    <p>WICHTIG: Der Live-Check ist FREIWILLIG! Niemand muss sein Profil zeigen. Gehen Sie Schritt für Schritt durch. Nicht alle haben ein Smartphone – nutzen Sie die Präsentation.</p>
+  </div>
+</div>
+<div class="phase-card">
+  <div class="phase-header">
+    <div class="phase-time"><i class="fas fa-clock"></i> 2 Min.</div>
+    <h3 class="phase-title">Phase 4: Reflexion & Abschluss</h3>
+    <p class="phase-ziel"><i class="fas fa-bullseye"></i> Erkenntnisse verankern.</p>
+  </div>
+  <div class="speech-box">
+    <div class="speech-label"><i class="fas fa-comment-dots"></i> Sprechtext</div>
+    <div class="speech-text">Zum Abschluss:<br>• Was hat euch am meisten überrascht?<br>• Welche Einstellung werdet ihr als Erstes ändern?<br>• Was würdet ihr euren Freunden empfehlen?<br><br>Eure Daten gehören euch! Prüft eure Einstellungen regelmässig – mindestens alle 3 Monate.<br><br>Bleibt wachsam und passt auf eure Daten auf!</div>
+  </div>
+  <div class="hint-box">
+    <div class="hint-label"><i class="fas fa-lightbulb"></i> Moderationshinweis</div>
+    <p>Ermutigen Sie: «Es ist nie zu spät, die Einstellungen zu ändern!» Verweisen Sie auf das Arbeitsblatt als Nachschlagewerk für zu Hause.</p>
+  </div>
+</div>
+
+<div class="m-card">
+  <h2 class="m-h2"><i class="fas fa-users"></i> Altersanpassungen</h2>
+  <div class="alter-grid"><div class="alter-card"><h4>Für 11–12 Jahre</h4><ul><li>Fokus auf TikTok und WhatsApp.</li><li>Digitaler Fussabdruck vereinfacht: «Fussspuren im Sand – aber sie verschwinden nie.»</li><li>Mehr Anleitung beim Live-Check – gemeinsam Schritt für Schritt.</li><li>Betonung: «Fragt eure Eltern, bevor ihr Einstellungen ändert.»</li></ul></div><div class="alter-card"><h4>Für 13–16 Jahre</h4><ul><li>Alle drei Apps behandeln.</li><li>DSGVO/DSG-Rechte ansprechen.</li><li>Diskussion: «Was passiert mit euren Daten, wenn ihr eine App löscht?»</li><li>Werbeeinstellungen und personalisierte Werbung thematisieren.</li></ul></div></div>
+</div>
+
+
+
+<div class="m-card">
+  <h2 class="m-h2"><i class="fas fa-clock"></i> Zeitplan auf einen Blick</h2>
+  <table class="m-table"><tr><th>Zeit</th><th>Phase</th><th>Beschreibung</th></tr><tr><td><strong>0–5 Min.</strong></td><td>Einstieg: Gläsernes Profil</td><td>Fiktives Profil analysieren</td></tr>
+<tr><td><strong>5–10 Min.</strong></td><td>Digitaler Fussabdruck</td><td>Theorie: aktiv vs. passiv</td></tr>
+<tr><td><strong>10–18 Min.</strong></td><td>Live-Check</td><td>Privatsphäre-Einstellungen prüfen</td></tr>
+<tr><td><strong>18–20 Min.</strong></td><td>Reflexion & Abschluss</td><td>Was hat überrascht? Was ändern?</td></tr>
+</table>
+</div>
+
+</div></section>
+
+<div class="mod-nav"><a href="modul-3-passwort-challenge.html"><i class="fas fa-arrow-left"></i> Modul 3: Passwort-Challenge</a><a href="module.html" style="color:var(--muted)"><i class="fas fa-th-large"></i> Alle Module</a><a href="modul-5-cybermobbing-fallbeispiel.html">Modul 5: Cybermobbing <i class="fas fa-arrow-right"></i></a></div>
+<div class="mg"><h3>📎 Weitere Module</h3><div class="mg-cards"><a href="modul-0-mein-erstes-geraet.html" class="mg-card"><div class="mg-ic" style="background:#FF6B6B18;color:#FF6B6B"><i class="fas fa-tablet-screen-button"></i></div><div><div class="mg-t">Modul 0: Mein erstes Gerät</div><div class="mg-s">20 Min. · 7–10 J.</div></div></a><a href="modul-1-echt-oder-fake.html" class="mg-card"><div class="mg-ic" style="background:#FF6B6B18;color:#FF6B6B"><i class="fas fa-user-secret"></i></div><div><div class="mg-t">Modul 1: Echt oder Fake?</div><div class="mg-s">15 Min. · 11–16 J.</div></div></a><a href="modul-2-phishing-und-manipulation.html" class="mg-card"><div class="mg-ic" style="background:#5FA8D318;color:#5FA8D3"><i class="fas fa-fish"></i></div><div><div class="mg-t">Modul 2: Phishing & Manipulation</div><div class="mg-s">15 Min. · 11–18 J.</div></div></a><a href="modul-3-passwort-challenge.html" class="mg-card"><div class="mg-ic" style="background:#FFD16618;color:#FFD166"><i class="fas fa-key"></i></div><div><div class="mg-t">Modul 3: Passwort-Challenge</div><div class="mg-s">15 Min. · 10–18 J.</div></div></a><a href="modul-5-cybermobbing-fallbeispiel.html" class="mg-card"><div class="mg-ic" style="background:#06D6A018;color:#06D6A0"><i class="fas fa-heart-crack"></i></div><div><div class="mg-t">Modul 5: Cybermobbing-Fallbeispiel</div><div class="mg-s">20 Min. · 11–16 J.</div></div></a><a href="modul-6-notfallplan-und-hilfestellen.html" class="mg-card"><div class="mg-ic" style="background:#FF8C4218;color:#FF8C42"><i class="fas fa-life-ring"></i></div><div><div class="mg-t">Modul 6: Notfallplan & Hilfestellen</div><div class="mg-s">10 Min. · 7–18 J.</div></div></a></div></div>
+
+<footer><div class="fb">Safe<span>Click</span> FL 🇱🇮</div>
+<p>Think. Click. Act! · Pro Bono Projekt · Universität Liechtenstein · 2026</p>
+<div class="fl"><a href="mailto:safeclickfl@proton.me"><i class="fas fa-envelope"></i> safeclickfl@proton.me</a>
+<a href="https://instagram.com/safeclickfl" target="_blank"><i class="fab fa-instagram"></i> @safeclickfl</a>
+<a href="https://aha.li" target="_blank">aha.li</a></div>
+<p style="margin-top:8px;font-size:10px">CC BY-NC-SA 4.0</p>
+<div class="ff"><div style="background:#002B7F"></div><div style="background:#CE1126"></div><div style="background:#FFD700"></div></div></footer>
+<script>document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'})})});</script>
+</body></html>
