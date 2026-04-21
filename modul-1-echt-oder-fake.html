@@ -1,0 +1,242 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Modul 1: Echt oder Fake? – SafeClick FL</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+:root{--navy:#1B4965;--navy-dark:#0F2D44;--teal:#5FA8D3;--coral:#FF6B6B;--green:#06D6A0;--yellow:#FFD166;--purple:#7C4DFF;--orange:#FF8C42;--pink:#F472B6;--bg:#FAFBFF;--text:#1A1A2E;--muted:#64748B;--border:#E2E8F0}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Plus Jakarta Sans',Inter,system-ui,sans-serif;color:var(--text);background:var(--bg);line-height:1.6}
+.topbar{background:var(--navy);color:rgba(255,255,255,.6);font-size:11px;padding:6px 24px;display:flex;justify-content:center;gap:20px;flex-wrap:wrap}.topbar a{color:var(--teal);text-decoration:none;font-weight:600}
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+.nav-brand{font-family:'Space Grotesk';font-size:20px;font-weight:700;color:var(--navy);text-decoration:none;display:flex;align-items:center;gap:8px}.nav-brand .sc{color:var(--purple)}
+.nav-shield{width:32px;height:32px;background:linear-gradient(135deg,var(--purple),var(--coral));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;color:#fff}
+.nav-links{display:flex;gap:18px;list-style:none;align-items:center}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:600;transition:color .2s}.nav-links a:hover,.nav-links a.active{color:var(--purple)}
+.nav-cta{background:linear-gradient(135deg,var(--purple),var(--coral));color:#fff!important;padding:7px 16px;border-radius:8px;font-weight:700!important;font-size:12px!important}
+.nav-toggle{display:none;background:none;border:none;color:var(--navy);font-size:22px;cursor:pointer}
+.fl-banner{background:linear-gradient(90deg,#002B7F 50%,#CE1126 50%);height:3px}
+section{padding:70px 24px}.container{max-width:1100px;margin:0 auto}
+.ph{padding:100px 24px 50px;text-align:center;position:relative;overflow:hidden}
+.ph::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 70%,rgba(255,107,107,.12),transparent 50%),radial-gradient(circle at 70% 30%,rgba(6,214,160,.1),transparent 50%)}.ph>*{position:relative;z-index:1}
+.ph h1{font-family:'Space Grotesk';font-size:clamp(28px,5vw,42px);font-weight:700;color:#fff;margin-bottom:8px}.ph p{font-size:15px;color:rgba(255,255,255,.55);max-width:500px;margin:0 auto}
+.bc{font-size:13px;color:rgba(255,255,255,.4);margin-bottom:12px}.bc a{color:rgba(255,255,255,.6);text-decoration:none}.bc a:hover{color:#fff}
+.m-card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:22px;margin:16px 0;box-shadow:0 10px 25px rgba(15,23,42,.05)}
+.m-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.m-kpi{font-size:.95rem;color:var(--muted)}
+.m-badge{display:inline-block;padding:6px 10px;border-radius:999px;font-weight:700;font-size:.84rem;margin:4px 6px 0 0}
+.m-good{background:#ecfdf5;color:#065f46}.m-warn{background:#fffbeb;color:#92400e}
+.m-table{width:100%;border-collapse:collapse;margin-top:12px}.m-table th,.m-table td{border:1px solid var(--border);padding:10px;vertical-align:top;text-align:left}.m-table th{background:#f8fafc;font-size:.9rem}
+h2.m-h2{margin-top:36px;font-size:1.4rem;border-bottom:2px solid var(--border);padding-bottom:8px;display:flex;align-items:center;gap:8px}
+h3.m-h3{margin-top:24px;font-size:1.08rem}
+.mod-nav{max-width:1100px;margin:0 auto;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;border-top:1px solid var(--border)}
+.mod-nav a{text-decoration:none;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:5px;color:var(--purple)}.mod-nav a:hover{text-decoration:underline}
+.mg{max-width:1100px;margin:0 auto;padding:0 24px 32px}
+.mg h3{font-size:1.1rem;margin:24px 0 12px;color:var(--navy)}
+.mg-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.mg-card{display:flex;align-items:center;gap:10px;padding:12px;background:#fff;border:1px solid var(--border);border-radius:12px;text-decoration:none;transition:box-shadow .2s}.mg-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.06)}
+.mg-ic{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.mg-card .mg-t{font-size:12px;font-weight:700;color:var(--navy)}.mg-card .mg-s{font-size:10px;color:var(--muted)}
+/* Phase cards */
+.phase-card{background:#fff;border:1px solid var(--border);border-radius:18px;margin:20px 0;overflow:hidden;box-shadow:0 4px 20px rgba(15,23,42,.04)}
+.phase-header{padding:20px 22px 14px;border-bottom:1px solid var(--border)}
+.phase-time{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;color:#FF6B6B;background:#FF6B6B15;padding:4px 10px;border-radius:6px;margin-bottom:8px}
+.phase-title{font-family:'Space Grotesk';font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:4px}
+.phase-ziel{font-size:.85rem;color:var(--muted);display:flex;align-items:center;gap:6px}
+.speech-box{margin:0;padding:20px 22px;background:linear-gradient(135deg,#f8f9ff,#f0f4ff);border-bottom:1px solid var(--border)}
+.speech-label{font-size:11px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.speech-text{font-size:.92rem;color:var(--text);line-height:1.7;font-style:italic}
+.hint-box{padding:16px 22px;background:#fffef5}
+.hint-label{font-size:11px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.hint-box p{font-size:.88rem;color:var(--muted);line-height:1.6}
+/* Altersanpassungen */
+.alter-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:12px}
+.alter-card{background:#f8fafc;border:1px solid var(--border);border-radius:14px;padding:18px}
+.alter-card h4{font-size:.95rem;color:var(--navy);margin-bottom:8px}
+.alter-card ul{padding-left:18px;font-size:.88rem;color:var(--muted)}
+.alter-card li{margin-bottom:4px}
+footer{background:var(--navy-dark);color:rgba(255,255,255,.4);padding:36px 24px;text-align:center}
+.fb{font-family:'Space Grotesk';font-size:18px;font-weight:700;color:#fff;margin-bottom:6px}.fb span{color:var(--teal)}
+footer p{font-size:12px;margin-bottom:3px}.fl{display:flex;gap:18px;justify-content:center;margin:12px 0;flex-wrap:wrap}.fl a{color:var(--teal);text-decoration:none;font-size:12px;font-weight:600}
+.ff{display:inline-flex;gap:3px;margin-top:8px}.ff div{width:30px;height:4px;border-radius:2px}
+@media(max-width:768px){.nav-links{display:none;position:absolute;top:56px;left:0;right:0;background:#fff;flex-direction:column;padding:16px 24px;gap:12px;border-bottom:1px solid var(--border);box-shadow:0 4px 12px rgba(0,0,0,.08)}.nav-links.open{display:flex}.nav-toggle{display:block}section{padding:50px 16px}.m-grid,.alter-grid,.mg-cards{grid-template-columns:1fr}.topbar{font-size:10px}}
+</style><link rel="stylesheet" href="style.css">
+</head><body>
+<div class="topbar"><span>🇱🇮 SafeClick FL – Think. Click. Act!</span><span>Ein Projekt der <a href="https://www.uni.li" target="_blank">Universität Liechtenstein</a> mit <a href="https://aha.li" target="_blank">aha Vaduz</a></span></div>
+<nav><div class="nav-inner"><a href="index.html" class="nav-brand"><div class="nav-shield">🛡</div>Safe<span class="sc">Click</span>&nbsp;FL</a>
+<ul class="nav-links" id="nv"><li><a href="index.html">Home</a></li>
+<li><a href="module.html" class="active">Module</a></li>
+<li><a href="downloads.html">Downloads</a></li>
+<li><a href="notfall.html">Notfall</a></li>
+<li><a href="partner.html">Partner</a></li><li><a href="mailto:safeclickfl@proton.me" class="nav-cta"><i class="fas fa-envelope"></i> Kontakt</a></li></ul>
+<button class="nav-toggle" onclick="document.getElementById('nv').classList.toggle('open')"><i class="fas fa-bars"></i></button></div></nav>
+<div class="fl-banner"></div>
+
+<div class="ph" style="background:linear-gradient(160deg,#0f172a 0%,#FF6B6B55 100%)">
+<div class="bc"><a href="index.html">Home</a> / <a href="module.html">Module</a> / Modul 1</div>
+<div style="display:inline-block;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.12);color:#fff;font-weight:700;font-size:.84rem;margin-bottom:12px"><i class="fas fa-user-secret"></i> Modul 1 · 15 Minuten · 11–16 Jahre</div>
+<h1>Modul 1: Echt oder Fake?</h1>
+</div>
+
+<section style="padding-top:32px"><div class="container">
+
+<div class="m-grid">
+  <div class="m-card"><strong>Dauer</strong><div class="m-kpi">15 Minuten</div></div>
+  <div class="m-card"><strong>Zielgruppe</strong><div class="m-kpi">11–16 Jahre</div></div>
+  <div class="m-card"><strong>Ziel</strong><div class="m-kpi">Teilnehmende erkennen KI-generierte Inhalte und Fake-Profile und schützen sich davor.</div></div>
+</div>
+
+<div class="m-card">
+  <h2 class="m-h2"><i class="fas fa-bullseye"></i> Lernziele</h2>
+  <ul><li>Teilnehmende kennen die Möglichkeiten und Gefahren von KI-generierten Inhalten.</li><li>Sie können 4 Red Flags für Fake-Profile benennen und anwenden.</li><li>Sie kennen 4 konkrete Schutzmassnahmen für ihre persönlichen Bilder.</li><li>Sie können in einem Quiz zwischen echten und gefälschten Inhalten unterscheiden.</li></ul>
+</div>
+
+<div class="m-card">
+  <h2 class="m-h2"><i class="fas fa-tags"></i> Kernbotschaften</h2>
+  <span class="m-badge m-warn">Nicht alles ist echt</span>
+<span class="m-badge m-warn">KI kann Gesichter erfinden</span>
+<span class="m-badge m-good">Poste bewusst</span>
+<span class="m-badge m-good">Bauchgefühl vertrauen</span>
+<span class="m-badge m-good">Profil auf privat stellen</span>
+<span class="m-badge m-good">Prüfen ist besser</span>
+
+</div>
+
+<div class="m-card">
+  <h2 class="m-h2"><i class="fas fa-box-open"></i> Benötigtes Material</h2>
+  <ul><li>Beamer / Bildschirm für die Präsentation (PPTX) mit Quiz-Beispielen</li><li>Optional: Kahoot-Quiz «SafeClick Challenge» (Link bereithalten)</li><li>Tafel / Whiteboard für gemeinsame Sammlung</li><li>Optional: Smartphones der Teilnehmenden für den Live-Check</li></ul>
+</div>
+
+<div class="m-card">
+  <h2 class="m-h2"><i class="fas fa-clipboard-check"></i> Vorbereitung</h2>
+  <ul><li>Präsentation auf dem Beamer bereithalten und durchgehen.</li><li>Quiz-Beispiele vorab auf Aktualität prüfen.</li><li>Sich mit den 4 Red Flags für Fake-Profile vertraut machen.</li><li>Falls Kahoot genutzt wird: Link vorab testen.</li></ul>
+</div>
+
+<div class="m-card" style="background:transparent;border:none;box-shadow:none;padding:0">
+  <h2 class="m-h2"><i class="fas fa-chalkboard-teacher"></i> Detaillierter Ablauf mit Sprechtexten</h2>
+</div>
+
+
+<div class="phase-card">
+  <div class="phase-header">
+    <div class="phase-time"><i class="fas fa-clock"></i> 3 Min.</div>
+    <h3 class="phase-title">Phase 1: Begrüssung & Einstieg</h3>
+    <p class="phase-ziel"><i class="fas fa-bullseye"></i> Neugier wecken, persönlichen Bezug herstellen.</p>
+  </div>
+  <div class="speech-box">
+    <div class="speech-label"><i class="fas fa-comment-dots"></i> Sprechtext</div>
+    <div class="speech-text">Hallo zusammen! Heute spielen wir Detektiv – und zwar im Netz!<br><br>Unser Thema: Echt oder Fake? KI-Fakes, gefälschte Profile, Manipulation.<br><br>Kurzer Check zu Beginn:<br>• Wer von euch hat schon mal ein Profil gesehen und sich gefragt: Ist das echt?<br>• Hattet ihr schon mal das Gefühl, jemand will euch reinlegen?<br>• Wisst ihr, dass man heute mit KI Gesichter erfinden kann?<br><br>Genau darum geht es heute: Wie erkenne ich, was echt ist – und was mich täuschen will?</div>
+  </div>
+  <div class="hint-box">
+    <div class="hint-label"><i class="fas fa-lightbulb"></i> Moderationshinweis</div>
+    <p>Für 11–12-Jährige: «KI» kurz erklären: «Das ist künstliche Intelligenz – ein Computer, der Bilder und Texte erstellen kann.»</p>
+  </div>
+</div>
+<div class="phase-card">
+  <div class="phase-header">
+    <div class="phase-time"><i class="fas fa-clock"></i> 3 Min.</div>
+    <h3 class="phase-title">Phase 2: Was kann KI heute?</h3>
+    <p class="phase-ziel"><i class="fas fa-bullseye"></i> Bewusstsein schaffen für die Möglichkeiten und Gefahren von KI.</p>
+  </div>
+  <div class="speech-box">
+    <div class="speech-label"><i class="fas fa-comment-dots"></i> Sprechtext</div>
+    <div class="speech-text">Stellt euch vor: Jemand tippt auf der Tastatur – und zack: Ein Gesicht erscheint. Sieht echt aus, oder? Aber: Dieser Mensch existiert gar nicht.<br><br>Das kann KI heute:<br>• In Sekunden realistische Gesichter erzeugen<br>• Mit wenigen Bildern eine glaubwürdige Identität nachbauen<br>• Videos und Stimmen fälschen – kaum zu unterscheiden<br><br>Täuschung passiert nicht nur über Bilder, sondern auch über:<br>• Wie jemand schreibt<br>• Wie schnell Vertrauen aufgebaut wird<br>• Welche Stories erzählt werden<br><br>Merksatz: Nicht alles, was echt aussieht, ist auch echt.</div>
+  </div>
+  <div class="hint-box">
+    <div class="hint-label"><i class="fas fa-lightbulb"></i> Moderationshinweis</div>
+    <p>Zeigen Sie die Folie mit dem KI-generierten Gesicht. Für 14–16-Jährige: Erwähnen Sie Deepfakes als fortgeschrittenes Beispiel.</p>
+  </div>
+</div>
+<div class="phase-card">
+  <div class="phase-header">
+    <div class="phase-time"><i class="fas fa-clock"></i> 2 Min.</div>
+    <h3 class="phase-title">Phase 3: So schützt du dich – 4 Tipps</h3>
+    <p class="phase-ziel"><i class="fas fa-bullseye"></i> Konkrete Schutzmassnahmen vermitteln.</p>
+  </div>
+  <div class="speech-box">
+    <div class="speech-label"><i class="fas fa-comment-dots"></i> Sprechtext</div>
+    <div class="speech-text">Dein Gesicht gehört DIR. Niemand darf es einfach benutzen. Aber wie schützt du dich konkret?<br><br>1. Poste bewusst – Nicht alles öffentlich teilen.<br>2. Nutze Privatsphäre-Einstellungen – Stell ein, wer deine Bilder sehen darf.<br>3. Speichere deine Originalbilder – Als Beweis, falls jemand sie klaut.<br>4. Checke regelmässig – Google dich mal selbst!<br><br>Merksatz: Vorsicht ist besser als Nachsicht – besonders bei Bildern von dir!</div>
+  </div>
+  <div class="hint-box">
+    <div class="hint-label"><i class="fas fa-lightbulb"></i> Moderationshinweis</div>
+    <p>Fragen Sie: «Wer hat sein Profil auf privat gestellt?» – Falls nicht: Modul 4 vertieft das Thema.</p>
+  </div>
+</div>
+<div class="phase-card">
+  <div class="phase-header">
+    <div class="phase-time"><i class="fas fa-clock"></i> 3 Min.</div>
+    <h3 class="phase-title">Phase 4: Red Flags – Fake-Profile erkennen</h3>
+    <p class="phase-ziel"><i class="fas fa-bullseye"></i> Praktische Erkennungsmerkmale vermitteln.</p>
+  </div>
+  <div class="speech-box">
+    <div class="speech-label"><i class="fas fa-comment-dots"></i> Sprechtext</div>
+    <div class="speech-text">Diese 4 Warnsignale helfen dir, Fakes zu durchschauen:<br><br>🚩 Visuelle Unstimmigkeiten – Gesicht wirkt zu «perfekt» oder leicht unnatürlich.<br>🚩 Hintergrund & Kontext – Hintergrund wirkt generisch, Licht und Perspektive passen nicht.<br>🚩 Profil-Verhalten – Sehr wenige Beiträge oder alles an einem Tag gepostet.<br>🚩 Kommunikation – Schneller Vertrauensaufbau: «Hey, kennst du mich noch?»<br><br>Merksatz: Wenn es sich komisch anfühlt – hör auf dein Bauchgefühl!</div>
+  </div>
+  <div class="hint-box">
+    <div class="hint-label"><i class="fas fa-lightbulb"></i> Moderationshinweis</div>
+    <p>Ermutigen Sie die Teilnehmenden, eigene Erfahrungen zu teilen. Für 11–12-Jährige: Fokus auf Kommunikation und Profilverhalten.</p>
+  </div>
+</div>
+<div class="phase-card">
+  <div class="phase-header">
+    <div class="phase-time"><i class="fas fa-clock"></i> 3 Min.</div>
+    <h3 class="phase-title">Phase 5: Quiz «Echt oder Fake?»</h3>
+    <p class="phase-ziel"><i class="fas fa-bullseye"></i> Gelerntes spielerisch anwenden und festigen.</p>
+  </div>
+  <div class="speech-box">
+    <div class="speech-label"><i class="fas fa-comment-dots"></i> Sprechtext</div>
+    <div class="speech-text">Jetzt seid ihr dran! Ich zeige euch ein Profil oder ein Bild – und ihr entscheidet:<br><br>🟢 Das könnte echt sein<br>🔴 Das ist mit Sicherheit Fake<br>🟡 Da bin ich unsicher – ich frage nach!<br><br>Beispiele:<br>• Profil mit perfekt glatter Haut, aber unscharfem Hintergrund → Verdächtig!<br>• Jemand schreibt: «Hey, wir waren doch zusammen auf dem Camp!» → Fake!<br>• Ein Video, das auf vielen Accounts gleichzeitig auftaucht → Geklaut!<br>• Ein Freund schreibt dir privat nach langer Zeit → Kurz anrufen und nachfragen!</div>
+  </div>
+  <div class="hint-box">
+    <div class="hint-label"><i class="fas fa-lightbulb"></i> Moderationshinweis</div>
+    <p>Nutzen Sie die Quiz-Folien in der Präsentation. Abstimmung per Handzeichen. Bei jedem Beispiel: «Woran habt ihr das erkannt?»</p>
+  </div>
+</div>
+<div class="phase-card">
+  <div class="phase-header">
+    <div class="phase-time"><i class="fas fa-clock"></i> 1 Min.</div>
+    <h3 class="phase-title">Phase 6: Abschluss</h3>
+    <p class="phase-ziel"><i class="fas fa-bullseye"></i> Persönliche Regeln formulieren.</p>
+  </div>
+  <div class="speech-box">
+    <div class="speech-label"><i class="fas fa-comment-dots"></i> Sprechtext</div>
+    <div class="speech-text">Welche zwei Regeln sind für euch am wichtigsten, um euch vor Fakes zu schützen?<br><br>Tauscht euch kurz mit eurem Sitznachbarn aus.<br><br>Denkt dran: Das Internet ist ein toller Ort – aber wie im echten Leben gilt: Vertrauen ist gut, Prüfen ist besser.</div>
+  </div>
+  <div class="hint-box">
+    <div class="hint-label"><i class="fas fa-lightbulb"></i> Moderationshinweis</div>
+    <p>Lassen Sie 2–3 Teilnehmende ihre Regeln vorstellen.</p>
+  </div>
+</div>
+
+<div class="m-card">
+  <h2 class="m-h2"><i class="fas fa-users"></i> Altersanpassungen</h2>
+  <div class="alter-grid"><div class="alter-card"><h4>Für 11–12 Jahre</h4><ul><li>Fokus auf einfache Red Flags: «Schreibt jemand, den du nicht kennst?»</li><li>KI-Fakes vereinfacht erklären.</li><li>Mehr Zeit für das Quiz einplanen.</li><li>Weniger Theorie, mehr interaktive Elemente.</li></ul></div><div class="alter-card"><h4>Für 13–16 Jahre</h4><ul><li>Deepfakes und Stimmenfälschung als Thema einführen.</li><li>Rechtliche Aspekte ansprechen: Persönlichkeitsrechte, Rufschädigung.</li><li>Diskussion: «Was tun, wenn jemand euer Gesicht für ein Fake-Profil benutzt?»</li></ul></div></div>
+</div>
+
+
+
+<div class="m-card">
+  <h2 class="m-h2"><i class="fas fa-clock"></i> Zeitplan auf einen Blick</h2>
+  <table class="m-table"><tr><th>Zeit</th><th>Phase</th><th>Beschreibung</th></tr><tr><td><strong>0–3 Min.</strong></td><td>Begrüssung & Einstieg</td><td>Fragen, Neugier wecken</td></tr>
+<tr><td><strong>3–6 Min.</strong></td><td>Was kann KI heute?</td><td>Möglichkeiten und Gefahren</td></tr>
+<tr><td><strong>6–8 Min.</strong></td><td>Schutztipps</td><td>4 konkrete Massnahmen</td></tr>
+<tr><td><strong>8–11 Min.</strong></td><td>Red Flags</td><td>Fake-Profile erkennen</td></tr>
+<tr><td><strong>11–14 Min.</strong></td><td>Quiz: Echt oder Fake?</td><td>Interaktive Übung</td></tr>
+<tr><td><strong>14–15 Min.</strong></td><td>Abschluss</td><td>Persönliche Regeln formulieren</td></tr>
+</table>
+</div>
+
+</div></section>
+
+<div class="mod-nav"><a href="modul-0-mein-erstes-geraet.html"><i class="fas fa-arrow-left"></i> Modul 0: Mein erstes Gerät</a><a href="module.html" style="color:var(--muted)"><i class="fas fa-th-large"></i> Alle Module</a><a href="modul-2-phishing-und-manipulation.html">Modul 2: Phishing & Manipulation <i class="fas fa-arrow-right"></i></a></div>
+<div class="mg"><h3>📎 Weitere Module</h3><div class="mg-cards"><a href="modul-0-mein-erstes-geraet.html" class="mg-card"><div class="mg-ic" style="background:#FF6B6B18;color:#FF6B6B"><i class="fas fa-tablet-screen-button"></i></div><div><div class="mg-t">Modul 0: Mein erstes Gerät</div><div class="mg-s">20 Min. · 7–10 J.</div></div></a><a href="modul-2-phishing-und-manipulation.html" class="mg-card"><div class="mg-ic" style="background:#5FA8D318;color:#5FA8D3"><i class="fas fa-fish"></i></div><div><div class="mg-t">Modul 2: Phishing & Manipulation</div><div class="mg-s">15 Min. · 11–18 J.</div></div></a><a href="modul-3-passwort-challenge.html" class="mg-card"><div class="mg-ic" style="background:#FFD16618;color:#FFD166"><i class="fas fa-key"></i></div><div><div class="mg-t">Modul 3: Passwort-Challenge</div><div class="mg-s">15 Min. · 10–18 J.</div></div></a><a href="modul-4-privatsphaere-live.html" class="mg-card"><div class="mg-ic" style="background:#7C4DFF18;color:#7C4DFF"><i class="fas fa-eye-slash"></i></div><div><div class="mg-t">Modul 4: Privatsphäre live</div><div class="mg-s">20 Min. · 11–16 J.</div></div></a><a href="modul-5-cybermobbing-fallbeispiel.html" class="mg-card"><div class="mg-ic" style="background:#06D6A018;color:#06D6A0"><i class="fas fa-heart-crack"></i></div><div><div class="mg-t">Modul 5: Cybermobbing-Fallbeispiel</div><div class="mg-s">20 Min. · 11–16 J.</div></div></a><a href="modul-6-notfallplan-und-hilfestellen.html" class="mg-card"><div class="mg-ic" style="background:#FF8C4218;color:#FF8C42"><i class="fas fa-life-ring"></i></div><div><div class="mg-t">Modul 6: Notfallplan & Hilfestellen</div><div class="mg-s">10 Min. · 7–18 J.</div></div></a></div></div>
+
+<footer><div class="fb">Safe<span>Click</span> FL 🇱🇮</div>
+<p>Think. Click. Act! · Pro Bono · Universität Liechtenstein · 2026</p>
+<div class="fl"><a href="mailto:safeclickfl@proton.me"><i class="fas fa-envelope"></i> safeclickfl@proton.me</a>
+<a href="https://instagram.com/safeclickfl" target="_blank"><i class="fab fa-instagram"></i> @safeclickfl</a>
+<a href="https://aha.li" target="_blank">aha.li</a></div>
+<p style="margin-top:8px;font-size:10px">CC BY-NC-SA 4.0</p>
+<div class="ff"><div style="background:#002B7F"></div><div style="background:#CE1126"></div><div style="background:#FFD700"></div></div></footer>
+<script>document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'})})})</script>
+</body></html>
