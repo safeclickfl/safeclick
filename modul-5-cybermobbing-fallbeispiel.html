@@ -3008,6 +3008,208 @@ h3.m-h3{margin-top:24px;font-family:var(--display);font-size:1.1rem;font-weight:
   .module-quiz-promo{flex-direction:column;text-align:center;padding:28px 24px;gap:16px}
 }
 
+/* ════════════════════════════════════════════════════════════
+   v8 — Video-Embed-Komponente (für Modul-Detailseiten)
+   ════════════════════════════════════════════════════════════ */
+
+.module-video-section{
+  margin:40px 0;
+}
+
+/* Section header */
+.video-section-num{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:11.5px;
+  letter-spacing:.12em;
+  color:var(--muted);
+  text-transform:uppercase;
+  margin-bottom:8px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.video-section-num::before{
+  content:'';width:18px;height:2px;background:var(--fl-red);border-radius:2px;
+}
+
+/* Trigger-Warning vor sensitiven Videos */
+.video-trigger{
+  background:var(--fl-red-soft);
+  border:1px solid #F5C9CD;
+  border-left:4px solid var(--fl-red);
+  border-radius:var(--r-md);
+  padding:20px 24px;
+  margin-bottom:0;
+  display:flex;
+  gap:16px;
+  align-items:flex-start;
+}
+.video-trigger-icon{
+  width:36px;height:36px;
+  background:var(--fl-red);
+  color:#fff;
+  border-radius:50%;
+  flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--display);
+  font-weight:800;
+  font-size:18px;
+  line-height:1;
+}
+.video-trigger-content{flex-grow:1}
+.video-trigger-title{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:15px;
+  color:var(--fl-red-deep);
+  margin-bottom:6px;
+  letter-spacing:-.01em;
+}
+.video-trigger-text{
+  font-size:14px;
+  line-height:1.6;
+  color:#5C1820;
+}
+.video-trigger-text strong{font-weight:600}
+
+/* Video-Karte */
+.video-card{
+  background:var(--paper);
+  border:1px solid var(--border);
+  border-radius:var(--r-lg);
+  overflow:hidden;
+  box-shadow:var(--sh-xs);
+  margin-top:0;
+}
+.video-trigger + .video-card{
+  margin-top:-1px;
+  border-top-left-radius:0;
+  border-top-right-radius:0;
+}
+
+/* Responsive 16:9 Wrapper */
+.video-embed{
+  position:relative;
+  width:100%;
+  padding-bottom:56.25%;
+  background:#000;
+  overflow:hidden;
+}
+.video-embed iframe{
+  position:absolute;
+  top:0;left:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+/* Video-Caption mit Titel, Topic-Tag, Beschreibung */
+.video-caption{
+  padding:24px 28px 26px;
+}
+.video-meta-row{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:12px;
+}
+.video-topic-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-family:var(--body);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  padding:4px 11px;
+  border-radius:99px;
+  background:var(--safety-blue-soft);
+  color:var(--fl-blue-deep);
+}
+.video-topic-tag.mob{background:var(--green-soft);color:var(--green-deep)}
+.video-topic-tag.priv{background:#EEEAF7;color:#4F3B8E}
+.video-topic-tag.phish{background:#E8EFFC;color:var(--fl-blue-deep)}
+.video-topic-tag.fake{background:#FFF3E8;color:#B85B1F}
+.video-meta-duration{
+  font-size:12.5px;
+  color:var(--muted);
+  font-weight:500;
+}
+.video-meta-duration::before{content:'·';margin:0 8px;color:var(--muted-2)}
+
+.video-title{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:18px;
+  line-height:1.3;
+  letter-spacing:-.014em;
+  color:var(--ink);
+  margin-bottom:10px;
+}
+.video-description{
+  font-size:14.5px;
+  line-height:1.65;
+  color:var(--text);
+}
+.video-description strong{color:var(--ink);font-weight:600}
+
+/* Hinweis-Block nach Video (z.B. veraltete Tool-Empfehlung) */
+.video-notice{
+  margin-top:18px;
+  padding:14px 18px;
+  background:var(--gold-soft-bg);
+  border:1px solid #E5D5AC;
+  border-radius:var(--r-sm);
+  font-size:13.5px;
+  line-height:1.6;
+  color:#5C4623;
+  display:flex;
+  gap:11px;
+  align-items:flex-start;
+}
+.video-notice-icon{
+  width:18px;height:18px;
+  color:var(--gold-soft-2);
+  flex-shrink:0;
+  margin-top:1px;
+}
+.video-notice strong{color:#3D2F18;font-weight:700}
+
+/* Didaktischer Tipp nach Video */
+.video-tip{
+  margin-top:14px;
+  padding:14px 18px;
+  background:var(--safety-blue-soft);
+  border:1px solid #C8D6F0;
+  border-radius:var(--r-sm);
+  font-size:13.5px;
+  line-height:1.6;
+  color:var(--fl-blue-darker);
+  display:flex;
+  gap:11px;
+  align-items:flex-start;
+}
+.video-tip-icon{
+  width:18px;height:18px;
+  color:var(--fl-blue-deep);
+  flex-shrink:0;
+  margin-top:1px;
+}
+.video-tip strong{color:var(--fl-blue-darker);font-weight:700}
+
+@media (max-width:768px){
+  .video-trigger{padding:16px 18px;gap:12px}
+  .video-trigger-icon{width:30px;height:30px;font-size:15px}
+  .video-trigger-title{font-size:14px}
+  .video-trigger-text{font-size:13px}
+  .video-caption{padding:18px 20px 22px}
+  .video-title{font-size:16px}
+  .video-description{font-size:13.5px}
+}
+
 </style>
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
@@ -3344,6 +3546,74 @@ Ihr seid nicht allein. Es gibt immer jemanden, der euch hilft.</div>
           Moderationshinweis
         </div>
         <p>Verteilen Sie die Notfallkarten (Modul 6). Signalisieren Sie: «Wenn jemand reden möchte, bin ich da.» Lassen Sie das Thema nicht mit einem Witz enden.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Videomaterial -->
+<section style="padding-top:48px;padding-bottom:32px">
+  <div class="wrap" style="max-width:1100px">
+    <div class="video-section-num">Begleitendes Videomaterial</div>
+    <h2 class="module-section-title">Zwei Videos zum Vertiefen</h2>
+    <p class="lede">Diese zwei Videos ergänzen den Workshop und können je nach Klassendynamik als Einstieg, Diskussionsgrundlage oder Abschluss eingesetzt werden. Wir empfehlen, mit dem ersten Video (Unloved Wolf) zu öffnen — es funktioniert ohne sprachliche Hürden und schafft eine emotionale Grundlage.</p>
+
+    <!-- Video 1: Unloved Wolf -->
+    <div class="module-video-section">
+      <div class="video-card">
+        <div class="video-embed">
+          <iframe src="https://www.youtube-nocookie.com/embed/-eozmLO7QKA" title="Intermarché — Unloved Wolf (Emotionaler Kurzfilm)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <div class="video-caption">
+          <div class="video-meta-row">
+            <span class="video-topic-tag mob">Empathie &amp; Ausgrenzung</span>
+            <span class="video-meta-duration">ca. 2:30 Min. · Intermarché / Romance Agency</span>
+          </div>
+          <h3 class="video-title">Intermarché — „Le Mal-Aimé" (Unloved Wolf)</h3>
+          <p class="video-description">
+            Emotionaler Animations-Kurzfilm: Ein Wolf wird von allen Waldtieren gemieden und versucht, durch eine Veränderung dazuzugehören. <strong>Sprachunabhängig</strong> und ohne Worte erzählt — funktioniert in jeder Altersgruppe ab 10. Eignet sich hervorragend als <strong>Einstieg in Phase 1 oder als Reflexionsanker</strong>, bevor die Theorie zu Cybermobbing kommt.
+          </p>
+          <div class="video-tip">
+            <svg class="video-tip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>
+            <div>
+              <strong>Tipp für den Workshop:</strong> Nach dem Video offene Frage: „Wer fühlt sich manchmal so wie dieser Wolf? Wann habt ihr das bei jemand anderem in eurer Klasse beobachtet?" Die Brücke zur Theorie öffnet sich von selbst — Mobbing ist Ausgrenzung, online wie offline.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video 2: Message from Ella mit Triggerwarnung -->
+    <div class="module-video-section">
+      <div class="video-trigger">
+        <div class="video-trigger-icon">!</div>
+        <div class="video-trigger-content">
+          <div class="video-trigger-title">Triggerwarnung &amp; Nachbereitung empfohlen</div>
+          <div class="video-trigger-text">
+            Dieses Video thematisiert das Teilen von Kinderbildern ohne Einwilligung („Sharenting"). Es kann bei Schüler:innen mit ähnlichen Erfahrungen <strong>starke emotionale Reaktionen auslösen</strong>. Bitte planen Sie eine offene Nachbereitung ein und verweisen Sie aktiv auf die Hilfsnummer <strong>147</strong> sowie die Schulsozialarbeit. Bei jüngeren Klassen (unter 13 Jahren) ist Vorsicht geboten — der Inhalt richtet sich primär an ältere Teenager und Erwachsene.
+          </div>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="video-embed">
+          <iframe src="https://www.youtube-nocookie.com/embed/F4WZ_k0vUDM" title="A Message from Ella — Without Consent" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <div class="video-caption">
+          <div class="video-meta-row">
+            <span class="video-topic-tag fake">Sharenting &amp; Bildschutz</span>
+            <span class="video-meta-duration">ca. 2 Min. · Deutsche Telekom — #ShareWithCare</span>
+          </div>
+          <h3 class="video-title">A Message from Ella — Without Consent</h3>
+          <p class="video-description">
+            Eine KI-generierte, „erwachsen gemachte" Version eines 9-jährigen Mädchens konfrontiert ihre eigenen Eltern mit den langfristigen Folgen davon, dass sie als Kind ungefragt im Netz geteilt wurde. <strong>Adressiert primär Erwachsene</strong>, eignet sich aber auch für Jugendliche als Diskussionsanstoß: <em>Was passiert eigentlich mit Bildern, die einmal online sind?</em>
+          </p>
+          <div class="video-tip">
+            <svg class="video-tip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>
+            <div>
+              <strong>Tipp für den Workshop:</strong> Das Video ist selbst ein Deepfake — das macht die Doppel-Botschaft besonders stark. Erst nach dem Anschauen verraten: „Übrigens, Ella gibt es nicht. Sie ist KI." Diese Wendung öffnet eine zweite Diskussion zu KI-Bildern (Brücke zu Modul 1). Eine deutsche Version mit deutschem Sprecher existiert ebenfalls auf YouTube.
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -3008,6 +3008,208 @@ h3.m-h3{margin-top:24px;font-family:var(--display);font-size:1.1rem;font-weight:
   .module-quiz-promo{flex-direction:column;text-align:center;padding:28px 24px;gap:16px}
 }
 
+/* ════════════════════════════════════════════════════════════
+   v8 — Video-Embed-Komponente (für Modul-Detailseiten)
+   ════════════════════════════════════════════════════════════ */
+
+.module-video-section{
+  margin:40px 0;
+}
+
+/* Section header */
+.video-section-num{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:11.5px;
+  letter-spacing:.12em;
+  color:var(--muted);
+  text-transform:uppercase;
+  margin-bottom:8px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.video-section-num::before{
+  content:'';width:18px;height:2px;background:var(--fl-red);border-radius:2px;
+}
+
+/* Trigger-Warning vor sensitiven Videos */
+.video-trigger{
+  background:var(--fl-red-soft);
+  border:1px solid #F5C9CD;
+  border-left:4px solid var(--fl-red);
+  border-radius:var(--r-md);
+  padding:20px 24px;
+  margin-bottom:0;
+  display:flex;
+  gap:16px;
+  align-items:flex-start;
+}
+.video-trigger-icon{
+  width:36px;height:36px;
+  background:var(--fl-red);
+  color:#fff;
+  border-radius:50%;
+  flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--display);
+  font-weight:800;
+  font-size:18px;
+  line-height:1;
+}
+.video-trigger-content{flex-grow:1}
+.video-trigger-title{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:15px;
+  color:var(--fl-red-deep);
+  margin-bottom:6px;
+  letter-spacing:-.01em;
+}
+.video-trigger-text{
+  font-size:14px;
+  line-height:1.6;
+  color:#5C1820;
+}
+.video-trigger-text strong{font-weight:600}
+
+/* Video-Karte */
+.video-card{
+  background:var(--paper);
+  border:1px solid var(--border);
+  border-radius:var(--r-lg);
+  overflow:hidden;
+  box-shadow:var(--sh-xs);
+  margin-top:0;
+}
+.video-trigger + .video-card{
+  margin-top:-1px;
+  border-top-left-radius:0;
+  border-top-right-radius:0;
+}
+
+/* Responsive 16:9 Wrapper */
+.video-embed{
+  position:relative;
+  width:100%;
+  padding-bottom:56.25%;
+  background:#000;
+  overflow:hidden;
+}
+.video-embed iframe{
+  position:absolute;
+  top:0;left:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+/* Video-Caption mit Titel, Topic-Tag, Beschreibung */
+.video-caption{
+  padding:24px 28px 26px;
+}
+.video-meta-row{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:12px;
+}
+.video-topic-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-family:var(--body);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  padding:4px 11px;
+  border-radius:99px;
+  background:var(--safety-blue-soft);
+  color:var(--fl-blue-deep);
+}
+.video-topic-tag.mob{background:var(--green-soft);color:var(--green-deep)}
+.video-topic-tag.priv{background:#EEEAF7;color:#4F3B8E}
+.video-topic-tag.phish{background:#E8EFFC;color:var(--fl-blue-deep)}
+.video-topic-tag.fake{background:#FFF3E8;color:#B85B1F}
+.video-meta-duration{
+  font-size:12.5px;
+  color:var(--muted);
+  font-weight:500;
+}
+.video-meta-duration::before{content:'·';margin:0 8px;color:var(--muted-2)}
+
+.video-title{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:18px;
+  line-height:1.3;
+  letter-spacing:-.014em;
+  color:var(--ink);
+  margin-bottom:10px;
+}
+.video-description{
+  font-size:14.5px;
+  line-height:1.65;
+  color:var(--text);
+}
+.video-description strong{color:var(--ink);font-weight:600}
+
+/* Hinweis-Block nach Video (z.B. veraltete Tool-Empfehlung) */
+.video-notice{
+  margin-top:18px;
+  padding:14px 18px;
+  background:var(--gold-soft-bg);
+  border:1px solid #E5D5AC;
+  border-radius:var(--r-sm);
+  font-size:13.5px;
+  line-height:1.6;
+  color:#5C4623;
+  display:flex;
+  gap:11px;
+  align-items:flex-start;
+}
+.video-notice-icon{
+  width:18px;height:18px;
+  color:var(--gold-soft-2);
+  flex-shrink:0;
+  margin-top:1px;
+}
+.video-notice strong{color:#3D2F18;font-weight:700}
+
+/* Didaktischer Tipp nach Video */
+.video-tip{
+  margin-top:14px;
+  padding:14px 18px;
+  background:var(--safety-blue-soft);
+  border:1px solid #C8D6F0;
+  border-radius:var(--r-sm);
+  font-size:13.5px;
+  line-height:1.6;
+  color:var(--fl-blue-darker);
+  display:flex;
+  gap:11px;
+  align-items:flex-start;
+}
+.video-tip-icon{
+  width:18px;height:18px;
+  color:var(--fl-blue-deep);
+  flex-shrink:0;
+  margin-top:1px;
+}
+.video-tip strong{color:var(--fl-blue-darker);font-weight:700}
+
+@media (max-width:768px){
+  .video-trigger{padding:16px 18px;gap:12px}
+  .video-trigger-icon{width:30px;height:30px;font-size:15px}
+  .video-trigger-title{font-size:14px}
+  .video-trigger-text{font-size:13px}
+  .video-caption{padding:18px 20px 22px}
+  .video-title{font-size:16px}
+  .video-description{font-size:13.5px}
+}
+
 </style>
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
@@ -3585,7 +3787,7 @@ h3.m-h3{margin-top:24px;font-family:var(--display);font-size:1.1rem;font-weight:
           <div class="faq-icon"><svg width="14" height="14"><use href="#i-plus"/></svg></div>
         </summary>
         <div class="faq-body">
-          <p>Alle Module wurden im Frühjahr 2026 mit Beispielen aus dem aktuellen Schuljahr aufgesetzt. Die laufende Pflege übernimmt <strong>aha Vaduz</strong> — sie ergänzen jährlich neue Fallbeispiele, aktualisieren Screenshots und reagieren auf neue Plattformen.</p>
+          <p>Alle Module wurden im Frühjahr 2026 mit Beispielen aus dem aktuellen Schuljahr aufgesetzt. Das Projekt-Team der Universität Liechtenstein pflegt die Inhalte aktiv bis <strong>Ende Januar 2027</strong>, ab <strong>Februar 2027 übernimmt aha Vaduz</strong> — sie ergänzen jährlich neue Fallbeispiele, aktualisieren Screenshots und reagieren auf neue Plattformen.</p>
           <p>Sie sehen das Datum der letzten Aktualisierung jeweils auf der Modul-Detailseite.</p>
         </div>
       </details>
@@ -3612,7 +3814,7 @@ h3.m-h3{margin-top:24px;font-family:var(--display);font-size:1.1rem;font-weight:
           <div class="faq-icon"><svg width="14" height="14"><use href="#i-plus"/></svg></div>
         </summary>
         <div class="faq-body">
-          <p>SafeClick FL wird ab Herbst 2026 von <strong>aha Vaduz</strong> dauerhaft betreut. Die Materialien bleiben unter CC BY-NC-SA 4.0 frei zugänglich — auch dann, wenn das Pro-Bono-Programm der Universität wechselt oder endet. Das ist Teil der Vereinbarung.</p>
+          <p>Die <strong>Weiterführung ist gesichert</strong>: SafeClick FL wird bis <strong>Ende Januar 2027</strong> aktiv durch das Projekt-Team der Universität Liechtenstein betreut — das deckt das gesamte Pilot-Semester an der Schule Gams und am Gymnasium Vaduz ab. <strong>Ab Februar 2027 übernimmt aha Vaduz</strong> die laufende Pflege, Aktualisierung der Materialien und das Einarbeiten neuer Fallbeispiele. Die Materialien bleiben unter CC BY-NC-SA 4.0 frei zugänglich — auch dann, wenn das Pro-Bono-Programm der Universität wechselt oder endet. Das ist Teil der Vereinbarung.</p>
           <p>Kurz: Was Sie heute herunterladen, bleibt morgen verfügbar. Versprochen.</p>
         </div>
       </details>
@@ -3637,7 +3839,7 @@ h3.m-h3{margin-top:24px;font-family:var(--display);font-size:1.1rem;font-weight:
       <div class="team-card">
         <div class="team-avatar" style="background:linear-gradient(135deg,var(--gold-soft) 0%,var(--gold-soft-2) 100%)">aha</div>
         <div class="team-name">aha Vaduz</div>
-        <div class="team-role">Berater · Inhaltliche Validierung & laufende Pflege</div>
+        <div class="team-role">Berater · Validierung &amp; ab Feb. 2027 Pflege</div>
       </div>
       <div class="team-card">
         <div class="team-avatar" style="background:linear-gradient(135deg,var(--ink) 0%,var(--ink-2) 100%);color:var(--gold-soft)">LP</div>
