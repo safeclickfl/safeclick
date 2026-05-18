@@ -1,129 +1,372 @@
-<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Module – SafeClick FL</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-:root{--navy:#1B4965;--navy-dark:#0F2D44;--teal:#5FA8D3;--coral:#FF6B6B;--green:#06D6A0;--yellow:#FFD166;--purple:#7C4DFF;--orange:#FF8C42;--pink:#F472B6;--bg:#FAFBFF;--text:#1A1A2E;--muted:#64748B;--border:#E2E8F0}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Plus Jakarta Sans',Inter,system-ui,sans-serif;color:var(--text);background:var(--bg);line-height:1.6}
-.topbar{background:var(--navy);color:rgba(255,255,255,.6);font-size:11px;padding:6px 24px;display:flex;justify-content:center;gap:20px;flex-wrap:wrap}.topbar a{color:var(--teal);text-decoration:none;font-weight:600}
-nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px}
-.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
-.nav-brand{font-family:'Space Grotesk';font-size:20px;font-weight:700;color:var(--navy);text-decoration:none;display:flex;align-items:center;gap:8px}.nav-brand .sc{color:var(--purple)}
-.nav-shield{width:32px;height:32px;background:linear-gradient(135deg,var(--purple),var(--coral));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;color:#fff}
-.nav-links{display:flex;gap:18px;list-style:none;align-items:center}
-.nav-links a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:600;transition:color .2s}.nav-links a:hover,.nav-links a.active{color:var(--purple)}
-.nav-cta{background:linear-gradient(135deg,var(--purple),var(--coral));color:#fff!important;padding:7px 16px;border-radius:8px;font-weight:700!important;font-size:12px!important}
-.nav-toggle{display:none;background:none;border:none;color:var(--navy);font-size:22px;cursor:pointer}
-.fl-banner{background:linear-gradient(90deg,#002B7F 50%,#CE1126 50%);height:3px}
-section{padding:70px 24px}.container{max-width:1100px;margin:0 auto}
-.badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:10px}
-.stitle{font-family:'Space Grotesk';font-size:clamp(26px,4vw,34px);font-weight:700;color:var(--navy);margin-bottom:10px}
-.ssub{font-size:15px;color:var(--muted);max-width:600px;margin-bottom:36px}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;border:none;transition:transform .2s,box-shadow .2s;cursor:pointer}.btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.12)}
-.btn-w{background:#fff;color:var(--navy)}.btn-coral{background:var(--coral);color:#fff}.btn-purple{background:var(--purple);color:#fff}
-.btn-ghost{background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.2)}.btn-ghost:hover{border-color:#fff}
-.btn-out{background:transparent;color:var(--purple);border:2px solid var(--purple)}.btn-out:hover{background:var(--purple);color:#fff}
-.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
-.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-.g4{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
-.card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:24px;transition:transform .2s,box-shadow .2s}.card:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,.07)}
-.ib{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-.tag{font-size:10px;font-weight:600;padding:3px 9px;border-radius:100px}.t-p{background:rgba(124,77,255,.08);color:var(--purple)}.t-c{background:rgba(255,107,107,.08);color:var(--coral)}.t-g{background:rgba(6,214,160,.08);color:var(--green)}.t-y{background:rgba(255,209,102,.15);color:#B8860B}.t-n{background:var(--coral);color:#fff}
-.ec{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:18px;display:flex;align-items:center;gap:14px;transition:background .2s}.ec:hover{background:rgba(255,255,255,.1)}
-.en{font-family:'Space Grotesk';font-size:20px;font-weight:700;color:#fff}.en-s{font-size:15px}.el{font-size:11px;color:rgba(255,255,255,.5);margin-top:2px}
-.ph{padding:100px 24px 50px;text-align:center;position:relative;overflow:hidden}
-.ph::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 70%,rgba(255,107,107,.12),transparent 50%),radial-gradient(circle at 70% 30%,rgba(6,214,160,.1),transparent 50%)}.ph>*{position:relative;z-index:1}
-.ph h1{font-family:'Space Grotesk';font-size:clamp(28px,5vw,42px);font-weight:700;color:#fff;margin-bottom:8px}.ph p{font-size:15px;color:rgba(255,255,255,.55);max-width:500px;margin:0 auto}
-.bc{font-size:13px;color:rgba(255,255,255,.4);margin-bottom:12px}.bc a{color:rgba(255,255,255,.6);text-decoration:none}.bc a:hover{color:#fff}
-/* Module detail page extras */
-.mod-nav{max-width:1100px;margin:0 auto;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;border-top:1px solid var(--border)}
-.mod-nav a{text-decoration:none;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:5px;color:var(--purple)}.mod-nav a:hover{text-decoration:underline}.mod-nav .mn-back{color:var(--muted)}
-.mg{max-width:1100px;margin:0 auto;padding:0 24px 32px}
-.mg h3{font-size:1.1rem;margin:24px 0 12px;color:var(--navy)}
-.mg-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
-.mg-card{display:flex;align-items:center;gap:10px;padding:12px;background:#fff;border:1px solid var(--border);border-radius:12px;text-decoration:none;transition:box-shadow .2s}.mg-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.06)}
-.mg-ic{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
-.mg-card .mg-t{font-size:12px;font-weight:700;color:var(--navy)}.mg-card .mg-s{font-size:10px;color:var(--muted)}
-/* Module content cards (from uploaded files) */
-.m-card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:22px;margin:16px 0;box-shadow:0 10px 25px rgba(15,23,42,.05)}
-.m-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-.m-kpi{font-size:.95rem;color:var(--muted)}
-.m-badge{display:inline-block;padding:6px 10px;border-radius:999px;font-weight:700;font-size:.84rem;margin:4px 6px 0 0}
-.m-good{background:#ecfdf5;color:#065f46}.m-warn{background:#fffbeb;color:#92400e}.m-bad{background:#fef2f2;color:#991b1b}
-.m-table{width:100%;border-collapse:collapse;margin-top:12px}.m-table th,.m-table td{border:1px solid var(--border);padding:10px;vertical-align:top;text-align:left}
-.m-bq{margin:12px 0;padding:14px 16px;background:#f8fafc;border-radius:10px}
-h2.m-h2{margin-top:36px;font-size:1.4rem;border-bottom:2px solid var(--border);padding-bottom:8px}
-h3.m-h3{margin-top:24px;font-size:1.08rem}
-footer{background:var(--navy-dark);color:rgba(255,255,255,.4);padding:36px 24px;text-align:center}
-.fb{font-family:'Space Grotesk';font-size:18px;font-weight:700;color:#fff;margin-bottom:6px}.fb span{color:var(--teal)}
-footer p{font-size:12px;margin-bottom:3px}.fl{display:flex;gap:18px;justify-content:center;margin:12px 0;flex-wrap:wrap}.fl a{color:var(--teal);text-decoration:none;font-size:12px;font-weight:600}
-.ff{display:inline-flex;gap:3px;margin-top:8px}.ff div{width:30px;height:4px;border-radius:2px}
-@media(max-width:768px){.nav-links{display:none;position:absolute;top:56px;left:0;right:0;background:#fff;flex-direction:column;padding:16px 24px;gap:12px;border-bottom:1px solid var(--border);box-shadow:0 4px 12px rgba(0,0,0,.08)}.nav-links.open{display:flex}.nav-toggle{display:block}section{padding:50px 16px}.g2,.g3,.g4,.m-grid{grid-template-columns:1fr}.topbar{font-size:10px}}
-</style><link rel="stylesheet" href="style.css">
-</head><body><div class="topbar"><span>🇱🇮 SafeClick FL – Think. Click. Act!</span><span>Ein Projekt der <a href="https://www.uni.li" target="_blank">Universität Liechtenstein</a> mit <a href="https://aha.li" target="_blank">aha Vaduz</a></span></div>
-<nav><div class="nav-inner"><a href="index.html" class="nav-brand"><div class="nav-shield">🛡</div>Safe<span class="sc">Click</span>&nbsp;FL</a>
-<ul class="nav-links" id="nv"><li><a href="index.html">Home</a></li>
-<li><a href="module.html" class=active>Module</a></li>
-<li><a href="downloads.html">Downloads</a></li>
-<li><a href="notfall.html">Notfall</a></li>
-<li><a href="partner.html">Partner</a></li><li><a href="mailto:safeclickfl@proton.me" class="nav-cta"><i class="fas fa-envelope"></i> Kontakt</a></li></ul>
-<button class="nav-toggle" onclick="document.getElementById('nv').classList.toggle('open')"><i class="fas fa-bars"></i></button></div></nav><div class="fl-banner"></div>
-<div class="ph" style="background:linear-gradient(160deg,#1a0533,#2d1458,#5228a0,#667eea)"><h1>🧩 Workshop-Module</h1><p>7 ausführliche Module – frei kombinierbar, mit Moderationstexten und Fachinhalten.</p></div>
-<section><div class="container"><div class="badge" style="background:rgba(124,77,255,.1);color:var(--purple)">Alter 7–18 Jahre</div><h2 class="stitle">Alle Module</h2><p class="ssub">Klicke auf ein Modul für Lernziele, Ablauf, Materialien und Moderationshinweise.</p>
-<div class="g2"><a href="modul-0-mein-erstes-geraet.html" class="card" style="text-decoration:none;position:relative;overflow:hidden">
-<div style="position:absolute;top:0;left:0;right:0;height:4px;background:#FF6B6B"></div>
-<div style="display:flex;gap:14px;align-items:flex-start">
-<div class="ib" style="background:#FF6B6B18;color:#FF6B6B"><i class="fas fa-tablet-screen-button"></i></div>
-<div><h3 style="font-size:15px;font-weight:700;color:var(--navy);margin:0">Modul 0: Mein erstes Gerät</h3>
-<p style="font-size:12px;color:var(--muted);margin:4px 0 0">20 Min. · 7–10 J.</p></div></div></a>
-<a href="modul-1-echt-oder-fake.html" class="card" style="text-decoration:none;position:relative;overflow:hidden">
-<div style="position:absolute;top:0;left:0;right:0;height:4px;background:#FF6B6B"></div>
-<div style="display:flex;gap:14px;align-items:flex-start">
-<div class="ib" style="background:#FF6B6B18;color:#FF6B6B"><i class="fas fa-user-secret"></i></div>
-<div><h3 style="font-size:15px;font-weight:700;color:var(--navy);margin:0">Modul 1: Echt oder Fake?</h3>
-<p style="font-size:12px;color:var(--muted);margin:4px 0 0">15 Min. · 11–16 J.</p></div></div></a>
-<a href="modul-2-phishing-und-manipulation.html" class="card" style="text-decoration:none;position:relative;overflow:hidden">
-<div style="position:absolute;top:0;left:0;right:0;height:4px;background:#5FA8D3"></div>
-<div style="display:flex;gap:14px;align-items:flex-start">
-<div class="ib" style="background:#5FA8D318;color:#5FA8D3"><i class="fas fa-fish"></i></div>
-<div><h3 style="font-size:15px;font-weight:700;color:var(--navy);margin:0">Modul 2: Phishing & Manipulation</h3>
-<p style="font-size:12px;color:var(--muted);margin:4px 0 0">15 Min. · 11–18 J.</p></div></div></a>
-<a href="modul-3-passwort-challenge.html" class="card" style="text-decoration:none;position:relative;overflow:hidden">
-<div style="position:absolute;top:0;left:0;right:0;height:4px;background:#FFD166"></div>
-<div style="display:flex;gap:14px;align-items:flex-start">
-<div class="ib" style="background:#FFD16618;color:#FFD166"><i class="fas fa-key"></i></div>
-<div><h3 style="font-size:15px;font-weight:700;color:var(--navy);margin:0">Modul 3: Passwort-Challenge</h3>
-<p style="font-size:12px;color:var(--muted);margin:4px 0 0">15 Min. · 10–18 J.</p></div></div></a>
-<a href="modul-4-privatsphaere-live.html" class="card" style="text-decoration:none;position:relative;overflow:hidden">
-<div style="position:absolute;top:0;left:0;right:0;height:4px;background:#7C4DFF"></div>
-<div style="display:flex;gap:14px;align-items:flex-start">
-<div class="ib" style="background:#7C4DFF18;color:#7C4DFF"><i class="fas fa-eye-slash"></i></div>
-<div><h3 style="font-size:15px;font-weight:700;color:var(--navy);margin:0">Modul 4: Privatsphäre live</h3>
-<p style="font-size:12px;color:var(--muted);margin:4px 0 0">20 Min. · 11–16 J.</p></div></div></a>
-<a href="modul-5-cybermobbing-fallbeispiel.html" class="card" style="text-decoration:none;position:relative;overflow:hidden">
-<div style="position:absolute;top:0;left:0;right:0;height:4px;background:#06D6A0"></div>
-<div style="display:flex;gap:14px;align-items:flex-start">
-<div class="ib" style="background:#06D6A018;color:#06D6A0"><i class="fas fa-heart-crack"></i></div>
-<div><h3 style="font-size:15px;font-weight:700;color:var(--navy);margin:0">Modul 5: Cybermobbing-Fallbeispiel</h3>
-<p style="font-size:12px;color:var(--muted);margin:4px 0 0">20 Min. · 11–16 J.</p></div></div></a>
-<a href="modul-6-notfallplan-und-hilfestellen.html" class="card" style="text-decoration:none;position:relative;overflow:hidden">
-<div style="position:absolute;top:0;left:0;right:0;height:4px;background:#FF8C42"></div>
-<div style="display:flex;gap:14px;align-items:flex-start">
-<div class="ib" style="background:#FF8C4218;color:#FF8C42"><i class="fas fa-life-ring"></i></div>
-<div><h3 style="font-size:15px;font-weight:700;color:var(--navy);margin:0">Modul 6: Notfallplan & Hilfestellen</h3>
-<p style="font-size:12px;color:var(--muted);margin:4px 0 0">10 Min. · 7–18 J.</p></div></div></a>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Module — SafeClick FL · Workshop-Baukasten</title>
+<meta name="description" content="7 Workshop-Module zur Cyber-Sicherheit. Frei kombinierbar. Für 7–18 Jahre. Fertig moderiert.">
+<link rel="stylesheet" href="style.css">
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <defs>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+    <symbol id="i-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 2-9.6 9.6"/><circle cx="7.5" cy="15.5" r="5.5"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="i-mobile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></symbol>
+    <symbol id="i-house" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></symbol>
+    <symbol id="i-id-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M15 8h2"/><path d="M15 12h2"/><path d="M7 16h10"/></symbol>
+    <symbol id="i-people" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></symbol>
+    <symbol id="i-flag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+  </defs>
+</svg>
+
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="tb-left">
+      <span class="tb-flag">
+        <svg class="fl-flag-svg" viewBox="0 0 18 12">
+          <rect width="18" height="6" fill="#0033A0"/>
+          <rect y="6" width="18" height="6" fill="#CE1126"/>
+          <g transform="translate(3.5,1.3)">
+            <rect width="3.6" height="2" fill="#FFD700" stroke="#000" stroke-width=".2"/>
+            <rect x=".8" width=".5" height="2.6" fill="#FFD700" stroke="#000" stroke-width=".2"/>
+          </g>
+        </svg>
+        Fürstentum Liechtenstein
+      </span>
+      <span class="tb-divider">·</span>
+      <span class="tb-extra">Workshop-Baukasten · 7 Module · 10 – 20 Min.</span>
+    </div>
+    <div class="tb-right">
+      <a href="mailto:safeclickfl@proton.me">safeclickfl@proton.me</a>
+    </div>
+  </div>
 </div>
-<h3 style="font-family:Space Grotesk;font-size:20px;font-weight:700;color:var(--navy);margin-top:40px;margin-bottom:16px">Empfohlene Kombinationen</h3>
-<div class="g4">
-<div class="card"><h4 style="font-size:14px;font-weight:700;color:var(--navy)">⚡ Quick</h4><p style="font-size:12px;color:var(--purple);font-weight:600">30 Min.</p><p style="font-size:12px;color:var(--muted);margin-top:4px"><a href="modul-1-echt-oder-fake.html">Modul 1</a> + <a href="modul-2-phishing-und-manipulation.html">2</a> oder <a href="modul-3-passwort-challenge.html">3</a> + <a href="modul-6-notfallplan-und-hilfestellen.html">6</a></p></div>
-<div class="card"><h4 style="font-size:14px;font-weight:700;color:var(--navy)">📋 Standard</h4><p style="font-size:12px;color:var(--purple);font-weight:600">45 Min.</p><p style="font-size:12px;color:var(--muted);margin-top:4px"><a href="modul-3-passwort-challenge.html">Modul 3</a> + <a href="modul-4-privatsphaere-live.html">4</a> + <a href="modul-6-notfallplan-und-hilfestellen.html">6</a></p></div>
-<div class="card"><h4 style="font-size:14px;font-weight:700;color:var(--navy)">🔥 Intensiv</h4><p style="font-size:12px;color:var(--purple);font-weight:600">60 Min.</p><p style="font-size:12px;color:var(--muted);margin-top:4px"><a href="modul-1-echt-oder-fake.html">Modul 1</a>+<a href="modul-2-phishing-und-manipulation.html">2</a>+<a href="modul-3-passwort-challenge.html">3</a>+<a href="modul-6-notfallplan-und-hilfestellen.html">6</a></p></div>
-<div class="card"><h4 style="font-size:14px;font-weight:700;color:var(--navy)">🏫 Projekttag</h4><p style="font-size:12px;color:var(--purple);font-weight:600">90 Min.</p><p style="font-size:12px;color:var(--muted);margin-top:4px">Alle 7 Module</p></div></div></div></section><footer><div class="fb">Safe<span>Click</span> FL 🇱🇮</div>
-<p>Think. Click. Act! · Pro Bono · Universität Liechtenstein · 2026</p>
-<div class="fl"><a href="mailto:safeclickfl@proton.me"><i class="fas fa-envelope"></i> safeclickfl@proton.me</a>
-<a href="https://instagram.com/safeclickfl" target="_blank"><i class="fab fa-instagram"></i> @safeclickfl</a>
-<a href="https://aha.li" target="_blank">aha.li</a></div>
-<p style="margin-top:8px;font-size:10px">CC BY-NC-SA 4.0</p>
-<div class="ff"><div style="background:#002B7F"></div><div style="background:#CE1126"></div><div style="background:#FFD700"></div></div></footer>
-<script>document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'})})});</script></body></html>
+
+<!-- Header / Nav -->
+<header class="site">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">S</div>
+      <div class="brand-text">
+        <span class="brand-name">SafeClick <span class="fl">FL</span></span>
+        <span class="brand-sub">Think · Click · Act</span>
+      </div>
+    </a>
+    <ul class="nav-links" id="nv">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="module.html" class="active">Module</a></li>
+      <li><a href="downloads.html">Downloads</a></li>
+      <li><a href="notfall.html">Notfall</a></li>
+      <li><a href="partner.html">Partner</a></li>
+      <li><a href="quiz.html">Quiz</a></li>
+      <li><a href="mailto:safeclickfl@proton.me" class="cta">Kontakt</a></li>
+    </ul>
+    <button class="nav-toggle" onclick="document.getElementById('nv').classList.toggle('open')" aria-label="Menü">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+<div class="fl-stripe"></div>
+
+<!-- Page Head -->
+<section class="page-head">
+  <div class="page-head-inner">
+    <div class="page-meta">
+      <strong>Module</strong>
+      <span class="pm-dot">·</span>
+      <span>7 Workshops · 10 – 20 Minuten</span>
+      <span class="pm-dot">·</span>
+      <span>Für 7 bis 18 Jahre</span>
+    </div>
+    <h1>Sieben Module. Ein Baukasten.<br><span class="ac">Frei kombinierbar.</span></h1>
+    <p class="page-lede">
+      Jedes Modul steht für sich — keines setzt ein anderes voraus. Sie wählen aus, was zu Ihrer Klasse, Ihrer Stunde und Ihrer Stimmung passt. Format pro Modul: Präsentation (PPTX) + ausformulierter Moderationstext (DOCX) + Materialien.
+    </p>
+  </div>
+</section>
+
+<!-- Modul-Liste -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Die sieben Module im Detail</div>
+    <h2 class="h2" style="margin-bottom:36px">Alle Module im Überblick</h2>
+
+    <div style="display:flex;flex-direction:column;gap:16px">
+
+      <a href="modul-0-mein-erstes-geraet.html" class="mod-card" data-mod="0">
+        <div class="mod-num">00</div>
+        <div>
+          <div class="mod-meta">
+            <span><span class="ic"><svg width="13" height="13"><use href="#i-clock"/></svg></span> 20 Min.</span>
+            <span><span class="ic"><svg width="13" height="13"><use href="#i-users"/></svg></span> 7–10 Jahre · Primarschule</span>
+            <span><span class="ic"><svg width="13" height="13"><use href="#i-house"/></svg></span> Mit Eltern-Handout</span>
+          </div>
+          <h3 class="mod-title">Mein erstes Gerät</h3>
+          <p class="mod-desc">Was darf ich, was nicht? Regeln für Tablet und Smartphone — kindgerecht erklärt. Behandelt In-App-Käufe, fremde Nachrichten, Bildschirmzeit. Mit Eltern-Handout zum Mitgeben.</p>
+        </div>
+        <div class="mod-arrow"><svg width="20" height="20"><use href="#i-arrow-right"/></svg></div>
+        <div class="mod-badge">Neu</div>
+      </a>
+
+      <a href="modul-1-echt-oder-fake.html" class="mod-card" data-mod="1">
+        <div class="mod-num">01</div>
+        <div>
+          <div class="mod-meta">
+            <span><span class="ic"><svg width="13" height="13"><use href="#i-clock"/></svg></span> 15 Min.</span>
+            <span><span class="ic"><svg width="13" height="13"><use href="#i-users"/></svg></span> 11–18 Jahre · Sek I + II</span>
+            <span><span class="ic"><svg width="13" height="13"><use href="#i-search"/></svg></span> Live-Quiz</span>
+          </div>
+          <h3 class="mod-title">Echt oder Fake?</h3>
+          <p class="mod-desc">KI-generierte Bilder, Deepfakes, manipulierte Videos. Live-Quiz mit echten Beispielen aus dem Netz. Die Klasse lernt, wie sie Quellen prüft — bevor weitergeteilt wird.</p>
+        </div>
+        <div class="mod-arrow"><svg width="20" height="20"><use href="#i-arrow-right"/></svg></div>
+      </a>
+
+      <a href="modul-2-phishing-und-manipulation.html" class="mod-card" data-mod="2">
+        <div class="mod-num">02</div>
+        <div>
+          <div class="mod-meta">
+            <span><span class="ic"><svg width="13" height="13"><use href="#i-clock"/></svg></span> 15 Min.</span>
+            <span><span class="ic"><svg width="13" height="13"><use href="#i-users"/></svg></span> 11–18 Jahre · Sek I + II</span>
+            <span><span class="ic"><svg width="13" height="13"><use href="#i-shield"/></svg></span> Fallbasiert</span>
+          </div>
+          <h3 class="mod-title">Phishing & Manipulation</h3>
+          <p class="mod-desc">Echte Fälle aus Liechtenstein — von der Landespolizei anonymisiert beigesteuert: Sextortion, Romance-Scam, Fake-Gewinnspiele. Wie Täter psychologisch manipulieren — und welche Warnsignale Jugendliche kennen müssen.</p>
+        </div>
+        <div class="mod-arrow"><svg width="20" height="20"><use href="#i-arrow-right"/></svg></div>
+      </a>
+
+      <a href="modul-3-passwort-challenge.html" class="mod-card" data-mod="3">
+        <div class="mod-num">03</div>
+        <div>
+          <div class="mod-meta">
+            <span><span class="ic"><svg width="13" height="13"><use href="#i-clock"/></svg></span> 12 Min.</span>
+            <span><span class="ic"><svg width="13" height="13"><use href="#i-users"/></svg></span> 11–18 Jahre · Alle Stufen</span>
+            <span><span class="ic"><svg width="13" height="13"><use href="#i-key"/></svg></span> Live-Aktion</span>
+          </div>
+          <h3 class="mod-title">Passwort-Challenge</h3>
+          <p class="mod-desc">Wie schnell knackt ein Computer „passwort123"? Antwort: 0,03 Sekunden. Im Workshop entstehen sichere Passwort-Sätze. Anschliessend wird 2FA aktiviert — am eigenen Handy, gemeinsam.</p>
+        </div>
+        <div class="mod-arrow"><svg width="20" height="20"><use href="#i-arrow-right"/></svg></div>
+      </a>
+
+      <a href="modul-4-privatsphaere-live.html" class="mod-card" data-mod="4">
+        <div class="mod-num">04</div>
+        <div>
+          <div class="mod-meta">
+            <span><span class="ic"><svg width="13" height="13"><use href="#i-clock"/></svg></span> 20 Min.</span>
+            <span><span class="ic"><svg width="13" height="13"><use href="#i-users"/></svg></span> 11–18 Jahre · Sek I + II</span>
+            <span><span class="ic"><svg width="13" height="13"><use href="#i-mobile"/></svg></span> Hands-on am Gerät</span>
+          </div>
+          <h3 class="mod-title">Privatsphäre live</h3>
+          <p class="mod-desc">Das einzige Modul in Liechtenstein mit Live-Privatsphäre-Setup. Schritt für Schritt durch Instagram, TikTok und Snapchat — Standortdienste, Story-Sichtbarkeit, DMs von Fremden. Alles abgeklemmt, direkt im Workshop.</p>
+        </div>
+        <div class="mod-arrow"><svg width="20" height="20"><use href="#i-arrow-right"/></svg></div>
+      </a>
+
+      <a href="modul-5-cybermobbing-fallbeispiel.html" class="mod-card" data-mod="5">
+        <div class="mod-num">05</div>
+        <div>
+          <div class="mod-meta">
+            <span><span class="ic"><svg width="13" height="13"><use href="#i-clock"/></svg></span> 18 Min.</span>
+            <span><span class="ic"><svg width="13" height="13"><use href="#i-users"/></svg></span> 11–16 Jahre</span>
+            <span><span class="ic"><svg width="13" height="13"><use href="#i-people"/></svg></span> Think-Pair-Share</span>
+          </div>
+          <h3 class="mod-title">Cybermobbing — der Fall „Lina"</h3>
+          <p class="mod-desc">Ein fiktives, aber realistisches Fallbeispiel. Die Klasse diskutiert in Kleingruppen, was zu tun ist. Rolle der Bystander, 5-Schritte-Plan, wann zur Polizei. Mit Arbeitsblatt zum Mitnehmen.</p>
+        </div>
+        <div class="mod-arrow"><svg width="20" height="20"><use href="#i-arrow-right"/></svg></div>
+      </a>
+
+      <a href="modul-6-notfallplan-und-hilfestellen.html" class="mod-card" data-mod="6">
+        <div class="mod-num">06</div>
+        <div>
+          <div class="mod-meta">
+            <span><span class="ic"><svg width="13" height="13"><use href="#i-clock"/></svg></span> 10 Min.</span>
+            <span><span class="ic"><svg width="13" height="13"><use href="#i-users"/></svg></span> 7–18 Jahre · Alle Stufen</span>
+            <span><span class="ic"><svg width="13" height="13"><use href="#i-id-card"/></svg></span> Mit Notfallkarte</span>
+          </div>
+          <h3 class="mod-title">Notfallplan & Hilfestellen</h3>
+          <p class="mod-desc">Das Schluss-Modul jedes Workshops — und das vielleicht wichtigste. Alle FL-Hilfsstellen (147, 117, 143, aha, OSKJ, kinderschutz.li), der 4-Schritte-Plan. Am Ende hält jedes Kind die persönliche Notfallkarte in der Hand — Kreditkartenformat, für die Brieftasche.</p>
+        </div>
+        <div class="mod-arrow"><svg width="20" height="20"><use href="#i-arrow-right"/></svg></div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- Testimonial -->
+<section style="padding-top:0">
+  <div class="wrap-narrow">
+    <div class="testimonial">
+      <div class="testimonial-mark">"</div>
+      <div class="testimonial-quote">
+        Wir nutzen Modul 2 und 3 in unseren Schulbesuchen. Die Schüler hören wirklich zu, wenn sie merken: das sind Fälle, die <strong style="color:var(--fl-blue-deep);font-weight:700">hier in Liechtenstein</strong> passiert sind. Das verändert das Gespräch.
+      </div>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar" style="background:linear-gradient(135deg,var(--ink) 0%,var(--ink-2) 100%)">JP</div>
+        <div>
+          <div class="testimonial-name">Jugendsachbearbeiter:in</div>
+          <div class="testimonial-role">Landespolizei Liechtenstein · anonymisiert</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Kombinationen -->
+<section style="background:var(--paper);border-top:1px solid var(--border)">
+  <div class="wrap">
+    <div class="eyebrow gold">Vier empfohlene Kombinationen</div>
+    <h2 class="h2">Module kombinieren — nicht alle einzeln machen.</h2>
+    <p class="lede">Wir haben vier Standard-Kombinationen vorgekocht. Wählen Sie nach Format, Zielgruppe und Zeitfenster — oder mischen Sie eigene zusammen.</p>
+
+    <div class="grid-2">
+
+      <div class="combo">
+        <div class="combo-head">
+          <div class="combo-name">Quick</div>
+          <div class="combo-time">30 Min.</div>
+        </div>
+        <div class="combo-target">Schulbesuche der Polizei · 1 Lektion</div>
+        <p class="combo-desc">Die schnelle Sensibilisierung. Perfekt für Lehrer-Vertretungen, spontane Präventions-Einsätze oder als Einstieg in das Thema.</p>
+        <div class="combo-mix">
+          <strong>Module</strong>
+          <a href="modul-1-echt-oder-fake.html">Modul 1</a> + <a href="modul-2-phishing-und-manipulation.html">Modul 2</a>
+          &nbsp;oder&nbsp;
+          <a href="modul-3-passwort-challenge.html">Modul 3</a> + <a href="modul-6-notfallplan-und-hilfestellen.html">Modul 6</a>
+        </div>
+      </div>
+
+      <div class="combo">
+        <div class="combo-head">
+          <div class="combo-name">Standard</div>
+          <div class="combo-time">45 Min.</div>
+        </div>
+        <div class="combo-target">Jugendtreffs (OJA) · Schulnachmittage</div>
+        <p class="combo-desc">Der ausgewogene Mix. Hands-on Passwort, Live-Privatsphäre, Notfallkarte zum Mitnehmen. Funktioniert in fast jeder Klasse.</p>
+        <div class="combo-mix">
+          <strong>Module</strong>
+          <a href="modul-3-passwort-challenge.html">Modul 3</a> + <a href="modul-4-privatsphaere-live.html">Modul 4</a> + <a href="modul-6-notfallplan-und-hilfestellen.html">Modul 6</a>
+        </div>
+      </div>
+
+      <div class="combo">
+        <div class="combo-head">
+          <div class="combo-name">Intensiv</div>
+          <div class="combo-time">60 Min.</div>
+        </div>
+        <div class="combo-target">Berufsschulen · Elternabende</div>
+        <p class="combo-desc">Die komprimierte Vollversion. Medienkritik, Sicherheit, Notfall — alle Kernthemen in einer Stunde. Auch bei Eltern beliebt.</p>
+        <div class="combo-mix">
+          <strong>Module</strong>
+          <a href="modul-1-echt-oder-fake.html">M1</a> + <a href="modul-2-phishing-und-manipulation.html">M2</a> + <a href="modul-3-passwort-challenge.html">M3</a> + <a href="modul-6-notfallplan-und-hilfestellen.html">M6</a>
+        </div>
+      </div>
+
+      <div class="combo">
+        <div class="combo-head">
+          <div class="combo-name">Projekttag</div>
+          <div class="combo-time">90 Min.</div>
+        </div>
+        <div class="combo-target">Schulen · Präventionstag · Klassen-Lager</div>
+        <p class="combo-desc">Das volle Programm. Alle 7 Module, mit Pausen und Vertiefung. Ideal als halber Schultag — viele Schulen nutzen das vor den Sommerferien.</p>
+        <div class="combo-mix">
+          <strong>Module</strong>
+          <a href="module.html">Alle 7 Module</a> · Modul 0 für die jüngsten, ab Modul 1 für Sek I/II
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:48px;text-align:center">
+      <a href="downloads.html" class="btn btn-lg">
+        <span class="ic"><svg width="16" height="16"><use href="#i-download"/></svg></span>
+        Module herunterladen
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">
+        <div class="footer-mark">S</div>
+        <div class="footer-brand-text">SafeClick <span class="fl">FL</span></div>
+      </div>
+      <div class="footer-tag">Think · Click · Act</div>
+      <p class="footer-message">
+        Wir glauben, dass jedes Kind in Liechtenstein das Recht hat, sicher im Netz unterwegs zu sein. Dafür ist SafeClick FL da. Pro Bono. Für immer kostenlos.
+      </p>
+      <div class="footer-meta">
+        Pro-Bono-Projekt 2026 · Universität Liechtenstein<br>
+        in Kooperation mit aha Vaduz<br>
+        Lizenz: CC BY-NC-SA 4.0
+      </div>
+    </div>
+    <div>
+      <h4>Navigation</h4>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="module.html">Module</a></li>
+        <li><a href="downloads.html">Downloads</a></li>
+        <li><a href="notfall.html">Notfall</a></li>
+        <li><a href="partner.html">Partner</a></li>
+      <li><a href="quiz.html">Quiz</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Partner</h4>
+      <ul class="footer-links">
+        <li><a href="https://www.uni.li" target="_blank">Universität Liechtenstein</a></li>
+        <li><a href="https://www.aha.li" target="_blank">aha Vaduz</a></li>
+        <li><a href="https://www.landespolizei.li" target="_blank">Landespolizei FL</a></li>
+        <li><a href="https://www.lg.li" target="_blank">Gymnasium Vaduz</a></li>
+        <li><a href="https://www.schule-gams.ch" target="_blank">Schule Gams (CH)</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Kontakt</h4>
+      <ul class="footer-links">
+        <li><a href="mailto:safeclickfl@proton.me"><svg><use href="#i-mail"/></svg> safeclickfl@proton.me</a></li>
+        <li><a href="https://instagram.com/safeclickfl" target="_blank"><svg><use href="#i-instagram"/></svg> @safeclickfl</a></li>
+        <li><a href="https://aha.li" target="_blank"><svg><use href="#i-globe"/></svg> aha.li</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>
+      © 2026 · SafeClick FL · Mit
+      <svg width="12" height="12" style="display:inline-block;vertical-align:middle;color:var(--fl-red);margin:0 2px"><use href="#i-heart"/></svg>
+      gemacht in <strong>Vaduz</strong>
+      <svg class="fl-flag-svg" viewBox="0 0 18 12" style="display:inline-block;vertical-align:middle;margin-left:6px">
+        <rect width="18" height="6" fill="#0033A0"/>
+        <rect y="6" width="18" height="6" fill="#CE1126"/>
+        <g transform="translate(3.5,1.3)">
+          <rect width="3.6" height="2" fill="#FFD700" stroke="#000" stroke-width=".2"/>
+          <rect x=".8" width=".5" height="2.6" fill="#FFD700" stroke="#000" stroke-width=".2"/>
+        </g>
+      </svg>
+    </div>
+    <div>Set in <strong>Manrope</strong> & <strong>Inter</strong></div>
+  </div>
+</footer>
+
+</body>
+</html>

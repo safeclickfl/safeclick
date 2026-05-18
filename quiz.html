@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Quiz — SafeClick FL · Wie sicher bist du im Netz?</title>
+<meta name="description" content="Teste in 10 Fragen, wie gut du dich mit Cyber-Sicherheit auskennst. Anonym, kostenlos, sofortige Auswertung mit Modul-Empfehlungen.">
+<link rel="stylesheet" href="style.css">
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <defs>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+    <symbol id="i-replay" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+  </defs>
+</svg>
+
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="tb-left">
+      <span class="tb-flag">
+        <svg class="fl-flag-svg" viewBox="0 0 18 12">
+          <rect width="18" height="6" fill="#0033A0"/>
+          <rect y="6" width="18" height="6" fill="#CE1126"/>
+          <g transform="translate(3.5,1.3)">
+            <rect width="3.6" height="2" fill="#FFD700" stroke="#000" stroke-width=".2"/>
+            <rect x=".8" width=".5" height="2.6" fill="#FFD700" stroke="#000" stroke-width=".2"/>
+          </g>
+        </svg>
+        Fürstentum Liechtenstein
+      </span>
+      <span class="tb-divider">·</span>
+      <span class="tb-extra">Selbsttest · 10 Fragen · Anonym · Sofort-Auswertung</span>
+    </div>
+    <div class="tb-right">
+      <a href="mailto:safeclickfl@proton.me">safeclickfl@proton.me</a>
+    </div>
+  </div>
+</div>
+
+<header class="site">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">S</div>
+      <div class="brand-text">
+        <span class="brand-name">SafeClick <span class="fl">FL</span></span>
+        <span class="brand-sub">Think · Click · Act</span>
+      </div>
+    </a>
+    <ul class="nav-links" id="nv">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="module.html">Module</a></li>
+      <li><a href="downloads.html">Downloads</a></li>
+      <li><a href="notfall.html">Notfall</a></li>
+      <li><a href="partner.html">Partner</a></li>
+      <li><a href="quiz.html" class="active">Quiz</a></li>
+      <li><a href="mailto:safeclickfl@proton.me" class="cta">Kontakt</a></li>
+    </ul>
+    <button class="nav-toggle" onclick="document.getElementById('nv').classList.toggle('open')" aria-label="Menü">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+<div class="fl-stripe"></div>
+
+<section class="page-head" style="padding-bottom:36px">
+  <div class="page-head-inner">
+    <div class="page-meta">
+      <strong>Selbsttest</strong>
+      <span class="pm-dot">·</span>
+      <span>10 Fragen aus allen 7 Modulen</span>
+      <span class="pm-dot">·</span>
+      <span>Anonym · Sofortauswertung</span>
+    </div>
+    <h1 class="h1-display">Wie <span class="ac"><span class="underlined">sicher</span></span> bist du im Netz?</h1>
+    <p class="page-lede">
+      Zehn Fragen, drei Minuten. Du erfährst sofort, was du schon weisst — und welche SafeClick-FL-Module dir helfen, deine Lücken zu schliessen. Anonym, kostenlos, ohne Anmeldung. Niemand sieht dein Ergebnis ausser dir.
+    </p>
+  </div>
+</section>
+
+<section style="padding-top:32px;padding-bottom:96px">
+  <div class="quiz-shell">
+
+    <div class="quiz-start" id="quizStart">
+      <div class="quiz-start-emoji">🎯</div>
+      <h2>Bereit für den <span class="ac">Selbsttest?</span></h2>
+      <p class="quiz-start-lede">
+        Wir stellen dir 10 Fragen quer durch alle Themen: Fake-News, Phishing, Passwörter, Privatsphäre, Cybermobbing und Notfall. Klick auf die Antwort, die dir richtig erscheint — und du bekommst sofort eine Erklärung, warum.
+      </p>
+
+      <div class="quiz-stats">
+        <div class="quiz-stat">
+          <div class="quiz-stat-num">10</div>
+          <div class="quiz-stat-label">Fragen</div>
+        </div>
+        <div class="quiz-stat">
+          <div class="quiz-stat-num">~3 Min.</div>
+          <div class="quiz-stat-label">Dauer</div>
+        </div>
+        <div class="quiz-stat">
+          <div class="quiz-stat-num">7</div>
+          <div class="quiz-stat-label">Themen</div>
+        </div>
+        <div class="quiz-stat">
+          <div class="quiz-stat-num">100 %</div>
+          <div class="quiz-stat-label">Anonym</div>
+        </div>
+      </div>
+
+      <button class="btn btn-lg" id="startBtn" onclick="startQuiz()">
+        <span class="ic"><svg width="16" height="16"><use href="#i-target"/></svg></span>
+        Los geht's
+      </button>
+
+      <p style="margin-top:24px;font-size:13px;color:var(--muted)">
+        Die Antworten werden ausschliesslich in deinem Browser ausgewertet. Wir speichern nichts.
+      </p>
+    </div>
+
+    <div id="quizMain" class="q-hidden">
+      <div class="quiz-progress">
+        <div class="quiz-progress-text">
+          Frage <span class="qp-current" id="qNum">1</span> / 10
+        </div>
+        <div class="quiz-progress-bar">
+          <div class="quiz-progress-fill" id="qFill" style="width:10%"></div>
+        </div>
+        <div class="quiz-progress-text" id="qScore">0 richtig</div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-topic" id="qTopic">Echt oder Fake</div>
+        <h2 class="quiz-question" id="qText"></h2>
+
+        <div class="quiz-options" id="qOptions"></div>
+
+        <div class="quiz-explanation" id="qExplanation">
+          <div class="quiz-explanation-title" id="qExplanationTitle">
+            <svg width="14" height="14"><use href="#i-check"/></svg>
+            Richtig!
+          </div>
+          <div id="qExplanationText"></div>
+        </div>
+
+        <div class="quiz-actions q-hidden" id="qActions">
+          <div class="quiz-hint" id="qHint">Klicke eine Antwort an, um weiterzukommen.</div>
+          <button class="btn" id="qNext" onclick="nextQuestion()">
+            Nächste Frage
+            <span class="ic"><svg width="14" height="14"><use href="#i-arrow-right"/></svg></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="quizResult" class="q-hidden">
+      <div class="quiz-result" id="resultCard">
+        <div class="quiz-donut">
+          <svg viewBox="0 0 120 120">
+            <circle class="quiz-donut-track" cx="60" cy="60" r="52"/>
+            <circle class="quiz-donut-fill" id="donutFill" cx="60" cy="60" r="52" stroke-dasharray="326.7" stroke-dashoffset="326.7"/>
+          </svg>
+          <div class="quiz-donut-center">
+            <div class="quiz-donut-num" id="resultScore">0</div>
+            <div class="quiz-donut-of">von 10</div>
+          </div>
+        </div>
+        <div class="quiz-result-tier" id="resultTier">Ausgewertet</div>
+        <h2 id="resultTitle">Dein Ergebnis</h2>
+        <p class="quiz-result-message" id="resultMessage">Hier kommt die persönliche Auswertung.</p>
+
+        <div class="quiz-recommendations">
+          <div class="quiz-rec-title">Empfohlene Module für dich</div>
+          <ul class="quiz-rec-list" id="resultRecs"></ul>
+        </div>
+
+        <div class="quiz-result-actions">
+          <button class="btn btn-outline" onclick="restartQuiz()">
+            <span class="ic"><svg width="14" height="14"><use href="#i-replay"/></svg></span>
+            Quiz neu starten
+          </button>
+          <a href="module.html" class="btn">
+            Alle Module ansehen
+            <span class="ic"><svg width="14" height="14"><use href="#i-arrow-right"/></svg></span>
+          </a>
+        </div>
+
+        <p style="margin-top:32px;font-size:13px;color:var(--muted)">
+          Möchtest du das Quiz auch deinen Schülern, Geschwistern oder Freunden zeigen?<br>
+          Einfach den Link teilen — niemand sieht dein Ergebnis ausser dir.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">
+        <div class="footer-mark">S</div>
+        <div class="footer-brand-text">SafeClick <span class="fl">FL</span></div>
+      </div>
+      <div class="footer-tag">Think · Click · Act</div>
+      <p class="footer-message">
+        Wir glauben, dass jedes Kind in Liechtenstein das Recht hat, sicher im Netz unterwegs zu sein. Dafür ist SafeClick FL da. Pro Bono. Für immer kostenlos.
+      </p>
+      <div class="footer-meta">
+        Pro-Bono-Projekt 2026 · Universität Liechtenstein<br>
+        in Kooperation mit aha Vaduz<br>
+        Lizenz: CC BY-NC-SA 4.0
+      </div>
+    </div>
+    <div>
+      <h4>Navigation</h4>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="module.html">Module</a></li>
+        <li><a href="downloads.html">Downloads</a></li>
+        <li><a href="notfall.html">Notfall</a></li>
+        <li><a href="partner.html">Partner</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Partner</h4>
+      <ul class="footer-links">
+        <li><a href="https://www.uni.li" target="_blank">Universität Liechtenstein</a></li>
+        <li><a href="https://www.aha.li" target="_blank">aha Vaduz</a></li>
+        <li><a href="https://www.landespolizei.li" target="_blank">Landespolizei FL</a></li>
+        <li><a href="https://www.lg.li" target="_blank">Gymnasium Vaduz</a></li>
+        <li><a href="https://www.schule-gams.ch" target="_blank">Schule Gams (CH)</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Kontakt</h4>
+      <ul class="footer-links">
+        <li><a href="mailto:safeclickfl@proton.me"><svg><use href="#i-mail"/></svg> safeclickfl@proton.me</a></li>
+        <li><a href="https://instagram.com/safeclickfl" target="_blank"><svg><use href="#i-instagram"/></svg> @safeclickfl</a></li>
+        <li><a href="https://aha.li" target="_blank"><svg><use href="#i-globe"/></svg> aha.li</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>
+      © 2026 · SafeClick FL · Mit
+      <svg width="12" height="12" style="display:inline-block;vertical-align:middle;color:var(--fl-red);margin:0 2px"><use href="#i-heart"/></svg>
+      gemacht in <strong>Vaduz</strong>
+      <svg class="fl-flag-svg" viewBox="0 0 18 12" style="display:inline-block;vertical-align:middle;margin-left:6px">
+        <rect width="18" height="6" fill="#0033A0"/>
+        <rect y="6" width="18" height="6" fill="#CE1126"/>
+        <g transform="translate(3.5,1.3)">
+          <rect width="3.6" height="2" fill="#FFD700" stroke="#000" stroke-width=".2"/>
+          <rect x=".8" width=".5" height="2.6" fill="#FFD700" stroke="#000" stroke-width=".2"/>
+        </g>
+      </svg>
+    </div>
+    <div>Set in <strong>Manrope</strong> & <strong>Inter</strong></div>
+  </div>
+</footer>
+
+<script>
+// Alle Strings als Template Literals (Backticks) — keine Konflikte mit Anführungszeichen im Text
+const QUESTIONS = [
+  {
+    topic: `Echt oder Fake`,
+    topicClass: `t-fake`,
+    q: `Du siehst auf TikTok ein Video, in dem ein bekannter Politiker etwas Schockierendes sagt. Welches Merkmal verrät oft ein KI-generiertes Deepfake-Video?`,
+    opts: [
+      `Hohe Bildauflösung und gute Qualität`,
+      `Unstimmigkeiten bei Augen, Haaren, Schatten oder asynchrone Lippenbewegungen`,
+      `Bekannte Personen sind zu sehen`,
+      `Das Video wurde auf TikTok gepostet`
+    ],
+    correct: 1,
+    explain: `<strong>Genau richtig.</strong> KI-Generatoren haben oft Schwierigkeiten mit feinen Details: unscharfe Haarkanten, leicht verzerrte Ohren oder Zähne, unnatürliche Schatten und Lippenbewegungen, die nicht 100 % zum Ton passen. Faustregel: Wenn ein Video zu krass wirkt, um wahr zu sein — kurz innehalten und Quelle prüfen.`,
+    explainWrong: `Auch täuschend gute KI-Videos haben oft Details, die nicht stimmen: unscharfe Haare, verzerrte Ohren oder Zähne, unnatürliche Schatten und Lippenbewegungen, die nicht 100 % zum Ton passen. Faustregel: Wenn etwas zu krass ist, um wahr zu sein — kurz innehalten und Quelle prüfen.`
+  },
+  {
+    topic: `Phishing erkennen`,
+    topicClass: `t-phish`,
+    q: `Welche dieser E-Mails ist am wahrscheinlichsten Phishing?`,
+    opts: [
+      `Newsletter deiner Schule mit den Mai-Terminen`,
+      `Bestellbestätigung eines Shops, bei dem du letzte Woche bestellt hast`,
+      `Amazon-Mail: Dein Konto wird in 24 Stunden GESPERRT — sofort hier klicken!`,
+      `Reminder deines Streaming-Dienstes, dass deine Rechnung in 3 Tagen fällig ist`
+    ],
+    correct: 2,
+    explain: `<strong>Klassisches Phishing.</strong> Drei Warnsignale: künstliche <strong>Dringlichkeit</strong> (24 Stunden), <strong>Bedrohung</strong> (GESPERRT) und ein direkter <strong>Klick-Aufruf</strong>. Echte Firmen sperren keine Konten per E-Mail-Klick. Im Zweifel: nicht klicken, sondern direkt die App oder Website manuell öffnen.`,
+    explainWrong: `Schau dir die Antwort C nochmal an. Drei Warnsignale machen Phishing aus: künstliche Dringlichkeit, Bedrohung und ein direkter Klick-Aufruf. Echte Firmen sperren keine Konten per E-Mail-Klick.`
+  },
+  {
+    topic: `Passwort-Sicherheit`,
+    topicClass: `t-pw`,
+    q: `Welches dieser Passwörter ist am sichersten?`,
+    opts: [
+      `Maria1985!`,
+      `P@ssw0rd123`,
+      `Blauer-Apfel-Tanzt-Auf-Mond`,
+      `qwertz123`
+    ],
+    correct: 2,
+    explain: `<strong>Richtig.</strong> Lange Passwort-<strong>Sätze</strong> aus mehreren Wörtern sind um Welten sicherer als kurze, kryptische Passwörter. Maria1985! knackt ein moderner Computer in unter einer Sekunde — der Apfel-Satz bräuchte Jahrhunderte. Tipp: Bilde dir vier zufällige Wörter zu einem Satz, den nur du dir vorstellen kannst.`,
+    explainWrong: `Die richtige Antwort wäre C. Lange Passwort-Sätze aus mehreren Wörtern sind um Welten sicherer als kurze, kryptische Passwörter. Maria1985! knackt ein Computer in unter einer Sekunde, der Apfel-Satz bräuchte Jahrhunderte.`
+  },
+  {
+    topic: `Zwei-Faktor`,
+    topicClass: `t-pw`,
+    q: `Was ist Zwei-Faktor-Authentifizierung (2FA)?`,
+    opts: [
+      `Zwei verschiedene Passwörter direkt hintereinander eingeben`,
+      `Ein zweiter Schritt zusätzlich zum Passwort, z.B. ein SMS-Code oder eine Authenticator-App`,
+      `Das Passwort wird doppelt verschlüsselt gespeichert`,
+      `Ein Passwort, das aus genau zwei Wörtern besteht`
+    ],
+    correct: 1,
+    explain: `<strong>Korrekt.</strong> 2FA bedeutet: Du brauchst <strong>zwei verschiedene Dinge</strong>, um dich einzuloggen — etwas, das du <em>weisst</em> (Passwort) und etwas, das du <em>besitzt</em> (Handy für SMS oder App). Selbst wenn jemand dein Passwort stiehlt, kommt er ohne dein Handy nicht rein. Aktiviere 2FA <strong>überall</strong>, wo es geht.`,
+    explainWrong: `Richtig wäre B. 2FA bedeutet: Du brauchst zwei verschiedene Dinge, um dich einzuloggen — etwas, das du weisst (Passwort) und etwas, das du besitzt (Handy für SMS-Code oder Authenticator-App). Selbst wenn jemand dein Passwort stiehlt, kommt er ohne dein Handy nicht rein.`
+  },
+  {
+    topic: `Privatsphäre`,
+    topicClass: `t-priv`,
+    q: `Du hast ein öffentliches Instagram-Profil. Was bedeutet das genau?`,
+    opts: [
+      `Nur deine Follower sehen deine Posts`,
+      `Niemand kann deine Posts sehen ohne dein OK`,
+      `Alle Menschen weltweit können deine Posts, Stories und Reels ansehen — auch ohne Instagram-Account`,
+      `Nur Personen aus deinem Land sehen deine Posts`
+    ],
+    correct: 2,
+    explain: `<strong>Genau.</strong> Öffentlich heisst wirklich öffentlich: Jeder Mensch mit Internetzugang sieht deine Inhalte. Auch fremde Erwachsene, auch ohne Instagram-Account, auch Suchmaschinen. Schau in den Einstellungen unter Konto-Privatsphäre nach und stell auf privat um, wenn du das nicht willst.`,
+    explainWrong: `Richtig wäre C. Öffentlich heisst wirklich öffentlich: Jeder Mensch mit Internetzugang sieht deine Inhalte. Auch fremde Erwachsene, auch ohne Instagram-Account, auch Suchmaschinen. Schau in den Einstellungen unter Konto-Privatsphäre — du kannst es jederzeit auf privat umstellen.`
+  },
+  {
+    topic: `Snapchat & Standort`,
+    topicClass: `t-priv`,
+    q: `Was zeigt die Snapchat-Karte (Snap Map) standardmässig anderen?`,
+    opts: [
+      `Nichts — die Karte ist standardmässig ausgeschaltet`,
+      `Nur deine Stadt oder Region (grob)`,
+      `Deinen exakten Standort, wenn du nicht aktiv den Geistermodus einschaltest`,
+      `Nur deine Postleitzahl`
+    ],
+    correct: 2,
+    explain: `<strong>Richtig — und problematisch.</strong> Sobald du Snapchat öffnest, wird dein exakter Standort live an alle Freunde auf der Snap Map übertragen. Standortgenau, in Echtzeit. Das musst du aktiv abschalten — im Geistermodus (Ghost Mode) in den Einstellungen. Tu das jetzt, falls du Snapchat nutzt.`,
+    explainWrong: `Richtig ist C. Sobald du Snapchat öffnest, wird dein exakter Standort live an alle Freunde auf der Snap Map übertragen — standortgenau, in Echtzeit. Das musst du aktiv abschalten (Ghost Mode bzw. Geistermodus) in den Einstellungen.`
+  },
+  {
+    topic: `Cybermobbing`,
+    topicClass: `t-mob`,
+    q: `Du wirst online beschimpft und bedroht. Was machst du zuerst — bevor du den Account blockierst?`,
+    opts: [
+      `Sofort zurückbeschimpfen, damit die Person weiss, dass du nicht klein beigibst`,
+      `Den Account löschen, damit alle Beweise verschwinden`,
+      `Screenshots machen von Profilname, Nachricht und Datum — als Beweis`,
+      `Erst mal nichts tun und abwarten, ob es aufhört`
+    ],
+    correct: 2,
+    explain: `<strong>Genau richtig.</strong> Beweise zuerst sichern, dann handeln. Mit Screenshot von Profil + Nachricht + Datum hast du etwas in der Hand — für Eltern, Lehrpersonen, Polizei oder Plattform-Meldung. Erst danach: blockieren und melden. Nicht antworten. Hilfe holen.`,
+    explainWrong: `Die richtige Antwort ist C. Beweise zuerst sichern, dann handeln. Mit Screenshot von Profil + Nachricht + Datum hast du etwas in der Hand — für Eltern, Lehrperson, Polizei oder Plattform-Meldung. Erst <em>danach</em>: blockieren und melden. Reihenfolge ist wichtig, denn nach dem Blockieren siehst du das Profil oft nicht mehr.`
+  },
+  {
+    topic: `Sextortion`,
+    topicClass: `t-mob`,
+    q: `Eine Person, die du nur online kennst, fragt nett nach intimen Fotos von dir. Was tust du?`,
+    opts: [
+      `Ein einziges, leicht verpixeltes Foto schicken — schadet ja nicht`,
+      `Niemals intime Fotos schicken — auch nicht an Personen, die du nur online kennst`,
+      `Erst nur dein Gesicht schicken, später entscheiden`,
+      `Verlangen, dass die Person zuerst ein Foto schickt`
+    ],
+    correct: 1,
+    explain: `<strong>Absolut richtig.</strong> Intime Fotos verschwinden nie. Sobald du sie schickst, hast du die Kontrolle verloren. Sextortion (Erpressung mit intimen Bildern) ist in Liechtenstein ein häufiges Delikt — Täter geben sich oft als gleichaltrige Person aus. Wenn du bereits ein Foto geschickt hast und erpresst wirst: <strong>117 anrufen</strong>. Du machst dich nicht strafbar, du bist das Opfer.`,
+    explainWrong: `Die einzige sichere Antwort ist B. Intime Fotos verschwinden nie. Sobald du sie schickst, hast du die Kontrolle verloren. Sextortion ist in Liechtenstein ein häufiges Delikt — Täter geben sich oft als gleichaltrige Person aus. Wenn etwas passiert ist: <strong>117 anrufen</strong>. Du machst dich nicht strafbar.`
+  },
+  {
+    topic: `Notfall-Nummern`,
+    topicClass: `t-help`,
+    q: `Welche Nummer rufst du in Liechtenstein an, wenn du anonym und kostenlos mit jemandem sprechen willst — als Jugendliche:r mit einem Problem?`,
+    opts: [
+      `112 — der internationale Notruf`,
+      `147 — Sorgentelefon für Kinder und Jugendliche, 24/7`,
+      `117 — Landespolizei`,
+      `143 — Dargebotene Hand`
+    ],
+    correct: 1,
+    explain: `<strong>147 ist die richtige Nummer.</strong> Anonym, kostenlos, 24 Stunden am Tag, von Pro Juventute betrieben. Niemand erfährt deinen Namen. Du kannst auch nur zuhören, falls dir das lieber ist. 117 ist die Polizei (akute Bedrohung). 143 ist die Dargebotene Hand (Telefonseelsorge, auch für Erwachsene). 112 ist der internationale Notruf für Lebensgefahr.`,
+    explainWrong: `Die richtige Nummer ist <strong>147</strong>. Anonym, kostenlos, 24/7 für Kinder und Jugendliche, von Pro Juventute betrieben. 117 ist die Polizei (akute Bedrohung), 143 ist die Dargebotene Hand (Telefonseelsorge), 112 ist der internationale Notruf.`
+  },
+  {
+    topic: `WLAN & Daten`,
+    topicClass: `t-priv`,
+    q: `Du nutzt ein öffentliches WLAN im Café. Was solltest du dort <strong>nicht</strong> tun?`,
+    opts: [
+      `Eine Nachricht an Freunde schicken`,
+      `Ein YouTube-Video schauen`,
+      `Dich in dein Online-Banking einloggen oder ein Passwort eingeben`,
+      `Im Netz nach einem Rezept suchen`
+    ],
+    correct: 2,
+    explain: `<strong>Genau.</strong> In öffentlichen WLANs können andere Personen im selben Netz unter Umständen mitlesen, was du sendest. Online-Banking, Passwörter, Kreditkartendaten, Login-Daten: niemals in öffentlichen WLANs. Wenn du es trotzdem tun musst, nutze die Mobilfunk-Verbindung (4G/5G) oder ein VPN. Streaming und normales Surfen sind in der Regel okay — die meisten Apps sind verschlüsselt.`,
+    explainWrong: `Die kritische Antwort ist C. In öffentlichen WLANs können andere Personen im selben Netz unter Umständen mitlesen, was du sendest. Online-Banking, Passwörter, Kreditkartendaten: niemals in öffentlichen WLANs. Wenn nötig: mobile Daten (4G/5G) statt WLAN nutzen.`
+  }
+];
+
+let current = 0;
+let score = 0;
+let answered = false;
+
+const $ = id => document.getElementById(id);
+
+function startQuiz(){
+  $(`quizStart`).classList.add(`q-hidden`);
+  $(`quizMain`).classList.remove(`q-hidden`);
+  current = 0;
+  score = 0;
+  loadQuestion();
+  window.scrollTo({top: $(`quizMain`).offsetTop - 80, behavior: `smooth`});
+}
+
+function loadQuestion(){
+  answered = false;
+  const Q = QUESTIONS[current];
+
+  $(`qNum`).textContent = current + 1;
+  $(`qFill`).style.width = (((current+1)/QUESTIONS.length)*100) + `%`;
+  $(`qScore`).textContent = score + ` richtig`;
+
+  const topic = $(`qTopic`);
+  topic.className = `quiz-topic ` + Q.topicClass;
+  topic.textContent = Q.topic;
+
+  $(`qText`).innerHTML = Q.q;
+
+  const optsEl = $(`qOptions`);
+  optsEl.innerHTML = ``;
+  const letters = [`A`,`B`,`C`,`D`];
+  Q.opts.forEach((opt, idx) => {
+    const btn = document.createElement(`button`);
+    btn.className = `quiz-option`;
+    btn.innerHTML = `<span class="quiz-option-letter">${letters[idx]}</span><span class="quiz-option-text">${opt}</span><span class="quiz-option-mark"></span>`;
+    btn.onclick = () => selectAnswer(idx, btn);
+    optsEl.appendChild(btn);
+  });
+
+  $(`qExplanation`).classList.remove(`show`,`correct`,`wrong`);
+  $(`qActions`).classList.add(`q-hidden`);
+}
+
+function selectAnswer(idx, btnEl){
+  if(answered) return;
+  answered = true;
+
+  const Q = QUESTIONS[current];
+  const isCorrect = idx === Q.correct;
+  if(isCorrect) score++;
+
+  const allBtns = $(`qOptions`).querySelectorAll(`.quiz-option`);
+  allBtns.forEach((b, i) => {
+    b.disabled = true;
+    if(i === Q.correct){
+      b.classList.add(`correct`);
+      b.querySelector(`.quiz-option-mark`).innerHTML = `<svg width="20" height="20" style="color:var(--green-deep)"><use href="#i-check"/></svg>`;
+    } else if(i === idx && !isCorrect){
+      b.classList.add(`wrong`);
+      b.querySelector(`.quiz-option-mark`).innerHTML = `<svg width="20" height="20" style="color:var(--fl-red)"><use href="#i-x"/></svg>`;
+    } else {
+      b.classList.add(`dim`);
+    }
+  });
+
+  const expl = $(`qExplanation`);
+  const explTitle = $(`qExplanationTitle`);
+  if(isCorrect){
+    expl.classList.add(`correct`);
+    explTitle.innerHTML = `<svg width="14" height="14"><use href="#i-check"/></svg> Richtig!`;
+    $(`qExplanationText`).innerHTML = Q.explain;
+  } else {
+    expl.classList.add(`wrong`);
+    explTitle.innerHTML = `<svg width="14" height="14"><use href="#i-x"/></svg> Knapp daneben.`;
+    $(`qExplanationText`).innerHTML = Q.explainWrong;
+  }
+  expl.classList.add(`show`);
+
+  $(`qScore`).textContent = score + ` richtig`;
+
+  $(`qActions`).classList.remove(`q-hidden`);
+  $(`qHint`).textContent = current+1 === QUESTIONS.length ? `Klick weiter, um dein Ergebnis zu sehen.` : `Bereit für die nächste Frage?`;
+  if(current+1 === QUESTIONS.length){
+    $(`qNext`).innerHTML = `Ergebnis ansehen <span class="ic"><svg width="14" height="14"><use href="#i-arrow-right"/></svg></span>`;
+  } else {
+    $(`qNext`).innerHTML = `Nächste Frage <span class="ic"><svg width="14" height="14"><use href="#i-arrow-right"/></svg></span>`;
+  }
+}
+
+function nextQuestion(){
+  current++;
+  if(current >= QUESTIONS.length){
+    showResult();
+  } else {
+    loadQuestion();
+    window.scrollTo({top: $(`quizMain`).offsetTop - 80, behavior: `smooth`});
+  }
+}
+
+function showResult(){
+  $(`quizMain`).classList.add(`q-hidden`);
+  $(`quizResult`).classList.remove(`q-hidden`);
+
+  const card = $(`resultCard`);
+  card.classList.remove(`tier-low`,`tier-mid`,`tier-high`);
+
+  $(`resultScore`).textContent = score;
+
+  const circumference = 2 * Math.PI * 52;
+  const offset = circumference * (1 - score/QUESTIONS.length);
+  setTimeout(() => {
+    $(`donutFill`).style.strokeDashoffset = offset;
+  }, 100);
+
+  let tier, title, msg, recs;
+
+  if(score <= 3){
+    tier = `low`;
+    $(`resultTier`).textContent = `Hier ist noch Luft nach oben`;
+    title = `Du steckst noch am Anfang — kein Problem!`;
+    msg = `Jeder fängt mal an, und du hast den ersten Schritt schon gemacht: du hast dich getestet. Wir empfehlen dir, mit den Grundlagen-Modulen zu starten. Schon ein einziger 15-Minuten-Workshop bringt dich auf ein solides Sicherheitsniveau.`;
+    recs = [
+      {n: `01`, name: `Echt oder Fake?`, url: `modul-1-echt-oder-fake.html`},
+      {n: `03`, name: `Passwort-Challenge`, url: `modul-3-passwort-challenge.html`},
+      {n: `06`, name: `Notfallplan & Hilfestellen`, url: `modul-6-notfallplan-und-hilfestellen.html`}
+    ];
+  } else if(score <= 6){
+    tier = `mid`;
+    $(`resultTier`).textContent = `Solides Mittelfeld`;
+    title = `Solide Basis — aber da geht noch was.`;
+    msg = `Du kennst dich mit den Grundlagen aus, aber bei den Details und Stolperfallen ist noch Verbesserungspotenzial. Vertiefe gezielt die Module, die zu deinen verpassten Themen passen — und du landest schnell im sicheren Bereich.`;
+    recs = [
+      {n: `02`, name: `Phishing & Manipulation`, url: `modul-2-phishing-und-manipulation.html`},
+      {n: `04`, name: `Privatsphäre live`, url: `modul-4-privatsphaere-live.html`},
+      {n: `05`, name: `Cybermobbing — Fall Lina`, url: `modul-5-cybermobbing-fallbeispiel.html`}
+    ];
+  } else if(score <= 9){
+    tier = `high`;
+    $(`resultTier`).textContent = `Sehr stark`;
+    title = `Sehr gut! Du bist medien-fit.`;
+    msg = `Du hast die meisten Fragen richtig beantwortet — das ist ein wirklich gutes Niveau. Mit ein paar Vertiefungen kannst du noch zur Expertin oder zum Experten werden. Vielleicht hast du Lust, anderen zu helfen?`;
+    recs = [
+      {n: `04`, name: `Privatsphäre live (Vertiefung)`, url: `modul-4-privatsphaere-live.html`},
+      {n: `05`, name: `Cybermobbing — Fall Lina`, url: `modul-5-cybermobbing-fallbeispiel.html`},
+      {n: `06`, name: `Notfallplan & Hilfestellen`, url: `modul-6-notfallplan-und-hilfestellen.html`}
+    ];
+  } else {
+    tier = `high`;
+    $(`resultTier`).textContent = `Perfekt — alle 10!`;
+    title = `Wahnsinn. Du bist absolut sicher unterwegs.`;
+    msg = `Volle Punktzahl. Du weisst genau, worauf es ankommt. Hast du Lust, anderen zu helfen? Frag deine Lehrperson oder schreib uns — vielleicht kannst du im nächsten Workshop als Peer-Helfer:in mitmachen und dein Wissen weitergeben. Das wäre ein echtes Geschenk an deine Klasse.`;
+    recs = [
+      {n: `—`, name: `Alle Module ansehen`, url: `module.html`},
+      {n: `—`, name: `Kontakt: Peer-Helfer werden`, url: `mailto:safeclickfl@proton.me?subject=Peer-Helfer`}
+    ];
+  }
+
+  card.classList.add(`tier-` + tier);
+  $(`resultTitle`).textContent = title;
+  $(`resultMessage`).textContent = msg;
+
+  const recList = $(`resultRecs`);
+  recList.innerHTML = ``;
+  recs.forEach(r => {
+    const li = document.createElement(`li`);
+    li.innerHTML = `<a href="${r.url}"><span class="rec-num">${r.n}</span><span class="rec-name">${r.name}</span><span class="rec-arrow"><svg width="16" height="16"><use href="#i-arrow-right"/></svg></span></a>`;
+    recList.appendChild(li);
+  });
+
+  window.scrollTo({top: $(`quizResult`).offsetTop - 80, behavior: `smooth`});
+}
+
+function restartQuiz(){
+  $(`quizResult`).classList.add(`q-hidden`);
+  $(`quizStart`).classList.remove(`q-hidden`);
+  window.scrollTo({top: $(`quizStart`).offsetTop - 80, behavior: `smooth`});
+}
+</script>
+
+</body>
+</html>

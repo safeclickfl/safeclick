@@ -1,87 +1,317 @@
-<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Partner – SafeClick FL</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-:root{--navy:#1B4965;--navy-dark:#0F2D44;--teal:#5FA8D3;--coral:#FF6B6B;--green:#06D6A0;--yellow:#FFD166;--purple:#7C4DFF;--orange:#FF8C42;--pink:#F472B6;--bg:#FAFBFF;--text:#1A1A2E;--muted:#64748B;--border:#E2E8F0}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Plus Jakarta Sans',Inter,system-ui,sans-serif;color:var(--text);background:var(--bg);line-height:1.6}
-.topbar{background:var(--navy);color:rgba(255,255,255,.6);font-size:11px;padding:6px 24px;display:flex;justify-content:center;gap:20px;flex-wrap:wrap}.topbar a{color:var(--teal);text-decoration:none;font-weight:600}
-nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px}
-.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
-.nav-brand{font-family:'Space Grotesk';font-size:20px;font-weight:700;color:var(--navy);text-decoration:none;display:flex;align-items:center;gap:8px}.nav-brand .sc{color:var(--purple)}
-.nav-shield{width:32px;height:32px;background:linear-gradient(135deg,var(--purple),var(--coral));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;color:#fff}
-.nav-links{display:flex;gap:18px;list-style:none;align-items:center}
-.nav-links a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:600;transition:color .2s}.nav-links a:hover,.nav-links a.active{color:var(--purple)}
-.nav-cta{background:linear-gradient(135deg,var(--purple),var(--coral));color:#fff!important;padding:7px 16px;border-radius:8px;font-weight:700!important;font-size:12px!important}
-.nav-toggle{display:none;background:none;border:none;color:var(--navy);font-size:22px;cursor:pointer}
-.fl-banner{background:linear-gradient(90deg,#002B7F 50%,#CE1126 50%);height:3px}
-section{padding:70px 24px}.container{max-width:1100px;margin:0 auto}
-.badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:10px}
-.stitle{font-family:'Space Grotesk';font-size:clamp(26px,4vw,34px);font-weight:700;color:var(--navy);margin-bottom:10px}
-.ssub{font-size:15px;color:var(--muted);max-width:600px;margin-bottom:36px}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;border:none;transition:transform .2s,box-shadow .2s;cursor:pointer}.btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.12)}
-.btn-w{background:#fff;color:var(--navy)}.btn-coral{background:var(--coral);color:#fff}.btn-purple{background:var(--purple);color:#fff}
-.btn-ghost{background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.2)}.btn-ghost:hover{border-color:#fff}
-.btn-out{background:transparent;color:var(--purple);border:2px solid var(--purple)}.btn-out:hover{background:var(--purple);color:#fff}
-.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
-.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-.g4{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
-.card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:24px;transition:transform .2s,box-shadow .2s}.card:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,.07)}
-.ib{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-.tag{font-size:10px;font-weight:600;padding:3px 9px;border-radius:100px}.t-p{background:rgba(124,77,255,.08);color:var(--purple)}.t-c{background:rgba(255,107,107,.08);color:var(--coral)}.t-g{background:rgba(6,214,160,.08);color:var(--green)}.t-y{background:rgba(255,209,102,.15);color:#B8860B}.t-n{background:var(--coral);color:#fff}
-.ec{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:18px;display:flex;align-items:center;gap:14px;transition:background .2s}.ec:hover{background:rgba(255,255,255,.1)}
-.en{font-family:'Space Grotesk';font-size:20px;font-weight:700;color:#fff}.en-s{font-size:15px}.el{font-size:11px;color:rgba(255,255,255,.5);margin-top:2px}
-.ph{padding:100px 24px 50px;text-align:center;position:relative;overflow:hidden}
-.ph::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 70%,rgba(255,107,107,.12),transparent 50%),radial-gradient(circle at 70% 30%,rgba(6,214,160,.1),transparent 50%)}.ph>*{position:relative;z-index:1}
-.ph h1{font-family:'Space Grotesk';font-size:clamp(28px,5vw,42px);font-weight:700;color:#fff;margin-bottom:8px}.ph p{font-size:15px;color:rgba(255,255,255,.55);max-width:500px;margin:0 auto}
-.bc{font-size:13px;color:rgba(255,255,255,.4);margin-bottom:12px}.bc a{color:rgba(255,255,255,.6);text-decoration:none}.bc a:hover{color:#fff}
-/* Module detail page extras */
-.mod-nav{max-width:1100px;margin:0 auto;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;border-top:1px solid var(--border)}
-.mod-nav a{text-decoration:none;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:5px;color:var(--purple)}.mod-nav a:hover{text-decoration:underline}.mod-nav .mn-back{color:var(--muted)}
-.mg{max-width:1100px;margin:0 auto;padding:0 24px 32px}
-.mg h3{font-size:1.1rem;margin:24px 0 12px;color:var(--navy)}
-.mg-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
-.mg-card{display:flex;align-items:center;gap:10px;padding:12px;background:#fff;border:1px solid var(--border);border-radius:12px;text-decoration:none;transition:box-shadow .2s}.mg-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.06)}
-.mg-ic{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
-.mg-card .mg-t{font-size:12px;font-weight:700;color:var(--navy)}.mg-card .mg-s{font-size:10px;color:var(--muted)}
-/* Module content cards (from uploaded files) */
-.m-card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:22px;margin:16px 0;box-shadow:0 10px 25px rgba(15,23,42,.05)}
-.m-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-.m-kpi{font-size:.95rem;color:var(--muted)}
-.m-badge{display:inline-block;padding:6px 10px;border-radius:999px;font-weight:700;font-size:.84rem;margin:4px 6px 0 0}
-.m-good{background:#ecfdf5;color:#065f46}.m-warn{background:#fffbeb;color:#92400e}.m-bad{background:#fef2f2;color:#991b1b}
-.m-table{width:100%;border-collapse:collapse;margin-top:12px}.m-table th,.m-table td{border:1px solid var(--border);padding:10px;vertical-align:top;text-align:left}
-.m-bq{margin:12px 0;padding:14px 16px;background:#f8fafc;border-radius:10px}
-h2.m-h2{margin-top:36px;font-size:1.4rem;border-bottom:2px solid var(--border);padding-bottom:8px}
-h3.m-h3{margin-top:24px;font-size:1.08rem}
-footer{background:var(--navy-dark);color:rgba(255,255,255,.4);padding:36px 24px;text-align:center}
-.fb{font-family:'Space Grotesk';font-size:18px;font-weight:700;color:#fff;margin-bottom:6px}.fb span{color:var(--teal)}
-footer p{font-size:12px;margin-bottom:3px}.fl{display:flex;gap:18px;justify-content:center;margin:12px 0;flex-wrap:wrap}.fl a{color:var(--teal);text-decoration:none;font-size:12px;font-weight:600}
-.ff{display:inline-flex;gap:3px;margin-top:8px}.ff div{width:30px;height:4px;border-radius:2px}
-@media(max-width:768px){.nav-links{display:none;position:absolute;top:56px;left:0;right:0;background:#fff;flex-direction:column;padding:16px 24px;gap:12px;border-bottom:1px solid var(--border);box-shadow:0 4px 12px rgba(0,0,0,.08)}.nav-links.open{display:flex}.nav-toggle{display:block}section{padding:50px 16px}.g2,.g3,.g4,.m-grid{grid-template-columns:1fr}.topbar{font-size:10px}}
-</style><link rel="stylesheet" href="style.css">
-</head><body><div class="topbar"><span>🇱🇮 SafeClick FL – Think. Click. Act!</span><span>Ein Projekt der <a href="https://www.uni.li" target="_blank">Universität Liechtenstein</a> mit <a href="https://aha.li" target="_blank">aha Vaduz</a></span></div>
-<nav><div class="nav-inner"><a href="index.html" class="nav-brand"><div class="nav-shield">🛡</div>Safe<span class="sc">Click</span>&nbsp;FL</a>
-<ul class="nav-links" id="nv"><li><a href="index.html">Home</a></li>
-<li><a href="module.html">Module</a></li>
-<li><a href="downloads.html">Downloads</a></li>
-<li><a href="notfall.html">Notfall</a></li>
-<li><a href="partner.html" class=active>Partner</a></li><li><a href="mailto:safeclickfl@proton.me" class="nav-cta"><i class="fas fa-envelope"></i> Kontakt</a></li></ul>
-<button class="nav-toggle" onclick="document.getElementById('nv').classList.toggle('open')"><i class="fas fa-bars"></i></button></div></nav><div class="fl-banner"></div><div class="ph" style="background:linear-gradient(160deg,#1a0533,#2d1458,#5228a0,#667eea)"><h1>🤝 Partner</h1><p>Ein Pro-Bono-Projekt der Universität Liechtenstein.</p></div>
-<section><div class="container" style="text-align:center"><div class="g2" style="max-width:700px;margin-left:auto;margin-right:auto" style="margin-bottom:32px">
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Partner — SafeClick FL · Universität · aha · Landespolizei · Gymnasium Vaduz</title>
+<meta name="description" content="SafeClick FL ist ein Pro-Bono-Projekt mit der Universität Liechtenstein, aha Vaduz, der Landespolizei Liechtenstein und dem Liechtensteinischen Gymnasium Vaduz.">
+<link rel="stylesheet" href="style.css">
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <defs>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+    <symbol id="i-laptop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="2" x2="22" y1="20" y2="20"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+    <symbol id="i-shield-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9.1 12a2.1 2.1 0 0 1 2.9-2c.5.2.9.7.9 1.2 0-.5.4-1 .9-1.2a2.1 2.1 0 0 1 2.9 2c0 1.5-3.8 4-3.8 4s-3.8-2.5-3.8-4z"/></symbol>
+    <symbol id="i-people" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></symbol>
+    <symbol id="i-house" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+    <symbol id="i-school" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m4 6 8-4 8 4"/><path d="m18 10 4 2v10H2V12l4-2"/><circle cx="12" cy="9" r="2"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+  </defs>
+</svg>
+
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="tb-left">
+      <span class="tb-flag">
+        <svg class="fl-flag-svg" viewBox="0 0 18 12">
+          <rect width="18" height="6" fill="#0033A0"/>
+          <rect y="6" width="18" height="6" fill="#CE1126"/>
+          <g transform="translate(3.5,1.3)">
+            <rect width="3.6" height="2" fill="#FFD700" stroke="#000" stroke-width=".2"/>
+            <rect x=".8" width=".5" height="2.6" fill="#FFD700" stroke="#000" stroke-width=".2"/>
+          </g>
+        </svg>
+        Fürstentum Liechtenstein
+      </span>
+      <span class="tb-divider">·</span>
+      <span class="tb-extra">Pro-Bono-Projekt 2026 · Vier Häuser, eine Mission</span>
+    </div>
+    <div class="tb-right">
+      <a href="mailto:safeclickfl@proton.me">safeclickfl@proton.me</a>
+    </div>
+  </div>
 </div>
-<h3 style="font-family:Space Grotesk;font-size:18px;font-weight:700;color:var(--navy);margin:32px 0 16px">Netzwerk</h3>
-<div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-<a href="https://www.landespolizei.li" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--border);border-radius:100px;padding:8px 16px;font-size:12px;font-weight:600;color:var(--muted);text-decoration:none"><i class="fas fa-shield-halved" style="color:var(--purple)"></i> Landespolizei FL</a>
-<a href="https://www.skppsc.ch" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--border);border-radius:100px;padding:8px 16px;font-size:12px;font-weight:600;color:var(--muted);text-decoration:none"><i class="fas fa-globe" style="color:var(--purple)"></i> skppsc.ch</a>
-<span style="display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--border);border-radius:100px;padding:8px 16px;font-size:12px;font-weight:600;color:var(--muted)"><i class="fas fa-child-reaching" style="color:var(--purple)"></i> OSKJ</span>
-<span style="display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--border);border-radius:100px;padding:8px 16px;font-size:12px;font-weight:600;color:var(--muted)"><i class="fas fa-house-chimney" style="color:var(--purple)"></i> OJA (12 Treffs)</span>
-<a href="https://www.kinderschutz.li" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--border);border-radius:100px;padding:8px 16px;font-size:12px;font-weight:600;color:var(--muted);text-decoration:none"><i class="fas fa-shield-heart" style="color:var(--purple)"></i> kinderschutz.li</a></div></div></section><footer><div class="fb">Safe<span>Click</span> FL 🇱🇮</div>
-<p>Think. Click. Act! · Pro Bono · Universität Liechtenstein · 2026</p>
-<div class="fl"><a href="mailto:safeclickfl@proton.me"><i class="fas fa-envelope"></i> safeclickfl@proton.me</a>
-<a href="https://instagram.com/safeclickfl" target="_blank"><i class="fab fa-instagram"></i> @safeclickfl</a>
-<a href="https://aha.li" target="_blank">aha.li</a></div>
-<p style="margin-top:8px;font-size:10px">CC BY-NC-SA 4.0</p>
-<div class="ff"><div style="background:#002B7F"></div><div style="background:#CE1126"></div><div style="background:#FFD700"></div></div></footer>
-<script>document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'})})});</script></body></html>
+
+<header class="site">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">S</div>
+      <div class="brand-text">
+        <span class="brand-name">SafeClick <span class="fl">FL</span></span>
+        <span class="brand-sub">Think · Click · Act</span>
+      </div>
+    </a>
+    <ul class="nav-links" id="nv">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="module.html">Module</a></li>
+      <li><a href="downloads.html">Downloads</a></li>
+      <li><a href="notfall.html">Notfall</a></li>
+      <li><a href="partner.html" class="active">Partner</a></li>
+      <li><a href="quiz.html">Quiz</a></li>
+      <li><a href="mailto:safeclickfl@proton.me" class="cta">Kontakt</a></li>
+    </ul>
+    <button class="nav-toggle" onclick="document.getElementById('nv').classList.toggle('open')" aria-label="Menü">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+<div class="fl-stripe"></div>
+
+<section class="page-head">
+  <div class="page-head-inner">
+    <div class="page-meta">
+      <strong>Partner & Kooperation</strong>
+      <span class="pm-dot">·</span>
+      <span>Pro Bono 2026</span>
+      <span class="pm-dot">·</span>
+      <span>Liechtenstein</span>
+    </div>
+    <h1 class="h1-display">Ein Projekt. <span class="ac"><span class="underlined">Fünf starke Häuser.</span></span></h1>
+    <p class="page-lede">
+      SafeClick FL gibt es, weil fünf Institutionen aus Liechtenstein und der Region ihre Kompetenzen bündeln — akademisch, beratend, operativ und schulisch. Jedes Haus bringt eine andere Stärke ein. Hier stellen wir sie vor.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Die fünf Häuser</div>
+    <h2 class="h2">Wer SafeClick FL trägt</h2>
+
+    <div style="display:flex;flex-direction:column;gap:20px;margin-top:36px">
+
+      <div class="partner-card">
+        <div class="partner-mark">
+          <div class="partner-emblem">Uni</div>
+          <div class="partner-tagline">Liechtenstein</div>
+        </div>
+        <div class="partner-body">
+          <div class="partner-role">Trägerin · Pro-Bono-Programm</div>
+          <h3 class="partner-name">Universität Liechtenstein</h3>
+          <p class="partner-desc">
+            SafeClick FL entstand 2026 im Pro-Bono-Programm der Universität Liechtenstein. Studierende des Bachelor-Studiengangs Betriebswirtschaftslehre entwickeln innerhalb ihres Studiums reale gesellschaftliche Projekte — mit konkretem Nutzen für Liechtenstein. Die Universität stellt den akademischen Rahmen, die Methodik und das Mentoring.
+          </p>
+          <a href="https://www.uni.li" target="_blank" class="partner-link">uni.li <svg><use href="#i-arrow-right"/></svg></a>
+        </div>
+      </div>
+
+      <div class="partner-card">
+        <div class="partner-mark gold">
+          <div class="partner-emblem">aha</div>
+          <div class="partner-tagline">Tipps & Infos · Vaduz</div>
+        </div>
+        <div class="partner-body">
+          <div class="partner-role">Berater · Inhaltliche Validierung</div>
+          <h3 class="partner-name">aha — Tipps & Infos für junge Leute</h3>
+          <p class="partner-desc">
+            Die zentrale Jugendinformationsstelle Liechtensteins. aha führt seit Jahren bewährte Medienkompetenz-Workshops durch (Surf Smart, RiskWise, Lost in Information). Als <strong>beratende Partnerin</strong> validiert aha die Inhalte von SafeClick FL fachlich, übernimmt die laufende Aktualisierung der Materialien und trägt die Module in die liechtensteinische Schullandschaft. Kirchstrasse 10, Vaduz.
+          </p>
+          <a href="https://www.aha.li" target="_blank" class="partner-link">aha.li <svg><use href="#i-arrow-right"/></svg></a>
+        </div>
+      </div>
+
+      <div class="partner-card">
+        <div class="partner-mark dark">
+          <div class="partner-emblem" style="font-size:36px;display:flex;align-items:center;justify-content:center"><svg width="40" height="40" style="color:var(--gold-soft)"><use href="#i-shield"/></svg></div>
+          <div class="partner-tagline" style="margin-top:6px">Landespolizei FL</div>
+        </div>
+        <div class="partner-body">
+          <div class="partner-role">Operativer Partner · Präventionsarbeit</div>
+          <h3 class="partner-name">Landespolizei Liechtenstein</h3>
+          <p class="partner-desc">
+            Die Landespolizei nutzt die SafeClick-FL-Quick-Module (30 Min.) für ihre Schulbesuche und Präventionseinsätze. Im Gegenzug fliessen aktuelle Fälle aus Liechtenstein anonymisiert in die Materialien zurück. So bleiben die Workshops realitätsnah — und die Polizei muss kein eigenes Material entwickeln. Im Notfall: <strong style="color:var(--fl-red);font-family:var(--display);font-weight:800">117</strong>.
+          </p>
+          <a href="https://www.landespolizei.li" target="_blank" class="partner-link">landespolizei.li <svg><use href="#i-arrow-right"/></svg></a>
+        </div>
+      </div>
+
+      <div class="partner-card">
+        <div class="partner-mark red">
+          <div class="partner-emblem">LG</div>
+          <div class="partner-tagline">Gymnasium Vaduz</div>
+        </div>
+        <div class="partner-body">
+          <div class="partner-role">Zielort für Umsetzung · Semester 2026/27</div>
+          <h3 class="partner-name">Liechtensteinisches Gymnasium Vaduz</h3>
+          <p class="partner-desc">
+            Das Gymnasium Vaduz ist der <strong>primäre Zielort</strong> für die produktive Umsetzung von SafeClick FL. Ab dem Schuljahr 2026/27 wird das Konzept über ein ganzes Semester durchgeführt — pro Monat ein Modul, integriert in den regulären Unterricht. Damit ist das LG die erste Schule in Liechtenstein, die das volle Konzept im Klassenbetrieb erprobt. Mit Pre-/Post-/Follow-up-Befragung zur Wirksamkeitsmessung.
+          </p>
+          <a href="https://www.lg.li" target="_blank" class="partner-link">lg.li <svg><use href="#i-arrow-right"/></svg></a>
+        </div>
+      </div>
+
+      <div class="partner-card">
+        <div class="partner-mark" style="background:linear-gradient(135deg,var(--safety-blue) 0%,var(--safety-blue-2) 100%)">
+          <div class="partner-emblem">SG</div>
+          <div class="partner-tagline">Schule Gams · SG</div>
+        </div>
+        <div class="partner-body">
+          <div class="partner-role">Pilotversuch · Start in einem Monat</div>
+          <h3 class="partner-name">Schule Gams (Werdenberg, Schweiz)</h3>
+          <p class="partner-desc">
+            Die Sekundarschule Gams im St.&nbsp;Galler Rheintal — direkt an der Liechtensteiner Grenze — startet in <strong>einem Monat den ersten Pilotversuch</strong> mit den SafeClick-FL-Modulen. Das Pilotprogramm läuft über eine Schulwoche mit allen 7 Modulen, anschliessend werten wir gemeinsam mit den Lehrpersonen aus, was funktioniert und was nachgeschärft werden muss. Die Ergebnisse fliessen direkt in die Version für das Gymnasium Vaduz ein.
+          </p>
+          <a href="https://www.schule-gams.ch" target="_blank" class="partner-link">schule-gams.ch <svg><use href="#i-arrow-right"/></svg></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Netzwerk -->
+<section style="background:var(--paper);border-top:1px solid var(--border)">
+  <div class="wrap">
+    <div class="eyebrow gold">Im weiteren Netzwerk</div>
+    <h2 class="h2">Wer uns noch stärkt</h2>
+    <p class="lede">Über die vier Hauptpartner hinaus arbeiten wir mit folgenden Stellen zusammen — als Multiplikatoren, fachliche Berater und Anlaufstellen für Familien in Liechtenstein.</p>
+
+    <div class="network">
+      <a href="https://www.medienkompetenz.li" target="_blank" class="net-tile">
+        <div class="nt-ic"><svg width="16" height="16"><use href="#i-laptop"/></svg></div>
+        <div>
+          <div class="nt-name">medienkompetenz.li</div>
+          <div class="nt-sub">Amt für Soziale Dienste FL</div>
+        </div>
+      </a>
+      <a href="https://www.skppsc.ch" target="_blank" class="net-tile">
+        <div class="nt-ic"><svg width="16" height="16"><use href="#i-globe"/></svg></div>
+        <div>
+          <div class="nt-name">skppsc.ch</div>
+          <div class="nt-sub">Schweiz. Kriminalprävention</div>
+        </div>
+      </a>
+      <a href="https://www.kinderschutz.li" target="_blank" class="net-tile">
+        <div class="nt-ic"><svg width="16" height="16"><use href="#i-shield-heart"/></svg></div>
+        <div>
+          <div class="nt-name">Kinderschutz Liechtenstein</div>
+          <div class="nt-sub">kinderschutz.li</div>
+        </div>
+      </a>
+      <div class="net-tile" style="cursor:default">
+        <div class="nt-ic"><svg width="16" height="16"><use href="#i-people"/></svg></div>
+        <div>
+          <div class="nt-name">Ombudsstelle Kinder & Jugend</div>
+          <div class="nt-sub">OSKJ · VMR Liechtenstein</div>
+        </div>
+      </div>
+      <div class="net-tile" style="cursor:default">
+        <div class="nt-ic"><svg width="16" height="16"><use href="#i-house"/></svg></div>
+        <div>
+          <div class="nt-name">Offene Jugendarbeit</div>
+          <div class="nt-sub">12 OJA-Treffs in Liechtenstein</div>
+        </div>
+      </div>
+      <div class="net-tile" style="cursor:default">
+        <div class="nt-ic"><svg width="16" height="16"><use href="#i-school"/></svg></div>
+        <div>
+          <div class="nt-name">Schulsozialarbeit FL</div>
+          <div class="nt-sub">An allen Landesschulen</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Kooperations-CTA -->
+<section style="background:var(--off-white);padding-top:64px;padding-bottom:96px">
+  <div class="wrap-narrow">
+    <div class="card" style="padding:48px;text-align:center;background:var(--paper-warm);box-shadow:var(--sh-sm)">
+      <div class="eyebrow" style="justify-content:center;display:inline-flex">Sie sind Lehrperson, OJA-Mitarbeiter:in oder Polizist:in?</div>
+      <h3 style="font-family:var(--display);font-size:28px;font-weight:700;line-height:1.22;color:var(--ink);margin:8px 0 14px;letter-spacing:-.02em">Lassen Sie uns zusammenarbeiten.</h3>
+      <p style="font-size:15.5px;color:var(--text);line-height:1.65;max-width:580px;margin:0 auto 28px">
+        SafeClick FL ist offen für Schulen, Jugendarbeit und Präventionsfachstellen in Liechtenstein. Schreiben Sie uns — wir kommen vorbei, schulen Lehrpersonen und begleiten die ersten Workshops persönlich.
+      </p>
+      <a href="mailto:safeclickfl@proton.me" class="btn btn-lg">
+        <span class="ic"><svg width="16" height="16"><use href="#i-mail"/></svg></span>
+        safeclickfl@proton.me
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">
+        <div class="footer-mark">S</div>
+        <div class="footer-brand-text">SafeClick <span class="fl">FL</span></div>
+      </div>
+      <div class="footer-tag">Think · Click · Act</div>
+      <p class="footer-message">
+        Wir glauben, dass jedes Kind in Liechtenstein das Recht hat, sicher im Netz unterwegs zu sein. Dafür ist SafeClick FL da. Pro Bono. Für immer kostenlos.
+      </p>
+      <div class="footer-meta">
+        Pro-Bono-Projekt 2026 · Universität Liechtenstein<br>
+        in Kooperation mit aha Vaduz<br>
+        Lizenz: CC BY-NC-SA 4.0
+      </div>
+    </div>
+    <div>
+      <h4>Navigation</h4>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="module.html">Module</a></li>
+        <li><a href="downloads.html">Downloads</a></li>
+        <li><a href="notfall.html">Notfall</a></li>
+        <li><a href="partner.html">Partner</a></li>
+      <li><a href="quiz.html">Quiz</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Partner</h4>
+      <ul class="footer-links">
+        <li><a href="https://www.uni.li" target="_blank">Universität Liechtenstein</a></li>
+        <li><a href="https://www.aha.li" target="_blank">aha Vaduz</a></li>
+        <li><a href="https://www.landespolizei.li" target="_blank">Landespolizei FL</a></li>
+        <li><a href="https://www.lg.li" target="_blank">Gymnasium Vaduz</a></li>
+        <li><a href="https://www.schule-gams.ch" target="_blank">Schule Gams (CH)</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Kontakt</h4>
+      <ul class="footer-links">
+        <li><a href="mailto:safeclickfl@proton.me"><svg><use href="#i-mail"/></svg> safeclickfl@proton.me</a></li>
+        <li><a href="https://instagram.com/safeclickfl" target="_blank"><svg><use href="#i-instagram"/></svg> @safeclickfl</a></li>
+        <li><a href="https://aha.li" target="_blank"><svg><use href="#i-globe"/></svg> aha.li</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>
+      © 2026 · SafeClick FL · Mit
+      <svg width="12" height="12" style="display:inline-block;vertical-align:middle;color:var(--fl-red);margin:0 2px"><use href="#i-heart"/></svg>
+      gemacht in <strong>Vaduz</strong>
+      <svg class="fl-flag-svg" viewBox="0 0 18 12" style="display:inline-block;vertical-align:middle;margin-left:6px">
+        <rect width="18" height="6" fill="#0033A0"/>
+        <rect y="6" width="18" height="6" fill="#CE1126"/>
+        <g transform="translate(3.5,1.3)">
+          <rect width="3.6" height="2" fill="#FFD700" stroke="#000" stroke-width=".2"/>
+          <rect x=".8" width=".5" height="2.6" fill="#FFD700" stroke="#000" stroke-width=".2"/>
+        </g>
+      </svg>
+    </div>
+    <div>Set in <strong>Manrope</strong> & <strong>Inter</strong></div>
+  </div>
+</footer>
+
+</body>
+</html>

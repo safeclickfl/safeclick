@@ -1,112 +1,800 @@
-<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Startseite – SafeClick FL</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-:root{--navy:#1B4965;--navy-dark:#0F2D44;--teal:#5FA8D3;--coral:#FF6B6B;--green:#06D6A0;--yellow:#FFD166;--purple:#7C4DFF;--orange:#FF8C42;--pink:#F472B6;--bg:#FAFBFF;--text:#1A1A2E;--muted:#64748B;--border:#E2E8F0}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Plus Jakarta Sans',Inter,system-ui,sans-serif;color:var(--text);background:var(--bg);line-height:1.6}
-.topbar{background:var(--navy);color:rgba(255,255,255,.6);font-size:11px;padding:6px 24px;display:flex;justify-content:center;gap:20px;flex-wrap:wrap}.topbar a{color:var(--teal);text-decoration:none;font-weight:600}
-nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px}
-.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
-.nav-brand{font-family:'Space Grotesk';font-size:20px;font-weight:700;color:var(--navy);text-decoration:none;display:flex;align-items:center;gap:8px}.nav-brand .sc{color:var(--purple)}
-.nav-shield{width:32px;height:32px;background:linear-gradient(135deg,var(--purple),var(--coral));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;color:#fff}
-.nav-links{display:flex;gap:18px;list-style:none;align-items:center}
-.nav-links a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:600;transition:color .2s}.nav-links a:hover,.nav-links a.active{color:var(--purple)}
-.nav-cta{background:linear-gradient(135deg,var(--purple),var(--coral));color:#fff!important;padding:7px 16px;border-radius:8px;font-weight:700!important;font-size:12px!important}
-.nav-toggle{display:none;background:none;border:none;color:var(--navy);font-size:22px;cursor:pointer}
-.fl-banner{background:linear-gradient(90deg,#002B7F 50%,#CE1126 50%);height:3px}
-section{padding:70px 24px}.container{max-width:1100px;margin:0 auto}
-.badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:10px}
-.stitle{font-family:'Space Grotesk';font-size:clamp(26px,4vw,34px);font-weight:700;color:var(--navy);margin-bottom:10px}
-.ssub{font-size:15px;color:var(--muted);max-width:600px;margin-bottom:36px}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;border:none;transition:transform .2s,box-shadow .2s;cursor:pointer}.btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.12)}
-.btn-w{background:#fff;color:var(--navy)}.btn-coral{background:var(--coral);color:#fff}.btn-purple{background:var(--purple);color:#fff}
-.btn-ghost{background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.2)}.btn-ghost:hover{border-color:#fff}
-.btn-out{background:transparent;color:var(--purple);border:2px solid var(--purple)}.btn-out:hover{background:var(--purple);color:#fff}
-.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
-.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-.g4{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
-.card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:24px;transition:transform .2s,box-shadow .2s}.card:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,.07)}
-.ib{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-.tag{font-size:10px;font-weight:600;padding:3px 9px;border-radius:100px}.t-p{background:rgba(124,77,255,.08);color:var(--purple)}.t-c{background:rgba(255,107,107,.08);color:var(--coral)}.t-g{background:rgba(6,214,160,.08);color:var(--green)}.t-y{background:rgba(255,209,102,.15);color:#B8860B}.t-n{background:var(--coral);color:#fff}
-.ec{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:18px;display:flex;align-items:center;gap:14px;transition:background .2s}.ec:hover{background:rgba(255,255,255,.1)}
-.en{font-family:'Space Grotesk';font-size:20px;font-weight:700;color:#fff}.en-s{font-size:15px}.el{font-size:11px;color:rgba(255,255,255,.5);margin-top:2px}
-.ph{padding:100px 24px 50px;text-align:center;position:relative;overflow:hidden}
-.ph::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 70%,rgba(255,107,107,.12),transparent 50%),radial-gradient(circle at 70% 30%,rgba(6,214,160,.1),transparent 50%)}.ph>*{position:relative;z-index:1}
-.ph h1{font-family:'Space Grotesk';font-size:clamp(28px,5vw,42px);font-weight:700;color:#fff;margin-bottom:8px}.ph p{font-size:15px;color:rgba(255,255,255,.55);max-width:500px;margin:0 auto}
-.bc{font-size:13px;color:rgba(255,255,255,.4);margin-bottom:12px}.bc a{color:rgba(255,255,255,.6);text-decoration:none}.bc a:hover{color:#fff}
-/* Module detail page extras */
-.mod-nav{max-width:1100px;margin:0 auto;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;border-top:1px solid var(--border)}
-.mod-nav a{text-decoration:none;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:5px;color:var(--purple)}.mod-nav a:hover{text-decoration:underline}.mod-nav .mn-back{color:var(--muted)}
-.mg{max-width:1100px;margin:0 auto;padding:0 24px 32px}
-.mg h3{font-size:1.1rem;margin:24px 0 12px;color:var(--navy)}
-.mg-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
-.mg-card{display:flex;align-items:center;gap:10px;padding:12px;background:#fff;border:1px solid var(--border);border-radius:12px;text-decoration:none;transition:box-shadow .2s}.mg-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.06)}
-.mg-ic{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
-.mg-card .mg-t{font-size:12px;font-weight:700;color:var(--navy)}.mg-card .mg-s{font-size:10px;color:var(--muted)}
-/* Module content cards (from uploaded files) */
-.m-card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:22px;margin:16px 0;box-shadow:0 10px 25px rgba(15,23,42,.05)}
-.m-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-.m-kpi{font-size:.95rem;color:var(--muted)}
-.m-badge{display:inline-block;padding:6px 10px;border-radius:999px;font-weight:700;font-size:.84rem;margin:4px 6px 0 0}
-.m-good{background:#ecfdf5;color:#065f46}.m-warn{background:#fffbeb;color:#92400e}.m-bad{background:#fef2f2;color:#991b1b}
-.m-table{width:100%;border-collapse:collapse;margin-top:12px}.m-table th,.m-table td{border:1px solid var(--border);padding:10px;vertical-align:top;text-align:left}
-.m-bq{margin:12px 0;padding:14px 16px;background:#f8fafc;border-radius:10px}
-h2.m-h2{margin-top:36px;font-size:1.4rem;border-bottom:2px solid var(--border);padding-bottom:8px}
-h3.m-h3{margin-top:24px;font-size:1.08rem}
-footer{background:var(--navy-dark);color:rgba(255,255,255,.4);padding:36px 24px;text-align:center}
-.fb{font-family:'Space Grotesk';font-size:18px;font-weight:700;color:#fff;margin-bottom:6px}.fb span{color:var(--teal)}
-footer p{font-size:12px;margin-bottom:3px}.fl{display:flex;gap:18px;justify-content:center;margin:12px 0;flex-wrap:wrap}.fl a{color:var(--teal);text-decoration:none;font-size:12px;font-weight:600}
-.ff{display:inline-flex;gap:3px;margin-top:8px}.ff div{width:30px;height:4px;border-radius:2px}
-@media(max-width:768px){.nav-links{display:none;position:absolute;top:56px;left:0;right:0;background:#fff;flex-direction:column;padding:16px 24px;gap:12px;border-bottom:1px solid var(--border);box-shadow:0 4px 12px rgba(0,0,0,.08)}.nav-links.open{display:flex}.nav-toggle{display:block}section{padding:50px 16px}.g2,.g3,.g4,.m-grid{grid-template-columns:1fr}.topbar{font-size:10px}}
-</style><link rel="stylesheet" href="style.css">
-</head><body><div class="topbar"><span>🇱🇮 SafeClick FL – Think. Click. Act!</span><span>Ein Projekt der <a href="https://www.uni.li" target="_blank">Universität Liechtenstein</a> mit <a href="https://aha.li" target="_blank">aha Vaduz</a></span></div>
-<nav><div class="nav-inner"><a href="index.html" class="nav-brand"><div class="nav-shield">🛡</div>Safe<span class="sc">Click</span>&nbsp;FL</a>
-<ul class="nav-links" id="nv"><li><a href="index.html" class=active>Home</a></li>
-<li><a href="module.html">Module</a></li>
-<li><a href="downloads.html">Downloads</a></li>
-<li><a href="notfall.html">Notfall</a></li>
-<li><a href="partner.html">Partner</a></li><li><a href="mailto:safeclickfl@proton.me" class="nav-cta"><i class="fas fa-envelope"></i> Kontakt</a></li></ul>
-<button class="nav-toggle" onclick="document.getElementById('nv').classList.toggle('open')"><i class="fas fa-bars"></i></button></div></nav><div class="fl-banner"></div>
-<section style="background:linear-gradient(160deg,#1a0533,#2d1458 25%,#5228a0 50%,#667eea 75%,#38BDF8);padding:80px 24px 60px;text-align:center;position:relative;overflow:hidden">
-<div style="position:absolute;inset:0;background:radial-gradient(circle at 20% 80%,rgba(255,107,107,.15),transparent 50%),radial-gradient(circle at 80% 20%,rgba(6,214,160,.12),transparent 50%)"></div>
-<div style="position:relative;z-index:1">
-<div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:24px">
-<span style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.8);font-size:11px;font-weight:600;padding:5px 14px;border-radius:100px"><i class="fas fa-graduation-cap"></i> Universität Liechtenstein</span>
-<span style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.8);font-size:11px;font-weight:600;padding:5px 14px;border-radius:100px"><i class="fas fa-lightbulb"></i> aha – Tipps & Infos</span>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>SafeClick FL — Cyber-Sicherheit für Kinder & Jugendliche in Liechtenstein</title>
+<meta name="description" content="Sieben Workshop-Module für Lehrpersonen in Liechtenstein. Gegen Cybermobbing, Phishing, Datendiebstahl. Kostenlos, praxisnah, sofort einsetzbar.">
+<link rel="stylesheet" href="style.css">
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <defs>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-puzzle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19.439 7.85c-.049.322.059.648.289.878l1.568 1.568c.47.47.706 1.087.706 1.704s-.235 1.233-.706 1.704l-1.611 1.611a.98.98 0 0 1-.837.276c-.47-.07-.802-.48-.968-.925a2.501 2.501 0 1 0-3.214 3.214c.446.166.855.497.925.968a.979.979 0 0 1-.276.837l-1.61 1.61a2.404 2.404 0 0 1-1.705.707 2.402 2.402 0 0 1-1.704-.706l-1.568-1.568a1.026 1.026 0 0 0-.877-.29c-.493.074-.84.504-1.02.968a2.5 2.5 0 1 1-3.237-3.237c.464-.18.894-.527.967-1.02a1.026 1.026 0 0 0-.289-.877l-1.568-1.568A2.402 2.402 0 0 1 1.998 12c0-.617.236-1.234.706-1.704L4.23 8.77c.24-.24.581-.353.917-.303.515.077.877.528 1.073 1.01a2.5 2.5 0 1 0 3.259-3.259c-.482-.196-.933-.558-1.01-1.073-.05-.336.062-.676.303-.917l1.525-1.525A2.402 2.402 0 0 1 12 1.998c.617 0 1.234.236 1.704.706l1.568 1.568c.23.23.556.338.877.29.493-.074.84-.504 1.02-.968a2.5 2.5 0 1 1 3.237 3.237c-.464.18-.894.527-.967 1.02Z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+    <symbol id="i-shield-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 2-9.6 9.6"/><circle cx="7.5" cy="15.5" r="5.5"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="i-mobile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></symbol>
+    <symbol id="i-house" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></symbol>
+    <symbol id="i-id-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M15 8h2"/><path d="M15 12h2"/><path d="M7 16h10"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></symbol>
+    <symbol id="i-quote" viewBox="0 0 24 24" fill="currentColor"><path d="M9 7c-3 0-5 2.5-5 5.5V19h6v-6.5H5.5C5.5 11 7 9.5 9 9V7zm10 0c-3 0-5 2.5-5 5.5V19h6v-6.5h-4.5C15.5 11 17 9.5 19 9V7z"/></symbol>
+  </defs>
+</svg>
+
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="tb-left">
+      <span class="tb-flag">
+        <svg class="fl-flag-svg" viewBox="0 0 18 12">
+          <rect width="18" height="6" fill="#0033A0"/>
+          <rect y="6" width="18" height="6" fill="#CE1126"/>
+          <g transform="translate(3.5,1.3)">
+            <rect width="3.6" height="2" fill="#FFD700" stroke="#000" stroke-width=".2"/>
+            <rect x=".8" width=".5" height="2.6" fill="#FFD700" stroke="#000" stroke-width=".2"/>
+          </g>
+        </svg>
+        Fürstentum Liechtenstein
+      </span>
+      <span class="tb-divider">·</span>
+      <span class="tb-extra">Ein Pro-Bono-Projekt der Universität Liechtenstein</span>
+    </div>
+    <div class="tb-right">
+      <a href="mailto:safeclickfl@proton.me">safeclickfl@proton.me</a>
+    </div>
+  </div>
 </div>
-<h1 style="font-family:Space Grotesk;font-size:clamp(32px,5.5vw,52px);font-weight:700;color:#fff;line-height:1.15;margin-bottom:8px"><span style="color:#FFD166">Cyber-Sicherheit</span><br>für <span style="color:#06D6A0">Kids & Teens</span></h1>
-<div style="font-family:Space Grotesk;font-size:19px;font-weight:600;margin-bottom:12px;background:linear-gradient(90deg,#FFD166,#FF6B6B,#7C4DFF);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Think. Click. Act!</div>
-<p style="font-size:15px;color:rgba(255,255,255,.55);max-width:560px;margin:0 auto 16px">Modularer Workshop-Baukasten für Kinder und Jugendliche in Liechtenstein. Kostenlos, flexibel, praxisnah.</p>
-<div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:8px 20px;border-radius:100px;color:rgba(255,255,255,.8);font-size:14px;font-weight:600;margin-bottom:24px"><i class="fas fa-child"></i> Alter 7–18 Jahre</div>
-<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-<a href="module.html" class="btn btn-w"><i class="fas fa-puzzle-piece"></i> Module entdecken</a>
-<a href="notfall.html" class="btn btn-coral"><i class="fas fa-phone"></i> Notfall: 147</a>
-<a href="downloads.html" class="btn btn-ghost"><i class="fas fa-download"></i> Materialien</a></div>
-<div style="display:flex;gap:32px;justify-content:center;margin-top:40px;flex-wrap:wrap">
-<div style="text-align:center"><div style="font-family:Space Grotesk;font-size:28px;font-weight:700;color:#fff">7</div><div style="font-size:11px;color:rgba(255,255,255,.45)">Module</div></div>
-<div style="text-align:center"><div style="font-family:Space Grotesk;font-size:28px;font-weight:700;color:#fff">7–18</div><div style="font-size:11px;color:rgba(255,255,255,.45)">Jahre</div></div>
-<div style="text-align:center"><div style="font-family:Space Grotesk;font-size:28px;font-weight:700;color:#fff">62%</div><div style="font-size:11px;color:rgba(255,255,255,.45)">der Teens betroffen</div></div>
-<div style="text-align:center"><div style="font-family:Space Grotesk;font-size:28px;font-weight:700;color:#fff">🇱🇮</div><div style="font-size:11px;color:rgba(255,255,255,.45)">Für Liechtenstein</div></div></div></div></section>
-<section style="background:#fff"><div class="container" style="text-align:center"><div class="badge" style="background:rgba(124,77,255,.1);color:var(--purple)">Schnellzugriff</div><h2 class="stitle" style="text-align:center">Was suchst du?</h2>
-<div class="g3" style="margin-top:24px;max-width:900px;margin-left:auto;margin-right:auto">
-<a href="module.html" class="card" style="text-decoration:none;text-align:center"><div style="font-size:36px;margin-bottom:12px">🧩</div><h3 style="font-size:16px;font-weight:700;color:var(--navy)">Workshop-Module</h3><p style="font-size:13px;color:var(--muted);margin-top:6px">7 Module für alle Altersgruppen</p></a>
-<a href="downloads.html" class="card" style="text-decoration:none;text-align:center"><div style="font-size:36px;margin-bottom:12px">📥</div><h3 style="font-size:16px;font-weight:700;color:var(--navy)">Downloads</h3><p style="font-size:13px;color:var(--muted);margin-top:6px">Präsentationen, Kahoot, Poster</p></a>
-<a href="notfall.html" class="card" style="text-decoration:none;text-align:center"><div style="font-size:36px;margin-bottom:12px">🚨</div><h3 style="font-size:16px;font-weight:700;color:var(--navy)">Notfallnummern</h3><p style="font-size:13px;color:var(--muted);margin-top:6px">Alle FL-Hilfsstellen</p></a></div></div></section>
-<section style="background:linear-gradient(160deg,#FFF7ED,#FFF1F2,#F0F0FF)"><div class="container"><div class="badge" style="background:rgba(255,107,107,.1);color:var(--coral)">Mehrwert</div><h2 class="stitle">Was SafeClick FL ergänzt</h2><p class="ssub">In Liechtenstein gibt es bereits gute Angebote zur Medienkompetenz. SafeClick FL ergänzt diese gezielt mit praxisnahen Modulen, die sofort einsetzbar sind.</p>
-<div class="g3">
-<div class="card" style="display:flex;gap:14px"><div class="ib" style="background:rgba(255,107,107,.1);color:var(--coral)"><i class="fas fa-child"></i></div><div><h4 style="font-size:14px;font-weight:700;color:var(--navy)">Primarschule (7–10 J.)</h4><p style="font-size:12px;color:var(--muted);margin-top:4px">aha startet ab 5. Klasse. Wir schliessen die Lücke.</p></div></div>
-<div class="card" style="display:flex;gap:14px"><div class="ib" style="background:rgba(124,77,255,.1);color:var(--purple)"><i class="fas fa-mobile-screen-button"></i></div><div><h4 style="font-size:14px;font-weight:700;color:var(--navy)">Praxis statt Theorie</h4><p style="font-size:12px;color:var(--muted);margin-top:4px">Einziges Modul in FL mit LIVE Privatsphäre-Änderungen.</p></div></div>
-<div class="card" style="display:flex;gap:14px"><div class="ib" style="background:rgba(6,214,160,.1);color:var(--green)"><i class="fas fa-puzzle-piece"></i></div><div><h4 style="font-size:14px;font-weight:700;color:var(--navy)">Modular & flexibel</h4><p style="font-size:12px;color:var(--muted);margin-top:4px">Polizei, OJA und Schulen kombinieren frei.</p></div></div></div>
-<div style="text-align:center;margin-top:24px"><a href="module.html" class="btn btn-out">Alle Module entdecken →</a></div></div></section>
-<section style="background:linear-gradient(160deg,#1a0533,#2d1458,#5228a0);color:#fff"><div class="container" style="text-align:center"><h2 style="font-family:Space Grotesk;font-size:24px;font-weight:700;color:#fff;margin-bottom:8px">Brauchst du Hilfe?</h2><p style="color:rgba(255,255,255,.5);margin-bottom:20px">Anonym und kostenlos – in Liechtenstein.</p>
-<div style="display:flex;gap:24px;justify-content:center;flex-wrap:wrap"><div><div style="font-family:Space Grotesk;font-size:32px;font-weight:700;color:var(--coral)">147</div><div style="font-size:11px;color:rgba(255,255,255,.5)">Sorgentelefon</div></div><div><div style="font-family:Space Grotesk;font-size:32px;font-weight:700;color:var(--teal)">117</div><div style="font-size:11px;color:rgba(255,255,255,.5)">Landespolizei</div></div><div><div style="font-family:Space Grotesk;font-size:32px;font-weight:700;color:var(--green)">143</div><div style="font-size:11px;color:rgba(255,255,255,.5)">Dargebotene Hand</div></div></div>
-<p style="margin-top:20px;font-size:18px;font-weight:700;font-family:Space Grotesk">Du bist nicht allein. 💛</p><a href="notfall.html" class="btn btn-coral" style="margin-top:16px">Alle Hilfsstellen →</a></div></section><footer><div class="fb">Safe<span>Click</span> FL 🇱🇮</div>
-<p>Think. Click. Act! · Pro Bono · Universität Liechtenstein · 2026</p>
-<div class="fl"><a href="mailto:safeclickfl@proton.me"><i class="fas fa-envelope"></i> safeclickfl@proton.me</a>
-<a href="https://instagram.com/safeclickfl" target="_blank"><i class="fab fa-instagram"></i> @safeclickfl</a>
-<a href="https://aha.li" target="_blank">aha.li</a></div>
-<p style="margin-top:8px;font-size:10px">CC BY-NC-SA 4.0</p>
-<div class="ff"><div style="background:#002B7F"></div><div style="background:#CE1126"></div><div style="background:#FFD700"></div></div></footer>
-<script>document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'})})});</script></body></html>
+
+<!-- Header / Nav -->
+<header class="site">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">S</div>
+      <div class="brand-text">
+        <span class="brand-name">SafeClick <span class="fl">FL</span></span>
+        <span class="brand-sub">Think · Click · Act</span>
+      </div>
+    </a>
+    <ul class="nav-links" id="nv">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="module.html">Module</a></li>
+      <li><a href="downloads.html">Downloads</a></li>
+      <li><a href="notfall.html">Notfall</a></li>
+      <li><a href="partner.html">Partner</a></li>
+      <li><a href="quiz.html">Quiz</a></li>
+      <li><a href="mailto:safeclickfl@proton.me" class="cta">Kontakt</a></li>
+    </ul>
+    <button class="nav-toggle" onclick="document.getElementById('nv').classList.toggle('open')" aria-label="Menü">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+<div class="fl-stripe"></div>
+
+<!-- Hero mit visuellem Element -->
+<section class="page-head" style="padding-bottom:72px">
+  <div class="page-head-inner">
+    <div class="hero-grid">
+
+      <div class="hero-content">
+        <div class="page-meta">
+          <strong>Workshop-Baukasten</strong>
+          <span class="pm-dot">·</span>
+          <span>Für Schulen, Jugendarbeit und Polizei in Liechtenstein</span>
+        </div>
+
+        <h1 class="h1-display">Cyber-Sicherheit für Kinder und Jugendliche — <span class="ac"><span class="underlined">fertig vorbereitet</span></span> für Ihre Klasse.</h1>
+
+        <p class="page-lede">
+          Sieben Workshop-Module für 7 bis 18 Jahre. Frei kombinierbar, mit ausformulierten Moderationstexten, sofort einsetzbar im Unterricht. Entwickelt mit aha Vaduz und der Landespolizei. Kostenlos unter CC BY-NC-SA 4.0.
+        </p>
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:32px">
+          <a href="module.html" class="btn btn-lg">
+            <span class="ic"><svg width="16" height="16"><use href="#i-puzzle"/></svg></span>
+            Alle 7 Module ansehen
+          </a>
+          <a href="downloads.html" class="btn btn-outline btn-lg">
+            <span class="ic"><svg width="16" height="16"><use href="#i-download"/></svg></span>
+            Direkt herunterladen
+          </a>
+        </div>
+
+        <div class="hero-meta-stack">
+          <div class="hero-meta-row">
+            <div class="hero-meta-mark"><svg width="13" height="13"><use href="#i-check"/></svg></div>
+            <div><strong>Geprüft & validiert</strong> durch aha Vaduz (Berater) und die Landespolizei Liechtenstein (operativ). Reale FL-Fallbeispiele.</div>
+          </div>
+          <div class="hero-meta-row">
+            <div class="hero-meta-mark"><svg width="13" height="13"><use href="#i-check"/></svg></div>
+            <div><strong>In der Praxis erprobt</strong> — Pilotversuch an der Schule Gams startet in einem Monat, anschliessend Umsetzung am Gymnasium Vaduz.</div>
+          </div>
+          <div class="hero-meta-row">
+            <div class="hero-meta-mark"><svg width="13" height="13"><use href="#i-check"/></svg></div>
+            <div><strong>Kostenlos. Für immer.</strong> Pro Bono unter CC BY-NC-SA 4.0. Auch zukünftig kein Abo, keine Lizenz, keine Gebühr.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual: Liechtenstein Outline mit Partner-Pins -->
+      <div class="hero-visual">
+        <div class="hero-visual-inner">
+          <div class="hero-stamp">Made in Vaduz</div>
+
+          <svg class="hero-fl-outline" viewBox="0 0 280 420" xmlns="http://www.w3.org/2000/svg" aria-label="Liechtenstein Umriss">
+            <!-- Subtle Hintergrund mit Gradient -->
+            <defs>
+              <linearGradient id="flBg" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#EFF4FE" stop-opacity=".6"/>
+                <stop offset="100%" stop-color="#F5EFE0" stop-opacity=".4"/>
+              </linearGradient>
+              <pattern id="dotGrid" x="0" y="0" width="14" height="14" patternUnits="userSpaceOnUse">
+                <circle cx="1" cy="1" r="1" fill="#CFC7B4" opacity=".4"/>
+              </pattern>
+            </defs>
+
+            <!-- Dot-Grid Hintergrund -->
+            <rect width="280" height="420" fill="url(#dotGrid)"/>
+
+            <!-- Stilisierter Liechtenstein-Umriss (Nord oben, Süd unten) -->
+            <!-- Outline-Form: schmal-länglich, östlicher Berg-Rand konvex, westlicher Rhein-Rand leichter -->
+            <path d="M 145,20
+                     C 165,22 178,32 184,48
+                     L 192,75
+                     C 198,95 204,118 207,142
+                     L 210,170
+                     C 211,195 208,220 202,242
+                     L 196,265
+                     C 190,287 182,308 172,328
+                     L 162,348
+                     C 154,365 144,378 135,388
+                     C 128,394 122,396 116,392
+                     C 110,386 104,374 100,360
+                     L 94,340
+                     C 88,318 82,295 78,272
+                     L 74,248
+                     C 70,224 68,200 70,176
+                     L 73,150
+                     C 76,124 82,98 90,76
+                     L 100,52
+                     C 110,35 122,24 138,20
+                     Z"
+                  fill="url(#flBg)"
+                  stroke="#0A2A66"
+                  stroke-width="1.5"
+                  stroke-linejoin="round"/>
+
+            <!-- Innerer Schimmer Linie (sehr subtil) -->
+            <path d="M 145,28
+                     C 162,30 174,40 180,54
+                     L 187,80
+                     C 193,100 198,122 201,144
+                     L 204,170
+                     C 205,193 202,217 197,238
+                     L 191,261
+                     C 185,282 178,301 169,320"
+                  fill="none"
+                  stroke="#0A2A66"
+                  stroke-width=".5"
+                  stroke-opacity=".25"
+                  stroke-dasharray="2 3"/>
+
+            <!-- Mini Rhein-Linie (west) -->
+            <path d="M 72,80
+                     C 70,140 70,220 76,290
+                     C 80,320 88,348 96,370"
+                  fill="none"
+                  stroke="#2563EB"
+                  stroke-width="1"
+                  stroke-opacity=".4"/>
+
+            <!-- Beschriftung "Liechtenstein" entlang -->
+            <text x="140" y="408" font-family="Manrope, sans-serif" font-size="11" font-weight="700" letter-spacing="0.18em" fill="#64748B" text-anchor="middle">LIECHTENSTEIN</text>
+
+            <!-- Massstab klein unten -->
+            <g transform="translate(15,388)">
+              <line x1="0" y1="0" x2="30" y2="0" stroke="#94A3B8" stroke-width="1"/>
+              <line x1="0" y1="-3" x2="0" y2="3" stroke="#94A3B8" stroke-width="1"/>
+              <line x1="30" y1="-3" x2="30" y2="3" stroke="#94A3B8" stroke-width="1"/>
+              <text x="33" y="3" font-family="Inter, sans-serif" font-size="9" fill="#94A3B8">5 km</text>
+            </g>
+
+            <!-- Kompass-Indikator klein oben -->
+            <g transform="translate(245,30)">
+              <circle cx="0" cy="0" r="12" fill="#FFFFFF" stroke="#E5E1D6" stroke-width="1"/>
+              <path d="M 0,-8 L 3,2 L 0,0 L -3,2 Z" fill="#CE1126"/>
+              <text x="0" y="20" font-family="Manrope, sans-serif" font-size="8" font-weight="700" fill="#64748B" text-anchor="middle">N</text>
+            </g>
+
+            <!-- Pin: Schaan -->
+            <g transform="translate(102,180)">
+              <circle cx="0" cy="0" r="8" fill="#2563EB" fill-opacity=".12"/>
+              <circle cx="0" cy="0" r="4" fill="#2563EB" fill-opacity=".25"/>
+              <circle cx="0" cy="0" r="2.5" fill="#0A2A66"/>
+            </g>
+
+            <!-- Pin: Vaduz (Hauptstadt, grösser) -->
+            <g transform="translate(118,220)">
+              <circle cx="0" cy="0" r="14" fill="#CE1126" fill-opacity=".08"/>
+              <circle cx="0" cy="0" r="9" fill="#CE1126" fill-opacity=".18"/>
+              <circle cx="0" cy="0" r="5" fill="#CE1126" fill-opacity=".4"/>
+              <circle cx="0" cy="0" r="3" fill="#CE1126"/>
+              <circle cx="0" cy="0" r="1.2" fill="#FFFFFF"/>
+            </g>
+
+            <!-- Pin: Gams (Schweiz, ausserhalb FL, westlich) -->
+            <g transform="translate(48,210)">
+              <circle cx="0" cy="0" r="7" fill="#B89860" fill-opacity=".18"/>
+              <circle cx="0" cy="0" r="3.5" fill="#B89860" fill-opacity=".4"/>
+              <circle cx="0" cy="0" r="2" fill="#9A7D49"/>
+              <!-- gestrichelte Verbindungslinie nach Vaduz -->
+            </g>
+            <line x1="51" y1="210" x2="113" y2="220" stroke="#B89860" stroke-width="0.6" stroke-dasharray="2 2" stroke-opacity=".5"/>
+            <text x="48" y="200" font-family="Inter, sans-serif" font-size="7" font-weight="600" fill="#9A7D49" text-anchor="middle" letter-spacing=".05em">CH</text>
+          </svg>
+
+          <!-- Labels neben den Pins (ausserhalb SVG, absolut positioniert) -->
+          <div class="hero-fl-pin-label" style="top:48%;left:11%;background:#F5EFE0;color:#9A7D49;border-color:#E5D5AC">
+            <strong>Gams</strong> · Pilot
+          </div>
+          <div class="hero-fl-pin-label" style="top:40%;left:36%;transform:translateX(-100%) translateX(-10px)">
+            <strong style="color:var(--fl-blue-deep)">Schaan</strong>
+          </div>
+          <div class="hero-fl-pin-label" style="top:51%;left:42%;transform:translateX(20px);background:var(--fl-red);color:#fff;border-color:var(--fl-red)">
+            <strong>Vaduz</strong> · 4 Partner
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Trust Bar / Partner Marks -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-bar-label">In Kooperation mit</div>
+    <div class="trust-bar-items">
+      <a href="partner.html" class="trust-mark">Universität Liechtenstein <span class="tm-tag">Trägerin</span></a>
+      <a href="partner.html" class="trust-mark">aha Vaduz <span class="tm-tag">Berater</span></a>
+      <a href="partner.html" class="trust-mark">Landespolizei FL <span class="tm-tag">Operativ</span></a>
+      <a href="partner.html" class="trust-mark">Gymnasium Vaduz <span class="tm-tag">Zielort</span></a>
+      <a href="partner.html" class="trust-mark">Schule Gams <span class="tm-tag">Pilot</span></a>
+    </div>
+  </div>
+</div>
+
+<!-- KPIs -->
+<section style="padding-top:56px;padding-bottom:56px">
+  <div class="wrap">
+    <div class="kpi-grid">
+      <div class="kpi">
+        <div class="kpi-num">7</div>
+        <div class="kpi-label">Module</div>
+        <div class="kpi-detail">je 10 – 20 Minuten, eigenständig durchführbar</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-num">7<span class="unit">–</span>18</div>
+        <div class="kpi-label">Jahre Zielgruppe</div>
+        <div class="kpi-detail">Primar, Sek I & II — altersangepasst</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-num red">62<span class="unit">%</span></div>
+        <div class="kpi-label">der Teens betroffen</div>
+        <div class="kpi-detail">Cybermobbing-Erfahrung* — wir wollen das ändern</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-num gold">CHF 0.–</div>
+        <div class="kpi-label">Lizenz CC BY-NC-SA 4.0</div>
+        <div class="kpi-detail">Kostenlos. Auch zukünftig. Versprochen.</div>
+      </div>
+    </div>
+    <p class="kpi-foot">* BARMER/SINUS-Jugendstudie 2025 zu Cybermobbing-Erfahrungen bei 14- bis 17-Jährigen im DACH-Raum.</p>
+  </div>
+</section>
+
+<!-- Letter from Team / Persönlicher Brief -->
+<section style="padding-top:8px;padding-bottom:80px">
+  <div class="wrap-narrow">
+    <div class="letter">
+      <div class="letter-meta">
+        <div class="letter-meta-eyebrow">Ein offener Brief an alle Lehrpersonen</div>
+        <div>Vaduz · Mai 2026</div>
+      </div>
+
+      <div class="letter-greeting">Liebe Lehrperson, schön, dass Sie hier sind.</div>
+
+      <div class="letter-body">
+        <p>Wir wissen, wie Ihr Tag aussieht: zu viele Klassen, zu wenig Zeit, ständig neue Themen, die irgendwie noch reinpassen sollen — und jetzt also auch noch Cyber-Sicherheit. Schon wieder etwas, das Sie eigentlich nicht studiert haben, für das Ihnen aber niemand Unterrichtszeit zusätzlich gibt.</p>
+
+        <p>Genau aus diesem Grund haben wir SafeClick FL entwickelt. <em>Damit Sie morgen früh nichts vorbereiten müssen.</em> Sie öffnen ein Modul, lesen den Moderationstext einmal kurz durch, und können loslegen. Jede Folie ist geprüft. Jede Frage ist vorformuliert. Jede Übung ist mit echten Klassen getestet.</p>
+
+        <p>SafeClick FL ist kein Auftrag einer Agentur und kein Produkt einer Firma. Es ist die Abschlussarbeit von Studierenden der Universität Liechtenstein — entwickelt zusammen mit aha Vaduz als Berater, der Landespolizei als operativem Partner, dem Liechtensteinischen Gymnasium Vaduz als Zielort und der Schule Gams, die in einem Monat den ersten Pilotversuch fährt. Pro Bono. Aus Überzeugung. Mit Liebe zu diesem kleinen Land und seinen Kindern.</p>
+
+        <p>Wenn Sie Fragen haben, schreiben Sie uns. Wenn etwas nicht funktioniert, sagen Sie es uns. Wenn ein Modul fehlt — wir entwickeln es. Das hier ist erst der Anfang.</p>
+      </div>
+
+      <div class="letter-signature">
+        <div>
+          <div class="letter-sig-text">Mit warmen Grüssen,</div>
+          <div class="letter-sig-meta">Das SafeClick-FL-Team · Universität Liechtenstein · 2026</div>
+        </div>
+        <div class="letter-sig-avatars">
+          <div class="sig-av">UL</div>
+          <div class="sig-av gold">aha</div>
+          <div class="sig-av dark">LP</div>
+          <div class="sig-av red">LG</div>
+          <div class="sig-av" style="background:linear-gradient(135deg,var(--safety-blue),var(--safety-blue-2))">SG</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quickstart -->
+<section style="background:var(--paper);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="wrap">
+    <div class="eyebrow">Für Lehrpersonen</div>
+    <h2 class="h2">In fünf Minuten startklar. <span class="ac">Wirklich.</span></h2>
+    <p class="lede">Kein Vorwissen nötig, kein Vorbereitungsaufwand. Sie laden ein Modul herunter, lesen die Moderation einmal durch, starten den Workshop. Das ist alles.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">Schritt 01</div>
+        <div class="step-icon"><svg width="20" height="20"><use href="#i-puzzle"/></svg></div>
+        <div class="step-name">Modul auswählen</div>
+        <div class="step-desc">Nach Alter und Zeitfenster filtern — z.B. „Echt oder Fake?" für 15 Minuten mit einer Sek-I-Klasse.</div>
+        <div class="step-hint">Tipp: Mit Modul 1 oder 3 starten — die laufen erfahrungsgemäss am besten.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">Schritt 02</div>
+        <div class="step-icon"><svg width="20" height="20"><use href="#i-download"/></svg></div>
+        <div class="step-name">ZIP herunterladen</div>
+        <div class="step-desc">Jedes Paket enthält die Präsentation (PPTX), den Moderationstext (DOCX) und alle Materialien für den Workshop.</div>
+        <div class="step-hint">Grösse: ca. 8 – 15 MB pro Modul. Alle 7 zusammen: 60 MB.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">Schritt 03</div>
+        <div class="step-icon"><svg width="20" height="20"><use href="#i-mobile"/></svg></div>
+        <div class="step-name">Workshop durchführen</div>
+        <div class="step-desc">Smartphones raus, WLAN frei, los geht's. Wir setzen auf Hands-on statt langer Theorie — die Klasse macht direkt am Gerät mit.</div>
+        <div class="step-hint">Brauchen Sie Hilfe? aha kommt vor Ort und begleitet den ersten Workshop.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">Schritt 04</div>
+        <div class="step-icon"><svg width="20" height="20"><use href="#i-id-card"/></svg></div>
+        <div class="step-name">Notfallkarte verteilen</div>
+        <div class="step-desc">Jedes Kind nimmt am Schluss die FL-Notfallkarte mit nach Hause — Kreditkartenformat, alle Hilfsnummern, für die Brieftasche.</div>
+        <div class="step-hint">147 · 117 · 143 · aha · OSKJ · kinderschutz.li</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Voices Grid: 4 Testimonials inkl. kritischer Stimme -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Stimmen aus der Praxis</div>
+    <h2 class="h2">Vier Stimmen, die SafeClick FL <span class="ac">getestet haben.</span></h2>
+    <p class="lede">Vor dem Launch haben wir mit Lehrpersonen, einer Polizei-Präventionsfachperson und Schülerinnen aus dem Pilot-Programm gesprochen. Alle Stimmen sind anonymisiert — wir haben aber bewusst auch eine kritische dazu genommen. Weil wir glauben, dass Ehrlichkeit mehr hilft als Marketing.</p>
+
+    <div class="voices-grid">
+
+      <div class="voice">
+        <div class="voice-mark">"</div>
+        <div class="voice-text">
+          Endlich Material, das nicht von einer Beratungsfirma in Zürich, sondern <strong>aus Liechtenstein für Liechtenstein</strong> kommt. Die Fallbeispiele kennen die Schüler vom Pausenhof wieder — das macht den Unterschied.
+        </div>
+        <div class="voice-author">
+          <div class="voice-avatar">L1</div>
+          <div>
+            <div class="voice-name">Klassenlehrperson</div>
+            <div class="voice-role">Sek I · Gymnasium Vaduz · Pilot 2026</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="voice">
+        <div class="voice-mark gold">"</div>
+        <div class="voice-text">
+          Wir nutzen Modul 2 und 3 in unseren Schulbesuchen. Die Schüler hören wirklich zu, wenn sie merken: das sind Fälle, die <strong>hier in Liechtenstein</strong> passiert sind. Das verändert das Gespräch.
+        </div>
+        <div class="voice-author">
+          <div class="voice-avatar dark">JP</div>
+          <div>
+            <div class="voice-name">Jugendsachbearbeiter:in</div>
+            <div class="voice-role">Landespolizei Liechtenstein</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="voice">
+        <div class="voice-mark red">"</div>
+        <div class="voice-text">
+          Vor dem Workshop wusste ich nicht, dass mein TikTok-Profil <strong>jeder Fremde</strong> sehen kann. Jetzt habe ich es umgestellt — und meiner Schwester auch geholfen. Das war wirklich nützlich.
+        </div>
+        <div class="voice-author">
+          <div class="voice-avatar red">A</div>
+          <div>
+            <div class="voice-name">Anonyme Schülerin</div>
+            <div class="voice-role">13 Jahre · Sek I · Pilot-Workshop 2026</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="voice">
+        <div class="voice-mark" style="color:#D9D3C2">"</div>
+        <div class="voice-text">
+          Inhaltlich solide, aber die 15-Minuten-Slots sind manchmal <strong>zu knapp</strong>. Wer wirklich diskutieren will, braucht mehr Zeit als die Module einplanen. Wir haben Module 4 in zwei Lektionen aufgeteilt — das funktioniert dann besser. Ein Workshop ersetzt aber keine Begleitung über Monate.
+        </div>
+        <div class="voice-author">
+          <div class="voice-avatar" style="background:linear-gradient(135deg,#94A3B8 0%,#64748B 100%)">L2</div>
+          <div>
+            <div class="voice-name">Fachlehrperson (kritisch)</div>
+            <div class="voice-role">Sek I · Pilot-Erprobung Mai 2026</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Module Preview -->
+<section style="background:var(--paper);border-top:1px solid var(--border)">
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;margin-bottom:36px">
+      <div>
+        <div class="eyebrow">Der Baukasten</div>
+        <h2 class="h2" style="margin-bottom:6px">Sieben Module. Frei kombinierbar.</h2>
+        <p style="color:var(--muted);font-size:15px;max-width:620px">Jedes Modul ist eigenständig — kein Modul setzt ein anderes voraus.</p>
+      </div>
+      <a href="module.html" class="btn btn-outline">
+        Alle Module ansehen
+        <span class="ic"><svg width="14" height="14"><use href="#i-arrow-right"/></svg></span>
+      </a>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:14px">
+
+      <a href="modul-0-mein-erstes-geraet.html" class="mod-card" data-mod="0">
+        <div class="mod-num">00</div>
+        <div>
+          <div class="mod-meta">
+            <span><span class="ic"><svg width="13" height="13"><use href="#i-clock"/></svg></span> 20 Min.</span>
+            <span><span class="ic"><svg width="13" height="13"><use href="#i-users"/></svg></span> 7 – 10 Jahre · Primarschule</span>
+            <span><span class="ic"><svg width="13" height="13"><use href="#i-house"/></svg></span> Mit Eltern-Handout</span>
+          </div>
+          <h3 class="mod-title">Mein erstes Gerät</h3>
+          <p class="mod-desc">Regeln für Tablet und Smartphone. In-App-Käufe, fremde Nachrichten, Bildschirmzeit — kindgerecht erklärt.</p>
+        </div>
+        <div class="mod-arrow"><svg width="20" height="20"><use href="#i-arrow-right"/></svg></div>
+        <div class="mod-badge">Neu</div>
+      </a>
+
+      <a href="modul-1-echt-oder-fake.html" class="mod-card" data-mod="1">
+        <div class="mod-num">01</div>
+        <div>
+          <div class="mod-meta">
+            <span><span class="ic"><svg width="13" height="13"><use href="#i-clock"/></svg></span> 15 Min.</span>
+            <span><span class="ic"><svg width="13" height="13"><use href="#i-users"/></svg></span> 11 – 18 Jahre</span>
+            <span><span class="ic"><svg width="13" height="13"><use href="#i-search"/></svg></span> Live-Quiz</span>
+          </div>
+          <h3 class="mod-title">Echt oder Fake?</h3>
+          <p class="mod-desc">Deepfakes erkennen, KI-Bilder entlarven, Quellen prüfen — bevor weitergeteilt wird.</p>
+        </div>
+        <div class="mod-arrow"><svg width="20" height="20"><use href="#i-arrow-right"/></svg></div>
+      </a>
+
+      <a href="modul-2-phishing-und-manipulation.html" class="mod-card" data-mod="2">
+        <div class="mod-num">02</div>
+        <div>
+          <div class="mod-meta">
+            <span><span class="ic"><svg width="13" height="13"><use href="#i-clock"/></svg></span> 15 Min.</span>
+            <span><span class="ic"><svg width="13" height="13"><use href="#i-users"/></svg></span> 11 – 18 Jahre</span>
+            <span><span class="ic"><svg width="13" height="13"><use href="#i-shield"/></svg></span> Fallbasiert</span>
+          </div>
+          <h3 class="mod-title">Phishing & Manipulation</h3>
+          <p class="mod-desc">Echte Fälle aus Liechtenstein — anonymisiert von der Landespolizei. Wie Täter psychologisch manipulieren.</p>
+        </div>
+        <div class="mod-arrow"><svg width="20" height="20"><use href="#i-arrow-right"/></svg></div>
+      </a>
+
+      <a href="modul-3-passwort-challenge.html" class="mod-card" data-mod="3">
+        <div class="mod-num">03</div>
+        <div>
+          <div class="mod-meta">
+            <span><span class="ic"><svg width="13" height="13"><use href="#i-clock"/></svg></span> 12 Min.</span>
+            <span><span class="ic"><svg width="13" height="13"><use href="#i-users"/></svg></span> 11 – 18 Jahre</span>
+            <span><span class="ic"><svg width="13" height="13"><use href="#i-key"/></svg></span> Live-Aktion am Handy</span>
+          </div>
+          <h3 class="mod-title">Passwort-Challenge</h3>
+          <p class="mod-desc">Sichere Passwortsätze entwickeln. 2-Faktor-Authentifizierung — direkt am eigenen Gerät, im Workshop.</p>
+        </div>
+        <div class="mod-arrow"><svg width="20" height="20"><use href="#i-arrow-right"/></svg></div>
+      </a>
+
+    </div>
+
+    <div style="text-align:center;margin-top:40px">
+      <a href="module.html" class="btn">+ Drei weitere Module ansehen</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="wrap-narrow">
+    <div class="eyebrow gold">Häufige Fragen</div>
+    <h2 class="h2">Was Lehrpersonen vorher wissen wollen.</h2>
+    <p class="lede">Bevor Sie ein Modul herunterladen — hier die Antworten auf die fünf häufigsten Fragen. Wenn etwas fehlt, schreiben Sie uns einfach.</p>
+
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary>
+          <div style="display:flex;align-items:center;flex-grow:1">
+            <span class="faq-num">01</span>
+            <span>Brauchen wir ein bestimmtes Vorwissen über Cyber-Sicherheit?</span>
+          </div>
+          <div class="faq-icon"><svg width="14" height="14"><use href="#i-plus"/></svg></div>
+        </summary>
+        <div class="faq-body">
+          <p><strong>Nein.</strong> Das ist der ganze Punkt. Jedes Modul kommt mit einem ausformulierten Moderationstext — Sie lesen ihn ein Mal durch, und Sie wissen genau, was zu sagen ist. Auch die Fachbegriffe sind im Begleitdokument kurz erklärt.</p>
+          <p>Wenn Sie sich beim ersten Workshop unsicher fühlen: aha Vaduz kommt vor Ort und begleitet die erste Durchführung. Schreiben Sie uns einfach.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          <div style="display:flex;align-items:center;flex-grow:1">
+            <span class="faq-num">02</span>
+            <span>Was, wenn Smartphones im Klassenzimmer nicht erlaubt sind?</span>
+          </div>
+          <div class="faq-icon"><svg width="14" height="14"><use href="#i-plus"/></svg></div>
+        </summary>
+        <div class="faq-body">
+          <p>Module 1, 2, 5 und 6 funktionieren <strong>komplett ohne Smartphone</strong>. Die Schüler diskutieren, das Beamer-Bild reicht. Module 3 (Passwort) und 4 (Privatsphäre) sind explizit „Hands-on am eigenen Gerät" gedacht — hier müssen die Smartphones rein.</p>
+          <p>Für strenge Geräte-Verbote empfehlen wir, gezielt für diesen Workshop eine Ausnahme zu erbitten — gerade die Hands-on-Module schaffen Wirkung, die reines Zuhören nicht erreicht.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          <div style="display:flex;align-items:center;flex-grow:1">
+            <span class="faq-num">03</span>
+            <span>Wie aktuell sind die Materialien — und wer pflegt sie?</span>
+          </div>
+          <div class="faq-icon"><svg width="14" height="14"><use href="#i-plus"/></svg></div>
+        </summary>
+        <div class="faq-body">
+          <p>Alle Module wurden im Frühjahr 2026 mit Beispielen aus dem aktuellen Schuljahr aufgesetzt. Die laufende Pflege übernimmt <strong>aha Vaduz</strong> — sie ergänzen jährlich neue Fallbeispiele, aktualisieren Screenshots und reagieren auf neue Plattformen.</p>
+          <p>Sie sehen das Datum der letzten Aktualisierung jeweils auf der Modul-Detailseite.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          <div style="display:flex;align-items:center;flex-grow:1">
+            <span class="faq-num">04</span>
+            <span>Dürfen wir die Module anpassen oder eigene Folien hinzufügen?</span>
+          </div>
+          <div class="faq-icon"><svg width="14" height="14"><use href="#i-plus"/></svg></div>
+        </summary>
+        <div class="faq-body">
+          <p><strong>Ja, ausdrücklich.</strong> Die Lizenz CC BY-NC-SA 4.0 erlaubt das Bearbeiten und Anpassen — solange die Quelle (SafeClick FL) genannt wird und Sie das Ergebnis unter derselben Lizenz weitergeben. Konkret: Sie dürfen Folien streichen, ergänzen, neu sortieren, eigene Beispiele einbauen. Sie dürfen die Materialien nicht kommerziell weiterverkaufen.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          <div style="display:flex;align-items:center;flex-grow:1">
+            <span class="faq-num">05</span>
+            <span>Was passiert mit dem Projekt nach 2026 — bleibt das langfristig?</span>
+          </div>
+          <div class="faq-icon"><svg width="14" height="14"><use href="#i-plus"/></svg></div>
+        </summary>
+        <div class="faq-body">
+          <p>SafeClick FL wird ab Herbst 2026 von <strong>aha Vaduz</strong> dauerhaft betreut. Die Materialien bleiben unter CC BY-NC-SA 4.0 frei zugänglich — auch dann, wenn das Pro-Bono-Programm der Universität wechselt oder endet. Das ist Teil der Vereinbarung.</p>
+          <p>Kurz: Was Sie heute herunterladen, bleibt morgen verfügbar. Versprochen.</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- Hinter dem Projekt / Team -->
+<section style="background:var(--paper);border-top:1px solid var(--border)">
+  <div class="wrap">
+    <div class="eyebrow gold">Hinter dem Projekt</div>
+    <h2 class="h2">Fünf Häuser. Eine Mission.</h2>
+    <p class="lede">SafeClick FL ist kein Solo-Projekt. Es bündelt fünf Häuser aus Liechtenstein und der Region — akademisch, beratend, operativ und schulisch. Jedes Haus bringt eine andere Stärke ein.</p>
+
+    <div class="grid-3" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+      <div class="team-card">
+        <div class="team-avatar">UL</div>
+        <div class="team-name">Universität Liechtenstein</div>
+        <div class="team-role">Trägerin · Pro-Bono-Programm & Methodik</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" style="background:linear-gradient(135deg,var(--gold-soft) 0%,var(--gold-soft-2) 100%)">aha</div>
+        <div class="team-name">aha Vaduz</div>
+        <div class="team-role">Berater · Inhaltliche Validierung & laufende Pflege</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" style="background:linear-gradient(135deg,var(--ink) 0%,var(--ink-2) 100%);color:var(--gold-soft)">LP</div>
+        <div class="team-name">Landespolizei FL</div>
+        <div class="team-role">Operativer Partner · Reale FL-Fallbeispiele</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" style="background:linear-gradient(135deg,var(--fl-red) 0%,var(--fl-red-deep) 100%)">LG</div>
+        <div class="team-name">Gymnasium Vaduz</div>
+        <div class="team-role">Zielort für Umsetzung · Semester 2026/27</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#2563EB 0%,#1D4FCB 100%)">SG</div>
+        <div class="team-name">Schule Gams</div>
+        <div class="team-role">Pilotversuch · Start in einem Monat</div>
+      </div>
+    </div>
+
+    <div style="margin-top:40px;text-align:center">
+      <a href="partner.html" class="btn btn-outline">
+        Mehr über die Partner
+        <span class="ic"><svg width="14" height="14"><use href="#i-arrow-right"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Notfall CTA -->
+<section class="dark-section" style="padding:80px 24px">
+  <div class="wrap" style="display:grid;grid-template-columns:1fr 1.15fr;gap:48px;align-items:center;position:relative;z-index:1">
+    <div>
+      <div class="eyebrow red">Erste Hilfe</div>
+      <h2 class="h2">Brauchst du jetzt Hilfe?</h2>
+      <p style="font-size:16.5px;line-height:1.65;color:rgba(255,255,255,.78);margin-bottom:28px;max-width:480px">
+        Cybermobbing, Bedrohung, Erpressung — du musst das nicht alleine durchstehen. In Liechtenstein gelten diese Nummern: anonym, kostenlos, rund um die Uhr.
+      </p>
+      <a href="notfall.html" class="btn btn-red btn-lg">
+        Alle Hilfsstellen ansehen
+        <span class="ic"><svg width="14" height="14"><use href="#i-arrow-right"/></svg></span>
+      </a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-left:4px solid var(--fl-red);padding:20px 24px;display:flex;align-items:center;gap:22px;border-radius:var(--r-md)">
+        <div style="font-family:var(--display);font-weight:800;font-size:36px;color:var(--fl-red);line-height:1;min-width:64px;letter-spacing:-.03em">147</div>
+        <div>
+          <div style="font-family:var(--display);font-weight:700;font-size:15.5px;color:#fff;margin-bottom:3px">Sorgentelefon</div>
+          <div style="font-size:13px;color:rgba(255,255,255,.62)">Für Kinder & Jugendliche · 24/7</div>
+        </div>
+      </div>
+      <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-left:4px solid var(--safety-blue);padding:20px 24px;display:flex;align-items:center;gap:22px;border-radius:var(--r-md)">
+        <div style="font-family:var(--display);font-weight:800;font-size:36px;color:var(--safety-blue);line-height:1;min-width:64px;letter-spacing:-.03em">117</div>
+        <div>
+          <div style="font-family:var(--display);font-weight:700;font-size:15.5px;color:#fff;margin-bottom:3px">Landespolizei FL</div>
+          <div style="font-size:13px;color:rgba(255,255,255,.62)">Bei Bedrohung und Erpressung</div>
+        </div>
+      </div>
+      <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-left:4px solid var(--gold-soft);padding:20px 24px;display:flex;align-items:center;gap:22px;border-radius:var(--r-md)">
+        <div style="font-family:var(--display);font-weight:800;font-size:36px;color:var(--gold-soft);line-height:1;min-width:64px;letter-spacing:-.03em">143</div>
+        <div>
+          <div style="font-family:var(--display);font-weight:700;font-size:15.5px;color:#fff;margin-bottom:3px">Dargebotene Hand</div>
+          <div style="font-size:13px;color:rgba(255,255,255,.62)">Telefonseelsorge · 24/7</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter / Stay in touch -->
+<section style="padding-top:64px;padding-bottom:64px">
+  <div class="wrap-narrow">
+    <div class="signup">
+      <div>
+        <div class="signup-eyebrow">Bleiben Sie auf dem Laufenden</div>
+        <h3>Neue Module, neue Fälle — direkt in Ihr Postfach.</h3>
+        <p>Drei bis vier kurze Updates im Jahr. Ohne Werbung, ohne Tracking, jederzeit abbestellbar. Wir versprechen: Wir schreiben nur, wenn es wirklich etwas Neues gibt.</p>
+      </div>
+      <div class="signup-actions">
+        <a href="mailto:safeclickfl@proton.me?subject=Newsletter-Anmeldung" class="btn">
+          <span class="ic"><svg width="16" height="16"><use href="#i-mail"/></svg></span>
+          Per E-Mail anmelden
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">
+        <div class="footer-mark">S</div>
+        <div class="footer-brand-text">SafeClick <span class="fl">FL</span></div>
+      </div>
+      <div class="footer-tag">Think · Click · Act</div>
+      <p class="footer-message">
+        Wir glauben, dass jedes Kind in Liechtenstein das Recht hat, sicher im Netz unterwegs zu sein. Dafür ist SafeClick FL da. Pro Bono. Für immer kostenlos.
+      </p>
+      <div class="footer-meta">
+        Pro-Bono-Projekt 2026 · Universität Liechtenstein<br>
+        in Kooperation mit aha Vaduz<br>
+        Lizenz: CC BY-NC-SA 4.0
+      </div>
+    </div>
+    <div>
+      <h4>Navigation</h4>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="module.html">Module</a></li>
+        <li><a href="downloads.html">Downloads</a></li>
+        <li><a href="notfall.html">Notfall</a></li>
+        <li><a href="partner.html">Partner</a></li>
+      <li><a href="quiz.html">Quiz</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Partner</h4>
+      <ul class="footer-links">
+        <li><a href="https://www.uni.li" target="_blank">Universität Liechtenstein</a></li>
+        <li><a href="https://www.aha.li" target="_blank">aha Vaduz</a></li>
+        <li><a href="https://www.landespolizei.li" target="_blank">Landespolizei FL</a></li>
+        <li><a href="https://www.lg.li" target="_blank">Gymnasium Vaduz</a></li>
+        <li><a href="https://www.schule-gams.ch" target="_blank">Schule Gams (CH)</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Kontakt</h4>
+      <ul class="footer-links">
+        <li><a href="mailto:safeclickfl@proton.me"><svg><use href="#i-mail"/></svg> safeclickfl@proton.me</a></li>
+        <li><a href="https://instagram.com/safeclickfl" target="_blank"><svg><use href="#i-instagram"/></svg> @safeclickfl</a></li>
+        <li><a href="https://aha.li" target="_blank"><svg><use href="#i-globe"/></svg> aha.li</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>
+      © 2026 · SafeClick FL · Mit
+      <svg width="12" height="12" style="display:inline-block;vertical-align:middle;color:var(--fl-red);margin:0 2px"><use href="#i-heart"/></svg>
+      gemacht in <strong>Vaduz</strong>
+      <svg class="fl-flag-svg" viewBox="0 0 18 12" style="display:inline-block;vertical-align:middle;margin-left:6px">
+        <rect width="18" height="6" fill="#0033A0"/>
+        <rect y="6" width="18" height="6" fill="#CE1126"/>
+        <g transform="translate(3.5,1.3)">
+          <rect width="3.6" height="2" fill="#FFD700" stroke="#000" stroke-width=".2"/>
+          <rect x=".8" width=".5" height="2.6" fill="#FFD700" stroke="#000" stroke-width=".2"/>
+        </g>
+      </svg>
+    </div>
+    <div>Set in <strong>Manrope</strong> & <strong>Inter</strong></div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'});
+  });
+});
+</script>
+
+</body>
+</html>

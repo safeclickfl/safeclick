@@ -1,226 +1,487 @@
-<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Modul 0: Mein erstes Gerät – SafeClick FL</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-:root{--navy:#1B4965;--navy-dark:#0F2D44;--teal:#5FA8D3;--coral:#FF6B6B;--green:#06D6A0;--yellow:#FFD166;--purple:#7C4DFF;--orange:#FF8C42;--pink:#F472B6;--bg:#FAFBFF;--text:#1A1A2E;--muted:#64748B;--border:#E2E8F0}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Plus Jakarta Sans',Inter,system-ui,sans-serif;color:var(--text);background:var(--bg);line-height:1.6}
-.topbar{background:var(--navy);color:rgba(255,255,255,.6);font-size:11px;padding:6px 24px;display:flex;justify-content:center;gap:20px;flex-wrap:wrap}.topbar a{color:var(--teal);text-decoration:none;font-weight:600}
-nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px}
-.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
-.nav-brand{font-family:'Space Grotesk';font-size:20px;font-weight:700;color:var(--navy);text-decoration:none;display:flex;align-items:center;gap:8px}.nav-brand .sc{color:var(--purple)}
-.nav-shield{width:32px;height:32px;background:linear-gradient(135deg,var(--purple),var(--coral));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;color:#fff}
-.nav-links{display:flex;gap:18px;list-style:none;align-items:center}
-.nav-links a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:600;transition:color .2s}.nav-links a:hover,.nav-links a.active{color:var(--purple)}
-.nav-cta{background:linear-gradient(135deg,var(--purple),var(--coral));color:#fff!important;padding:7px 16px;border-radius:8px;font-weight:700!important;font-size:12px!important}
-.nav-toggle{display:none;background:none;border:none;color:var(--navy);font-size:22px;cursor:pointer}
-.fl-banner{background:linear-gradient(90deg,#002B7F 50%,#CE1126 50%);height:3px}
-section{padding:70px 24px}.container{max-width:1100px;margin:0 auto}
-.ph{padding:100px 24px 50px;text-align:center;position:relative;overflow:hidden}
-.ph::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 70%,rgba(255,107,107,.12),transparent 50%),radial-gradient(circle at 70% 30%,rgba(6,214,160,.1),transparent 50%)}.ph>*{position:relative;z-index:1}
-.ph h1{font-family:'Space Grotesk';font-size:clamp(28px,5vw,42px);font-weight:700;color:#fff;margin-bottom:8px}.ph p{font-size:15px;color:rgba(255,255,255,.55);max-width:500px;margin:0 auto}
-.bc{font-size:13px;color:rgba(255,255,255,.4);margin-bottom:12px}.bc a{color:rgba(255,255,255,.6);text-decoration:none}.bc a:hover{color:#fff}
-.m-card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:22px;margin:16px 0;box-shadow:0 10px 25px rgba(15,23,42,.05)}
-.m-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-.m-kpi{font-size:.95rem;color:var(--muted)}
-.m-badge{display:inline-block;padding:6px 10px;border-radius:999px;font-weight:700;font-size:.84rem;margin:4px 6px 0 0}
-.m-good{background:#ecfdf5;color:#065f46}.m-warn{background:#fffbeb;color:#92400e}
-.m-table{width:100%;border-collapse:collapse;margin-top:12px}.m-table th,.m-table td{border:1px solid var(--border);padding:10px;vertical-align:top;text-align:left}.m-table th{background:#f8fafc;font-size:.9rem}
-h2.m-h2{margin-top:36px;font-size:1.4rem;border-bottom:2px solid var(--border);padding-bottom:8px;display:flex;align-items:center;gap:8px}
-h3.m-h3{margin-top:24px;font-size:1.08rem}
-.mod-nav{max-width:1100px;margin:0 auto;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;border-top:1px solid var(--border)}
-.mod-nav a{text-decoration:none;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:5px;color:var(--purple)}.mod-nav a:hover{text-decoration:underline}
-.mg{max-width:1100px;margin:0 auto;padding:0 24px 32px}
-.mg h3{font-size:1.1rem;margin:24px 0 12px;color:var(--navy)}
-.mg-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
-.mg-card{display:flex;align-items:center;gap:10px;padding:12px;background:#fff;border:1px solid var(--border);border-radius:12px;text-decoration:none;transition:box-shadow .2s}.mg-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.06)}
-.mg-ic{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
-.mg-card .mg-t{font-size:12px;font-weight:700;color:var(--navy)}.mg-card .mg-s{font-size:10px;color:var(--muted)}
-/* Phase cards */
-.phase-card{background:#fff;border:1px solid var(--border);border-radius:18px;margin:20px 0;overflow:hidden;box-shadow:0 4px 20px rgba(15,23,42,.04)}
-.phase-header{padding:20px 22px 14px;border-bottom:1px solid var(--border)}
-.phase-time{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;color:#FF6B6B;background:#FF6B6B15;padding:4px 10px;border-radius:6px;margin-bottom:8px}
-.phase-title{font-family:'Space Grotesk';font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:4px}
-.phase-ziel{font-size:.85rem;color:var(--muted);display:flex;align-items:center;gap:6px}
-.speech-box{margin:0;padding:20px 22px;background:linear-gradient(135deg,#f8f9ff,#f0f4ff);border-bottom:1px solid var(--border)}
-.speech-label{font-size:11px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;display:flex;align-items:center;gap:6px}
-.speech-text{font-size:.92rem;color:var(--text);line-height:1.7;font-style:italic}
-.hint-box{padding:16px 22px;background:#fffef5}
-.hint-label{font-size:11px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;display:flex;align-items:center;gap:6px}
-.hint-box p{font-size:.88rem;color:var(--muted);line-height:1.6}
-/* Altersanpassungen */
-.alter-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:12px}
-.alter-card{background:#f8fafc;border:1px solid var(--border);border-radius:14px;padding:18px}
-.alter-card h4{font-size:.95rem;color:var(--navy);margin-bottom:8px}
-.alter-card ul{padding-left:18px;font-size:.88rem;color:var(--muted)}
-.alter-card li{margin-bottom:4px}
-footer{background:var(--navy-dark);color:rgba(255,255,255,.4);padding:36px 24px;text-align:center}
-.fb{font-family:'Space Grotesk';font-size:18px;font-weight:700;color:#fff;margin-bottom:6px}.fb span{color:var(--teal)}
-footer p{font-size:12px;margin-bottom:3px}.fl{display:flex;gap:18px;justify-content:center;margin:12px 0;flex-wrap:wrap}.fl a{color:var(--teal);text-decoration:none;font-size:12px;font-weight:600}
-.ff{display:inline-flex;gap:3px;margin-top:8px}.ff div{width:30px;height:4px;border-radius:2px}
-@media(max-width:768px){.nav-links{display:none;position:absolute;top:56px;left:0;right:0;background:#fff;flex-direction:column;padding:16px 24px;gap:12px;border-bottom:1px solid var(--border);box-shadow:0 4px 12px rgba(0,0,0,.08)}.nav-links.open{display:flex}.nav-toggle{display:block}section{padding:50px 16px}.m-grid,.alter-grid,.mg-cards{grid-template-columns:1fr}.topbar{font-size:10px}}
-</style><link rel="stylesheet" href="style.css">
-</head><body>
-<div class="topbar"><span>🇱🇮 SafeClick FL – Think. Click. Act!</span><span>Ein Projekt der <a href="https://www.uni.li" target="_blank">Universität Liechtenstein</a> mit <a href="https://aha.li" target="_blank">aha Vaduz</a></span></div>
-<nav><div class="nav-inner"><a href="index.html" class="nav-brand"><div class="nav-shield">🛡</div>Safe<span class="sc">Click</span>&nbsp;FL</a>
-<ul class="nav-links" id="nv"><li><a href="index.html">Home</a></li>
-<li><a href="module.html" class="active">Module</a></li>
-<li><a href="downloads.html">Downloads</a></li>
-<li><a href="notfall.html">Notfall</a></li>
-<li><a href="partner.html">Partner</a></li><li><a href="mailto:safeclickfl@proton.me" class="nav-cta"><i class="fas fa-envelope"></i> Kontakt</a></li></ul>
-<button class="nav-toggle" onclick="document.getElementById('nv').classList.toggle('open')"><i class="fas fa-bars"></i></button></div></nav>
-<div class="fl-banner"></div>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Modul 0: Mein erstes Gerät — SafeClick FL</title>
+<meta name="description" content="Kinder lernen grundlegende Regeln im Umgang mit digitalen Geräten kennen.">
+<link rel="stylesheet" href="style.css">
 
-<div class="ph" style="background:linear-gradient(160deg,#0f172a 0%,#FF6B6B55 100%)">
-<div class="bc"><a href="index.html">Home</a> / <a href="module.html">Module</a> / Modul 0</div>
-<div style="display:inline-block;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.12);color:#fff;font-weight:700;font-size:.84rem;margin-bottom:12px"><i class="fas fa-tablet-screen-button"></i> Modul 0 · 20 Minuten · 7–10 Jahre</div>
-<h1>Modul 0: Mein erstes Gerät</h1>
-</div>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <defs>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+    <symbol id="i-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+    <symbol id="i-message" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></symbol>
+    <symbol id="i-lightbulb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></symbol>
+    <symbol id="i-package" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8 12 3 3 8l9 5 9-5Z"/><path d="M3 8v8l9 5 9-5V8"/><path d="m3 8 9 5 9-5"/></symbol>
+    <symbol id="i-list-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></symbol>
+    <symbol id="i-tag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41 13.42 20.58a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+  </defs>
+</svg>
 
-<section style="padding-top:32px"><div class="container">
+</head>
+<body>
 
-<div class="m-grid">
-  <div class="m-card"><strong>Dauer</strong><div class="m-kpi">20 Minuten</div></div>
-  <div class="m-card"><strong>Zielgruppe</strong><div class="m-kpi">7–10 Jahre</div></div>
-  <div class="m-card"><strong>Ziel</strong><div class="m-kpi">Kinder lernen grundlegende Regeln im Umgang mit digitalen Geräten kennen.</div></div>
-</div>
-
-<div class="m-card">
-  <h2 class="m-h2"><i class="fas fa-bullseye"></i> Lernziele</h2>
-  <ul><li>Kinder können erklären, dass ein eigenes Gerät Freiheit <em>und</em> Verantwortung bedeutet.</li><li>Sie kennen einfache Regeln zu Bildschirmzeit, Downloads, Chats, Fotos und In-App-Käufen.</li><li>Sie wissen, dass sie bei Unsicherheit immer eine erwachsene Vertrauensperson einbeziehen dürfen.</li><li>Sie verstehen, dass persönliche Daten nicht einfach weitergegeben werden sollen.</li></ul>
-</div>
-
-<div class="m-card">
-  <h2 class="m-h2"><i class="fas fa-tags"></i> Kernbotschaften</h2>
-  <span class="m-badge m-good">Fragen ist stark</span>
-<span class="m-badge m-good">Nicht alles anklicken</span>
-<span class="m-badge m-warn">Keine Fremden in Chats</span>
-<span class="m-badge m-warn">Keine Käufe ohne Erlaubnis</span>
-<span class="m-badge m-good">Persönliche Daten schützen</span>
-<span class="m-badge m-good">Pausen gehören dazu</span>
-
-</div>
-
-<div class="m-card">
-  <h2 class="m-h2"><i class="fas fa-box-open"></i> Benötigtes Material</h2>
-  <ul><li>Beamer / Bildschirm für die Präsentation (PPTX)</li><li>Arbeitsblatt «Mein erstes Gerät» (1x pro Kind, ausgedruckt)</li><li>Grosse Blätter / Flipchart-Papier und Stifte für Gruppenarbeit</li><li>Optional: Tafel / Whiteboard für gemeinsame Sammlung</li></ul>
-</div>
-
-<div class="m-card">
-  <h2 class="m-h2"><i class="fas fa-clipboard-check"></i> Vorbereitung</h2>
-  <ul><li>Präsentation auf dem Beamer/Bildschirm bereithalten.</li><li>Arbeitsblätter in ausreichender Anzahl ausdrucken.</li><li>Stifte und grosse Blätter für Gruppenarbeit bereitlegen.</li><li>Sich mit dem Sprechtext vertraut machen – frei sprechen wirkt natürlicher!</li></ul>
-</div>
-
-<div class="m-card" style="background:transparent;border:none;box-shadow:none;padding:0">
-  <h2 class="m-h2"><i class="fas fa-chalkboard-teacher"></i> Detaillierter Ablauf mit Sprechtexten</h2>
-</div>
-
-
-<div class="phase-card">
-  <div class="phase-header">
-    <div class="phase-time"><i class="fas fa-clock"></i> 5 Min.</div>
-    <h3 class="phase-title">Phase 1: Begrüssung & Einstieg</h3>
-    <p class="phase-ziel"><i class="fas fa-bullseye"></i> Die Kinder aktivieren, Neugier wecken und eine offene Atmosphäre schaffen.</p>
-  </div>
-  <div class="speech-box">
-    <div class="speech-label"><i class="fas fa-comment-dots"></i> Sprechtext</div>
-    <div class="speech-text">Hallo zusammen! Schön, dass ihr alle da seid. Heute dreht sich alles um ein Thema, das euch sicher gut kennt: euer erstes eigenes Gerät – sei es ein Handy, ein Tablet oder etwas anderes.<br><br>Bevor wir loslegen, möchte ich euch zwei Fragen stellen:<br><br>• Wer von euch hat schon mal ein Tablet oder Handy benutzt?<br>• Und was macht ihr eigentlich so damit?</div>
-  </div>
-  <div class="hint-box">
-    <div class="hint-label"><i class="fas fa-lightbulb"></i> Moderationshinweis</div>
-    <p>Lassen Sie die Kinder erzählen! Die Antworten geben Ihnen einen guten Eindruck davon, wie erfahren die Gruppe ist. Notieren Sie Stichworte an der Tafel. Falls ein Kind sagt, es habe kein eigenes Gerät: Das ist völlig in Ordnung!</p>
-  </div>
-</div>
-<div class="phase-card">
-  <div class="phase-header">
-    <div class="phase-time"><i class="fas fa-clock"></i> 3 Min.</div>
-    <h3 class="phase-title">Phase 2: Freiheit und Verantwortung</h3>
-    <p class="phase-ziel"><i class="fas fa-bullseye"></i> Den Kindern bewusst machen, dass Geräte Möglichkeiten UND Verantwortung mit sich bringen.</p>
-  </div>
-  <div class="speech-box">
-    <div class="speech-label"><i class="fas fa-comment-dots"></i> Sprechtext</div>
-    <div class="speech-text">Geräte wie Handys geben uns tolle Möglichkeiten: Wir können spielen, Videos anschauen, mit Freunden chatten. Das ist Freiheit!<br><br>Aber mit dieser Freiheit kommt auch Verantwortung. Was könnte das konkret bedeuten?<br><br>• Dass ich nicht stundenlang nur auf den Bildschirm starre?<br>• Dass ich aufpasse, wem ich meine Fotos schicke?<br>• Dass ich andere nicht blossstelle oder beleidige?<br><br>Genau darum geht es heute: Wie nutzen wir unsere Geräte klug, sicher und respektvoll?</div>
-  </div>
-  <div class="hint-box">
-    <div class="hint-label"><i class="fas fa-lightbulb"></i> Moderationshinweis</div>
-    <p>Kindgerechte Sprache verwenden: «Verantwortung» mit einem Vergleich erklären, z. B. «Wenn du ein Haustier hast, musst du dich auch darum kümmern.»</p>
-  </div>
-</div>
-<div class="phase-card">
-  <div class="phase-header">
-    <div class="phase-time"><i class="fas fa-clock"></i> 4 Min.</div>
-    <h3 class="phase-title">Phase 3: Gesunde Nutzungsgewohnheiten</h3>
-    <p class="phase-ziel"><i class="fas fa-bullseye"></i> Konkrete Tipps vermitteln, die die Kinder sofort umsetzen können.</p>
-  </div>
-  <div class="speech-box">
-    <div class="speech-label"><i class="fas fa-comment-dots"></i> Sprechtext</div>
-    <div class="speech-text">Damit euch euer Gerät gut tut und nicht stresst, gibt es ein paar wichtige Tipps:<br><br>• Bildschirmzeit bewusst begrenzen – Pausen sind wichtig für Augen und Kopf!<br>• Ablenkung vermeiden – Hausaufgaben zuerst, dann das Spiel.<br>• Datenschutz ernst nehmen – Nicht jeder muss wissen, wo du wohnst.<br>• Privatsphäre anderer respektieren – Keine Fotos ohne Erlaubnis teilen!<br>• Respektvolles Verhalten – Im Netz gilt dasselbe wie im echten Leben.<br>• Handyfreie Zonen – Beim Essen, im Bett darf das Gerät Pause haben.</div>
-  </div>
-  <div class="hint-box">
-    <div class="hint-label"><i class="fas fa-lightbulb"></i> Moderationshinweis</div>
-    <p>Zeigen Sie die Folie mit den Tipps. Fragen Sie bei jedem Tipp: «Kennt ihr das? Macht ihr das schon?» Für 7–8-Jährige: Beschränken Sie sich auf 3–4 Tipps.</p>
-  </div>
-</div>
-<div class="phase-card">
-  <div class="phase-header">
-    <div class="phase-time"><i class="fas fa-clock"></i> 4 Min.</div>
-    <h3 class="phase-title">Phase 4: Spiel – «Darf ich – oder muss ich fragen?»</h3>
-    <p class="phase-ziel"><i class="fas fa-bullseye"></i> Spielerisch Entscheidungskompetenz stärken.</p>
-  </div>
-  <div class="speech-box">
-    <div class="speech-label"><i class="fas fa-comment-dots"></i> Sprechtext</div>
-    <div class="speech-text">Jetzt wird es interaktiv! Ich nenne euch eine Situation – und ihr überlegt:<br><br>🟢 GRÜN: Das darf ich selbst entscheiden<br>🔴 ROT: Da frage ich erst einen Erwachsenen<br><br>Beispiele:<br>• Ein neues Spiel herunterladen? → Erst fragen!<br>• Ein Foto von mir selbst machen? → Darf ich!<br>• Ein Foto von meiner Freundin posten? → Erst fragen!<br>• Meine Adresse in einem Chat angeben? → Auf keinen Fall ohne Erlaubnis!</div>
-  </div>
-  <div class="hint-box">
-    <div class="hint-label"><i class="fas fa-lightbulb"></i> Moderationshinweis</div>
-    <p>Nutzen Sie farbige Karten (grün/rot) oder lassen Sie die Kinder mit Daumen hoch/runter abstimmen. Loben Sie die Kinder für richtiges Einschätzen!</p>
-  </div>
-</div>
-<div class="phase-card">
-  <div class="phase-header">
-    <div class="phase-time"><i class="fas fa-clock"></i> 4 Min.</div>
-    <h3 class="phase-title">Phase 5: Die 6 goldenen Regeln & Abschluss</h3>
-    <p class="phase-ziel"><i class="fas fa-bullseye"></i> Zentrale Botschaften verankern und persönlichen Bezug herstellen.</p>
-  </div>
-  <div class="speech-box">
-    <div class="speech-label"><i class="fas fa-comment-dots"></i> Sprechtext</div>
-    <div class="speech-text">Damit ihr immer eine Orientierung habt, hier eure 6 goldenen Regeln:<br><br>1️⃣ «Ich frage, wenn ich unsicher bin.»<br>2️⃣ «Ich klicke nicht alles an.» – besonders keine komischen Links!<br>3️⃣ «Ich schreibe nicht mit Fremden.»<br>4️⃣ «Ich kaufe nichts ohne Erlaubnis.»<br>5️⃣ «Ich schütze meine Daten.» – Passwörter sind geheim!<br>6️⃣ «Ich mache Pausen.» – Dein Gehirn freut sich!<br><br>Welche zwei Regeln sind für euch am wichtigsten?</div>
-  </div>
-  <div class="hint-box">
-    <div class="hint-label"><i class="fas fa-lightbulb"></i> Moderationshinweis</div>
-    <p>Lassen Sie die Kinder die Regeln im Chor nachsprechen – das verankert sich besser. Verteilen Sie zum Abschluss die Arbeitsblätter.</p>
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="tb-left">
+      <span class="tb-flag">
+        <svg class="fl-flag-svg" viewBox="0 0 18 12">
+          <rect width="18" height="6" fill="#0033A0"/>
+          <rect y="6" width="18" height="6" fill="#CE1126"/>
+          <g transform="translate(3.5,1.3)">
+            <rect width="3.6" height="2" fill="#FFD700" stroke="#000" stroke-width=".2"/>
+            <rect x=".8" width=".5" height="2.6" fill="#FFD700" stroke="#000" stroke-width=".2"/>
+          </g>
+        </svg>
+        Fürstentum Liechtenstein
+      </span>
+      <span class="tb-divider">·</span>
+      <span class="tb-extra">Modul 0 · Mein erstes Gerät</span>
+    </div>
+    <div class="tb-right">
+      <a href="mailto:safeclickfl@proton.me">safeclickfl@proton.me</a>
+    </div>
   </div>
 </div>
 
-<div class="m-card">
-  <h2 class="m-h2"><i class="fas fa-users"></i> Altersanpassungen</h2>
-  <div class="alter-grid"><div class="alter-card"><h4>Für 7–8 Jahre</h4><ul><li>Sehr einfache Sprache und kurze Sätze verwenden.</li><li>Auf 3–4 goldene Regeln beschränken statt 6.</li><li>Mehr Bilder und weniger Text in der Präsentation.</li><li>Kinder malen lassen statt schreiben.</li><li>Besonders die Regel «Ich frage einen Erwachsenen» betonen.</li></ul></div><div class="alter-card"><h4>Für 9–10 Jahre</h4><ul><li>Kinder können bereits etwas abstraktere Konzepte verstehen.</li><li>Eigene Beispiele für Risikosituationen finden lassen.</li><li>Passphrasen und einfache Passwort-Regeln können angesprochen werden.</li><li>Aktuelle Apps und Spiele einbeziehen (Roblox, Minecraft etc.).</li></ul></div></div>
-</div>
+<header class="site">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">S</div>
+      <div class="brand-text">
+        <span class="brand-name">SafeClick <span class="fl">FL</span></span>
+        <span class="brand-sub">Think · Click · Act</span>
+      </div>
+    </a>
+    <ul class="nav-links" id="nv">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="module.html" class="active">Module</a></li>
+      <li><a href="downloads.html">Downloads</a></li>
+      <li><a href="notfall.html">Notfall</a></li>
+      <li><a href="partner.html">Partner</a></li>
+      <li><a href="quiz.html">Quiz</a></li>
+      <li><a href="mailto:safeclickfl@proton.me" class="cta">Kontakt</a></li>
+    </ul>
+    <button class="nav-toggle" onclick="document.getElementById('nv').classList.toggle('open')" aria-label="Menü">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+<div class="fl-stripe"></div>
 
+<!-- Module Hero -->
+<section class="module-hero">
+  <div class="module-hero-inner">
+    <nav class="module-breadcrumb" aria-label="Brotkrumen">
+      <a href="index.html">Home</a>
+      <span class="sep">›</span>
+      <a href="module.html">Module</a>
+      <span class="sep">›</span>
+      <span class="current">Modul 00</span>
+    </nav>
 
+    <div class="module-head-grid">
+      <div class="module-num-large" data-mod="0">00</div>
+      <div class="module-head-content">
+        <div class="module-eyebrow">SafeClick-FL · Workshop-Baukasten</div>
+        <h1 class="module-title">Mein erstes Gerät</h1>
+        <p class="module-subtitle">Kinder lernen grundlegende Regeln im Umgang mit digitalen Geräten kennen.</p>
+        <div class="module-meta-row">
+        <span class="tag tag-blue"><svg width="12" height="12"><use href="#i-clock"/></svg> 20 Minuten</span>
+        <span class="tag tag-blue"><svg width="12" height="12"><use href="#i-users"/></svg> 7–10 Jahre</span>
+        <span class="tag tag-red">Primarschule</span>
+      </div>
+        <div class="module-actions">
+          <a href="downloads/SafeClick_Modul0.zip" download class="btn">
+            <span class="ic"><svg width="16" height="16"><use href="#i-download"/></svg></span>
+            Modul 0 herunterladen (ZIP)
+          </a>
+          <a href="downloads.html" class="btn btn-outline">
+            Alle Downloads ansehen
+            <span class="ic"><svg width="14" height="14"><use href="#i-arrow-right"/></svg></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<div class="m-card">
-  <h2 class="m-h2"><i class="fas fa-clock"></i> Zeitplan auf einen Blick</h2>
-  <table class="m-table"><tr><th>Zeit</th><th>Phase</th><th>Beschreibung</th></tr><tr><td><strong>0–5 Min.</strong></td><td>Begrüssung & Einstieg</td><td>Fragen, Austausch, Stimmung schaffen</td></tr>
-<tr><td><strong>5–8 Min.</strong></td><td>Freiheit & Verantwortung</td><td>Diskussion über Chancen und Pflichten</td></tr>
-<tr><td><strong>8–12 Min.</strong></td><td>Gesunde Nutzungsgewohnheiten</td><td>Tipps gemeinsam besprechen</td></tr>
-<tr><td><strong>12–16 Min.</strong></td><td>Spiel: Darf ich oder muss ich fragen?</td><td>Interaktive Abstimmung</td></tr>
-<tr><td><strong>16–20 Min.</strong></td><td>Goldene Regeln & Abschluss</td><td>Regeln verankern, persönliche Regeln</td></tr>
-</table>
-</div>
+<!-- Overview -->
+<section style="padding-top:56px;padding-bottom:32px">
+  <div class="wrap" style="max-width:1100px">
+    <div class="module-section-num">Auf einen Blick</div>
+    <h2 class="module-section-title">Workshop-Übersicht</h2>
+    <div class="module-overview">
+      <div class="module-overview-item">
+        <div class="module-overview-label">Dauer</div>
+        <div class="module-overview-value">20 Minuten</div>
+      </div>
+      <div class="module-overview-item">
+        <div class="module-overview-label">Zielgruppe</div>
+        <div class="module-overview-value">7–10 Jahre</div>
+      </div>
+      <div class="module-overview-item" style="grid-column:span 2">
+        <div class="module-overview-label">Workshop-Ziel</div>
+        <div class="module-overview-value small">Kinder lernen grundlegende Regeln im Umgang mit digitalen Geräten kennen.</div>
+      </div>
+    </div>
 
-</div></section>
+    <div class="module-info-card">
+      <h3><div class="module-info-icon"><svg width="16" height="16"><use href="#i-target"/></svg></div> Lernziele</h3>
+      <ul>
+          <li>Sie kennen einfache Regeln zu Bildschirmzeit, Downloads, Chats, Fotos und In-App-Käufen.</li>
+          <li>Sie wissen, dass sie bei Unsicherheit immer eine erwachsene Vertrauensperson einbeziehen dürfen.</li>
+          <li>Sie verstehen, dass persönliche Daten nicht einfach weitergegeben werden sollen.</li>
+      </ul>
+    </div>
+    <div class="module-info-card gold">
+      <h3><div class="module-info-icon gold"><svg width="16" height="16"><use href="#i-tag"/></svg></div> Kernbotschaften</h3>
+      <div class="module-messages">
+        <span class="message-pill good">Fragen ist stark</span>
+        <span class="message-pill good">Nicht alles anklicken</span>
+        <span class="message-pill warn">Keine Fremden in Chats</span>
+        <span class="message-pill warn">Keine Käufe ohne Erlaubnis</span>
+        <span class="message-pill good">Persönliche Daten schützen</span>
+        <span class="message-pill good">Pausen gehören dazu</span>
+      </div>
+    </div>
+    <div class="module-info-card">
+      <h3><div class="module-info-icon"><svg width="16" height="16"><use href="#i-package"/></svg></div> Benötigtes Material</h3>
+      <ul>
+          <li>Beamer / Bildschirm für die Präsentation (PPTX)</li>
+          <li>Arbeitsblatt «Mein erstes Gerät» (1x pro Kind, ausgedruckt)</li>
+          <li>Grosse Blätter / Flipchart-Papier und Stifte für Gruppenarbeit</li>
+          <li>Optional: Tafel / Whiteboard für gemeinsame Sammlung</li>
+      </ul>
+    </div>
+    <div class="module-info-card green">
+      <h3><div class="module-info-icon green"><svg width="16" height="16"><use href="#i-list-check"/></svg></div> Vorbereitung</h3>
+      <ul>
+          <li>Präsentation auf dem Beamer/Bildschirm bereithalten.</li>
+          <li>Arbeitsblätter in ausreichender Anzahl ausdrucken.</li>
+          <li>Stifte und grosse Blätter für Gruppenarbeit bereitlegen.</li>
+          <li>Sich mit dem Sprechtext vertraut machen – frei sprechen wirkt natürlicher!</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-<div class="mod-nav"><a href="module.html" style="color:var(--muted)"><i class="fas fa-th-large"></i> Alle Module</a><a href="modul-1-echt-oder-fake.html">Modul 1: Echt oder Fake? <i class="fas fa-arrow-right"></i></a></div>
-<div class="mg"><h3>📎 Weitere Module</h3><div class="mg-cards"><a href="modul-1-echt-oder-fake.html" class="mg-card"><div class="mg-ic" style="background:#FF6B6B18;color:#FF6B6B"><i class="fas fa-user-secret"></i></div><div><div class="mg-t">Modul 1: Echt oder Fake?</div><div class="mg-s">15 Min. · 11–16 J.</div></div></a><a href="modul-2-phishing-und-manipulation.html" class="mg-card"><div class="mg-ic" style="background:#5FA8D318;color:#5FA8D3"><i class="fas fa-fish"></i></div><div><div class="mg-t">Modul 2: Phishing & Manipulation</div><div class="mg-s">15 Min. · 11–18 J.</div></div></a><a href="modul-3-passwort-challenge.html" class="mg-card"><div class="mg-ic" style="background:#FFD16618;color:#FFD166"><i class="fas fa-key"></i></div><div><div class="mg-t">Modul 3: Passwort-Challenge</div><div class="mg-s">15 Min. · 10–18 J.</div></div></a><a href="modul-4-privatsphaere-live.html" class="mg-card"><div class="mg-ic" style="background:#7C4DFF18;color:#7C4DFF"><i class="fas fa-eye-slash"></i></div><div><div class="mg-t">Modul 4: Privatsphäre live</div><div class="mg-s">20 Min. · 11–16 J.</div></div></a><a href="modul-5-cybermobbing-fallbeispiel.html" class="mg-card"><div class="mg-ic" style="background:#06D6A018;color:#06D6A0"><i class="fas fa-heart-crack"></i></div><div><div class="mg-t">Modul 5: Cybermobbing-Fallbeispiel</div><div class="mg-s">20 Min. · 11–16 J.</div></div></a><a href="modul-6-notfallplan-und-hilfestellen.html" class="mg-card"><div class="mg-ic" style="background:#FF8C4218;color:#FF8C42"><i class="fas fa-life-ring"></i></div><div><div class="mg-t">Modul 6: Notfallplan & Hilfestellen</div><div class="mg-s">10 Min. · 7–18 J.</div></div></a></div></div>
+<!-- Phasen -->
+<section style="padding-top:24px;padding-bottom:48px;background:var(--off-white)">
+  <div class="wrap" style="max-width:1100px">
+    <div class="module-section-num">Workshop-Ablauf</div>
+    <h2 class="module-section-title">Phasen mit ausformulierten Sprechtexten</h2>
+    <p class="lede">Jede Phase enthält den fertigen Moderationstext, das didaktische Ziel und einen praktischen Hinweis zur Durchführung. Sie können diesen Text direkt im Workshop verwenden — wir haben ihn mit echten Klassen getestet.</p>
 
-<footer><div class="fb">Safe<span>Click</span> FL 🇱🇮</div>
-<p>Think. Click. Act! · Pro Bono · Universität Liechtenstein · 2026</p>
-<div class="fl"><a href="mailto:safeclickfl@proton.me"><i class="fas fa-envelope"></i> safeclickfl@proton.me</a>
-<a href="https://instagram.com/safeclickfl" target="_blank"><i class="fab fa-instagram"></i> @safeclickfl</a>
-<a href="https://aha.li" target="_blank">aha.li</a></div>
-<p style="margin-top:8px;font-size:10px">CC BY-NC-SA 4.0</p>
-<div class="ff"><div style="background:#002B7F"></div><div style="background:#CE1126"></div><div style="background:#FFD700"></div></div></footer>
-<script>document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'})})})</script>
-</body></html>
+    <div class="module-phase">
+      <div class="phase-head">
+        <div class="phase-num-circle">01</div>
+        <div class="phase-info">
+          <div class="phase-time-tag">
+            <svg width="12" height="12"><use href="#i-clock"/></svg> 5 Min.
+          </div>
+          <h3 class="phase-name">Phase 1: Begrüssung &amp; Einstieg</h3>
+          <div class="phase-goal">
+            <svg class="phase-goal-icon" width="14" height="14"><use href="#i-target"/></svg>
+            <span>Die Kinder aktivieren, Neugier wecken und eine offene Atmosphäre schaffen.</span>
+          </div>
+        </div>
+      </div>
+      <div class="phase-speech">
+        <div class="phase-speech-label">
+          <svg width="12" height="12"><use href="#i-message"/></svg>
+          Sprechtext
+        </div>
+        <div class="phase-speech-text">Hallo zusammen! Schön, dass ihr alle da seid. Heute dreht sich alles um ein Thema, das euch sicher gut kennt: euer erstes eigenes Gerät – sei es ein Handy, ein Tablet oder etwas anderes.
+
+Bevor wir loslegen, möchte ich euch zwei Fragen stellen:
+
+• Wer von euch hat schon mal ein Tablet oder Handy benutzt?
+• Und was macht ihr eigentlich so damit?</div>
+      </div>
+      <div class="phase-hint">
+        <div class="phase-hint-label">
+          <svg class="phase-hint-icon" width="13" height="13"><use href="#i-lightbulb"/></svg>
+          Moderationshinweis
+        </div>
+        <p>Lassen Sie die Kinder erzählen! Die Antworten geben Ihnen einen guten Eindruck davon, wie erfahren die Gruppe ist. Notieren Sie Stichworte an der Tafel. Falls ein Kind sagt, es habe kein eigenes Gerät: Das ist völlig in Ordnung!</p>
+      </div>
+    </div>
+    <div class="module-phase">
+      <div class="phase-head">
+        <div class="phase-num-circle">02</div>
+        <div class="phase-info">
+          <div class="phase-time-tag">
+            <svg width="12" height="12"><use href="#i-clock"/></svg> 3 Min.
+          </div>
+          <h3 class="phase-name">Phase 2: Freiheit und Verantwortung</h3>
+          <div class="phase-goal">
+            <svg class="phase-goal-icon" width="14" height="14"><use href="#i-target"/></svg>
+            <span>Den Kindern bewusst machen, dass Geräte Möglichkeiten UND Verantwortung mit sich bringen.</span>
+          </div>
+        </div>
+      </div>
+      <div class="phase-speech">
+        <div class="phase-speech-label">
+          <svg width="12" height="12"><use href="#i-message"/></svg>
+          Sprechtext
+        </div>
+        <div class="phase-speech-text">Geräte wie Handys geben uns tolle Möglichkeiten: Wir können spielen, Videos anschauen, mit Freunden chatten. Das ist Freiheit!
+
+Aber mit dieser Freiheit kommt auch Verantwortung. Was könnte das konkret bedeuten?
+
+• Dass ich nicht stundenlang nur auf den Bildschirm starre?
+• Dass ich aufpasse, wem ich meine Fotos schicke?
+• Dass ich andere nicht blossstelle oder beleidige?
+
+Genau darum geht es heute: Wie nutzen wir unsere Geräte klug, sicher und respektvoll?</div>
+      </div>
+      <div class="phase-hint">
+        <div class="phase-hint-label">
+          <svg class="phase-hint-icon" width="13" height="13"><use href="#i-lightbulb"/></svg>
+          Moderationshinweis
+        </div>
+        <p>Kindgerechte Sprache verwenden: «Verantwortung» mit einem Vergleich erklären, z. B. «Wenn du ein Haustier hast, musst du dich auch darum kümmern.»</p>
+      </div>
+    </div>
+    <div class="module-phase">
+      <div class="phase-head">
+        <div class="phase-num-circle">03</div>
+        <div class="phase-info">
+          <div class="phase-time-tag">
+            <svg width="12" height="12"><use href="#i-clock"/></svg> 4 Min.
+          </div>
+          <h3 class="phase-name">Phase 3: Gesunde Nutzungsgewohnheiten</h3>
+          <div class="phase-goal">
+            <svg class="phase-goal-icon" width="14" height="14"><use href="#i-target"/></svg>
+            <span>Konkrete Tipps vermitteln, die die Kinder sofort umsetzen können.</span>
+          </div>
+        </div>
+      </div>
+      <div class="phase-speech">
+        <div class="phase-speech-label">
+          <svg width="12" height="12"><use href="#i-message"/></svg>
+          Sprechtext
+        </div>
+        <div class="phase-speech-text">Damit euch euer Gerät gut tut und nicht stresst, gibt es ein paar wichtige Tipps:
+
+• Bildschirmzeit bewusst begrenzen – Pausen sind wichtig für Augen und Kopf!
+• Ablenkung vermeiden – Hausaufgaben zuerst, dann das Spiel.
+• Datenschutz ernst nehmen – Nicht jeder muss wissen, wo du wohnst.
+• Privatsphäre anderer respektieren – Keine Fotos ohne Erlaubnis teilen!
+• Respektvolles Verhalten – Im Netz gilt dasselbe wie im echten Leben.
+• Handyfreie Zonen – Beim Essen, im Bett darf das Gerät Pause haben.</div>
+      </div>
+      <div class="phase-hint">
+        <div class="phase-hint-label">
+          <svg class="phase-hint-icon" width="13" height="13"><use href="#i-lightbulb"/></svg>
+          Moderationshinweis
+        </div>
+        <p>Zeigen Sie die Folie mit den Tipps. Fragen Sie bei jedem Tipp: «Kennt ihr das? Macht ihr das schon?» Für 7–8-Jährige: Beschränken Sie sich auf 3–4 Tipps.</p>
+      </div>
+    </div>
+    <div class="module-phase">
+      <div class="phase-head">
+        <div class="phase-num-circle">04</div>
+        <div class="phase-info">
+          <div class="phase-time-tag">
+            <svg width="12" height="12"><use href="#i-clock"/></svg> 4 Min.
+          </div>
+          <h3 class="phase-name">Phase 4: Spiel – «Darf ich – oder muss ich fragen?»</h3>
+          <div class="phase-goal">
+            <svg class="phase-goal-icon" width="14" height="14"><use href="#i-target"/></svg>
+            <span>Spielerisch Entscheidungskompetenz stärken.</span>
+          </div>
+        </div>
+      </div>
+      <div class="phase-speech">
+        <div class="phase-speech-label">
+          <svg width="12" height="12"><use href="#i-message"/></svg>
+          Sprechtext
+        </div>
+        <div class="phase-speech-text">Jetzt wird es interaktiv! Ich nenne euch eine Situation – und ihr überlegt:
+
+🟢 GRÜN: Das darf ich selbst entscheiden
+🔴 ROT: Da frage ich erst einen Erwachsenen
+
+Beispiele:
+• Ein neues Spiel herunterladen? → Erst fragen!
+• Ein Foto von mir selbst machen? → Darf ich!
+• Ein Foto von meiner Freundin posten? → Erst fragen!
+• Meine Adresse in einem Chat angeben? → Auf keinen Fall ohne Erlaubnis!</div>
+      </div>
+      <div class="phase-hint">
+        <div class="phase-hint-label">
+          <svg class="phase-hint-icon" width="13" height="13"><use href="#i-lightbulb"/></svg>
+          Moderationshinweis
+        </div>
+        <p>Nutzen Sie farbige Karten (grün/rot) oder lassen Sie die Kinder mit Daumen hoch/runter abstimmen. Loben Sie die Kinder für richtiges Einschätzen!</p>
+      </div>
+    </div>
+    <div class="module-phase">
+      <div class="phase-head">
+        <div class="phase-num-circle">05</div>
+        <div class="phase-info">
+          <div class="phase-time-tag">
+            <svg width="12" height="12"><use href="#i-clock"/></svg> 4 Min.
+          </div>
+          <h3 class="phase-name">Phase 5: Die 6 goldenen Regeln &amp; Abschluss</h3>
+          <div class="phase-goal">
+            <svg class="phase-goal-icon" width="14" height="14"><use href="#i-target"/></svg>
+            <span>Zentrale Botschaften verankern und persönlichen Bezug herstellen.</span>
+          </div>
+        </div>
+      </div>
+      <div class="phase-speech">
+        <div class="phase-speech-label">
+          <svg width="12" height="12"><use href="#i-message"/></svg>
+          Sprechtext
+        </div>
+        <div class="phase-speech-text">Damit ihr immer eine Orientierung habt, hier eure 6 goldenen Regeln:
+
+1️⃣ «Ich frage, wenn ich unsicher bin.»
+2️⃣ «Ich klicke nicht alles an.» – besonders keine komischen Links!
+3️⃣ «Ich schreibe nicht mit Fremden.»
+4️⃣ «Ich kaufe nichts ohne Erlaubnis.»
+5️⃣ «Ich schütze meine Daten.» – Passwörter sind geheim!
+6️⃣ «Ich mache Pausen.» – Dein Gehirn freut sich!
+
+Welche zwei Regeln sind für euch am wichtigsten?</div>
+      </div>
+      <div class="phase-hint">
+        <div class="phase-hint-label">
+          <svg class="phase-hint-icon" width="13" height="13"><use href="#i-lightbulb"/></svg>
+          Moderationshinweis
+        </div>
+        <p>Lassen Sie die Kinder die Regeln im Chor nachsprechen – das verankert sich besser. Verteilen Sie zum Abschluss die Arbeitsblätter.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Download CTA -->
+<section style="padding-top:32px;padding-bottom:48px">
+  <div class="wrap" style="max-width:1100px">
+    <div class="module-dl-block">
+      <div style="position:relative;z-index:1">
+        <div class="module-dl-tag">Workshop-Paket für Modul 0</div>
+        <h3>Modul 0: Mein erstes Gerät — komplett</h3>
+        <p>Sie laden die Präsentation (PPTX), den ausformulierten Moderationstext (DOCX) und alle Materialien dieses Moduls in einem ZIP herunter. Sofort einsatzbereit.</p>
+      </div>
+      <a href="downloads/SafeClick_Modul0.zip" download class="btn btn-gold btn-lg" style="white-space:nowrap;position:relative;z-index:1">
+        <span class="ic"><svg width="16" height="16"><use href="#i-download"/></svg></span>
+        Modul 0 · ZIP laden
+      </a>
+    </div>
+
+    <!-- Quiz-Promo -->
+    <div class="module-quiz-promo">
+      <div class="module-quiz-icon">
+        <svg width="28" height="28"><use href="#i-target"/></svg>
+      </div>
+      <div class="module-quiz-text" style="flex-grow:1">
+        <h4>Wissen testen — auch ohne Workshop</h4>
+        <p>Mit unserem 10-Fragen-Quiz testest du dein Wissen quer durch alle Module. Anonym, kostenlos, drei Minuten — mit Sofort-Auswertung.</p>
+      </div>
+      <a href="quiz.html" class="btn">
+        Quiz starten
+        <span class="ic"><svg width="14" height="14"><use href="#i-arrow-right"/></svg></span>
+      </a>
+    </div>
+
+    <!-- Modul-Navigation -->
+    <div class="module-nav-bar">
+      <div></div>
+      <div class="module-nav-center">
+        <a href="module.html">
+          <svg width="14" height="14"><use href="#i-list-check"/></svg>
+          Alle Module
+        </a>
+      </div>
+      <a href="modul-1-echt-oder-fake.html" class="module-nav-link next">
+        <div class="module-nav-arrow"><svg width="20" height="20"><use href="#i-arrow-right"/></svg></div>
+        <div class="module-nav-info">
+          <div class="module-nav-label">Nächstes Modul</div>
+          <div class="module-nav-title">01 · Echt oder Fake?</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">
+        <div class="footer-mark">S</div>
+        <div class="footer-brand-text">SafeClick <span class="fl">FL</span></div>
+      </div>
+      <div class="footer-tag">Think · Click · Act</div>
+      <p class="footer-message">
+        Wir glauben, dass jedes Kind in Liechtenstein das Recht hat, sicher im Netz unterwegs zu sein. Dafür ist SafeClick FL da. Pro Bono. Für immer kostenlos.
+      </p>
+      <div class="footer-meta">
+        Pro-Bono-Projekt 2026 · Universität Liechtenstein<br>
+        in Kooperation mit aha Vaduz<br>
+        Lizenz: CC BY-NC-SA 4.0
+      </div>
+    </div>
+    <div>
+      <h4>Navigation</h4>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="module.html">Module</a></li>
+        <li><a href="downloads.html">Downloads</a></li>
+        <li><a href="notfall.html">Notfall</a></li>
+        <li><a href="partner.html">Partner</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Partner</h4>
+      <ul class="footer-links">
+        <li><a href="https://www.uni.li" target="_blank">Universität Liechtenstein</a></li>
+        <li><a href="https://www.aha.li" target="_blank">aha Vaduz</a></li>
+        <li><a href="https://www.landespolizei.li" target="_blank">Landespolizei FL</a></li>
+        <li><a href="https://www.lg.li" target="_blank">Gymnasium Vaduz</a></li>
+        <li><a href="https://www.schule-gams.ch" target="_blank">Schule Gams (CH)</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Kontakt</h4>
+      <ul class="footer-links">
+        <li><a href="mailto:safeclickfl@proton.me"><svg><use href="#i-mail"/></svg> safeclickfl@proton.me</a></li>
+        <li><a href="https://instagram.com/safeclickfl" target="_blank"><svg><use href="#i-instagram"/></svg> @safeclickfl</a></li>
+        <li><a href="https://aha.li" target="_blank"><svg><use href="#i-globe"/></svg> aha.li</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>
+      © 2026 · SafeClick FL · Mit
+      <svg width="12" height="12" style="display:inline-block;vertical-align:middle;color:var(--fl-red);margin:0 2px"><use href="#i-heart"/></svg>
+      gemacht in <strong>Vaduz</strong>
+      <svg class="fl-flag-svg" viewBox="0 0 18 12" style="display:inline-block;vertical-align:middle;margin-left:6px">
+        <rect width="18" height="6" fill="#0033A0"/>
+        <rect y="6" width="18" height="6" fill="#CE1126"/>
+        <g transform="translate(3.5,1.3)">
+          <rect width="3.6" height="2" fill="#FFD700" stroke="#000" stroke-width=".2"/>
+          <rect x=".8" width=".5" height="2.6" fill="#FFD700" stroke="#000" stroke-width=".2"/>
+        </g>
+      </svg>
+    </div>
+    <div>Set in <strong>Manrope</strong> & <strong>Inter</strong></div>
+  </div>
+</footer>
+
+</body>
+</html>

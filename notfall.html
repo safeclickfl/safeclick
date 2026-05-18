@@ -1,119 +1,312 @@
-<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Notfall – SafeClick FL</title>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Notfall — SafeClick FL · Hilfe holen in Liechtenstein</title>
+<meta name="description" content="Alle Hilfsstellen in Liechtenstein bei Cybermobbing, Bedrohung oder Erpressung. Anonym, kostenlos, 24/7.">
 <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-:root{--navy:#1B4965;--navy-dark:#0F2D44;--teal:#5FA8D3;--coral:#FF6B6B;--green:#06D6A0;--yellow:#FFD166;--purple:#7C4DFF;--orange:#FF8C42;--pink:#F472B6;--bg:#FAFBFF;--text:#1A1A2E;--muted:#64748B;--border:#E2E8F0}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Plus Jakarta Sans',Inter,system-ui,sans-serif;color:var(--text);background:var(--bg);line-height:1.6}
-.topbar{background:var(--navy);color:rgba(255,255,255,.6);font-size:11px;padding:6px 24px;display:flex;justify-content:center;gap:20px;flex-wrap:wrap}.topbar a{color:var(--teal);text-decoration:none;font-weight:600}
-nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px}
-.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
-.nav-brand{font-family:'Space Grotesk';font-size:20px;font-weight:700;color:var(--navy);text-decoration:none;display:flex;align-items:center;gap:8px}.nav-brand .sc{color:var(--purple)}
-.nav-shield{width:32px;height:32px;background:linear-gradient(135deg,var(--purple),var(--coral));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;color:#fff}
-.nav-links{display:flex;gap:18px;list-style:none;align-items:center}
-.nav-links a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:600;transition:color .2s}.nav-links a:hover,.nav-links a.active{color:var(--purple)}
-.nav-cta{background:linear-gradient(135deg,var(--purple),var(--coral));color:#fff!important;padding:7px 16px;border-radius:8px;font-weight:700!important;font-size:12px!important}
-.nav-toggle{display:none;background:none;border:none;color:var(--navy);font-size:22px;cursor:pointer}
-.fl-banner{background:linear-gradient(90deg,#002B7F 50%,#CE1126 50%);height:3px}
-section{padding:70px 24px}.container{max-width:1100px;margin:0 auto}
-.badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:10px}
-.stitle{font-family:'Space Grotesk';font-size:clamp(26px,4vw,34px);font-weight:700;color:var(--navy);margin-bottom:10px}
-.ssub{font-size:15px;color:var(--muted);max-width:600px;margin-bottom:36px}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;border:none;transition:transform .2s,box-shadow .2s;cursor:pointer}.btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.12)}
-.btn-w{background:#fff;color:var(--navy)}.btn-coral{background:var(--coral);color:#fff}.btn-purple{background:var(--purple);color:#fff}
-.btn-ghost{background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.2)}.btn-ghost:hover{border-color:#fff}
-.btn-out{background:transparent;color:var(--purple);border:2px solid var(--purple)}.btn-out:hover{background:var(--purple);color:#fff}
-.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
-.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-.g4{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
-.card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:24px;transition:transform .2s,box-shadow .2s}.card:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,.07)}
-.ib{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-.tag{font-size:10px;font-weight:600;padding:3px 9px;border-radius:100px}.t-p{background:rgba(124,77,255,.08);color:var(--purple)}.t-c{background:rgba(255,107,107,.08);color:var(--coral)}.t-g{background:rgba(6,214,160,.08);color:var(--green)}.t-y{background:rgba(255,209,102,.15);color:#B8860B}.t-n{background:var(--coral);color:#fff}
-.ec{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:18px;display:flex;align-items:center;gap:14px;transition:background .2s}.ec:hover{background:rgba(255,255,255,.1)}
-.en{font-family:'Space Grotesk';font-size:20px;font-weight:700;color:#fff}.en-s{font-size:15px}.el{font-size:11px;color:rgba(255,255,255,.5);margin-top:2px}
-.ph{padding:100px 24px 50px;text-align:center;position:relative;overflow:hidden}
-.ph::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 70%,rgba(255,107,107,.12),transparent 50%),radial-gradient(circle at 70% 30%,rgba(6,214,160,.1),transparent 50%)}.ph>*{position:relative;z-index:1}
-.ph h1{font-family:'Space Grotesk';font-size:clamp(28px,5vw,42px);font-weight:700;color:#fff;margin-bottom:8px}.ph p{font-size:15px;color:rgba(255,255,255,.55);max-width:500px;margin:0 auto}
-.bc{font-size:13px;color:rgba(255,255,255,.4);margin-bottom:12px}.bc a{color:rgba(255,255,255,.6);text-decoration:none}.bc a:hover{color:#fff}
-/* Module detail page extras */
-.mod-nav{max-width:1100px;margin:0 auto;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;border-top:1px solid var(--border)}
-.mod-nav a{text-decoration:none;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:5px;color:var(--purple)}.mod-nav a:hover{text-decoration:underline}.mod-nav .mn-back{color:var(--muted)}
-.mg{max-width:1100px;margin:0 auto;padding:0 24px 32px}
-.mg h3{font-size:1.1rem;margin:24px 0 12px;color:var(--navy)}
-.mg-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
-.mg-card{display:flex;align-items:center;gap:10px;padding:12px;background:#fff;border:1px solid var(--border);border-radius:12px;text-decoration:none;transition:box-shadow .2s}.mg-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.06)}
-.mg-ic{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
-.mg-card .mg-t{font-size:12px;font-weight:700;color:var(--navy)}.mg-card .mg-s{font-size:10px;color:var(--muted)}
-/* Module content cards (from uploaded files) */
-.m-card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:22px;margin:16px 0;box-shadow:0 10px 25px rgba(15,23,42,.05)}
-.m-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-.m-kpi{font-size:.95rem;color:var(--muted)}
-.m-badge{display:inline-block;padding:6px 10px;border-radius:999px;font-weight:700;font-size:.84rem;margin:4px 6px 0 0}
-.m-good{background:#ecfdf5;color:#065f46}.m-warn{background:#fffbeb;color:#92400e}.m-bad{background:#fef2f2;color:#991b1b}
-.m-table{width:100%;border-collapse:collapse;margin-top:12px}.m-table th,.m-table td{border:1px solid var(--border);padding:10px;vertical-align:top;text-align:left}
-.m-bq{margin:12px 0;padding:14px 16px;background:#f8fafc;border-radius:10px}
-h2.m-h2{margin-top:36px;font-size:1.4rem;border-bottom:2px solid var(--border);padding-bottom:8px}
-h3.m-h3{margin-top:24px;font-size:1.08rem}
-footer{background:var(--navy-dark);color:rgba(255,255,255,.4);padding:36px 24px;text-align:center}
-.fb{font-family:'Space Grotesk';font-size:18px;font-weight:700;color:#fff;margin-bottom:6px}.fb span{color:var(--teal)}
-footer p{font-size:12px;margin-bottom:3px}.fl{display:flex;gap:18px;justify-content:center;margin:12px 0;flex-wrap:wrap}.fl a{color:var(--teal);text-decoration:none;font-size:12px;font-weight:600}
-.ff{display:inline-flex;gap:3px;margin-top:8px}.ff div{width:30px;height:4px;border-radius:2px}
-@media(max-width:768px){.nav-links{display:none;position:absolute;top:56px;left:0;right:0;background:#fff;flex-direction:column;padding:16px 24px;gap:12px;border-bottom:1px solid var(--border);box-shadow:0 4px 12px rgba(0,0,0,.08)}.nav-links.open{display:flex}.nav-toggle{display:block}section{padding:50px 16px}.g2,.g3,.g4,.m-grid{grid-template-columns:1fr}.topbar{font-size:10px}}
-</style>
-</head><body>
-<div class="topbar"><span>🇱🇮 SafeClick FL – Think. Click. Act!</span><span>Ein Projekt der <a href="https://www.uni.li" target="_blank">Universität Liechtenstein</a> mit <a href="https://aha.li" target="_blank">aha Vaduz</a></span></div>
-<nav><div class="nav-inner"><a href="index.html" class="nav-brand"><div class="nav-shield">🛡</div>Safe<span class="sc">Click</span>&nbsp;FL</a>
-<ul class="nav-links" id="nv"><li><a href="index.html">Home</a></li>
-<li><a href="module.html">Module</a></li>
-<li><a href="downloads.html">Downloads</a></li>
-<li><a href="notfall.html" class=active>Notfall</a></li>
-<li><a href="partner.html">Partner</a></li><li><a href="mailto:safeclickfl@proton.me" class="nav-cta"><i class="fas fa-envelope"></i> Kontakt</a></li></ul>
-<button class="nav-toggle" onclick="document.getElementById('nv').classList.toggle('open')"><i class="fas fa-bars"></i></button></div></nav><div class="fl-banner"></div>
 
-<div class="ph" style="background:linear-gradient(160deg,#2d0a0a,#8B0000,#CE1126)">
-<h1>🚨 Hilfe holen – sofort</h1>
-<p>Diese Nummern gelten in Liechtenstein. Anonym, kostenlos, rund um die Uhr.</p>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <defs>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></symbol>
+    <symbol id="i-ban" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></symbol>
+    <symbol id="i-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><line x1="9" y1="9" x2="15" y2="15"/><line x1="15" y1="9" x2="9" y2="15"/></symbol>
+    <symbol id="i-hands" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 12V5a1 1 0 0 1 2 0v7"/><path d="M9 13V6a1 1 0 0 0-2 0v8"/><path d="M15 13V8a1 1 0 0 1 2 0v8"/><path d="M19 16V9a1 1 0 0 0-2 0v9"/><path d="M5 18a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+  </defs>
+</svg>
+
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="tb-left">
+      <span class="tb-flag">
+        <svg class="fl-flag-svg" viewBox="0 0 18 12">
+          <rect width="18" height="6" fill="#0033A0"/>
+          <rect y="6" width="18" height="6" fill="#CE1126"/>
+          <g transform="translate(3.5,1.3)">
+            <rect width="3.6" height="2" fill="#FFD700" stroke="#000" stroke-width=".2"/>
+            <rect x=".8" width=".5" height="2.6" fill="#FFD700" stroke="#000" stroke-width=".2"/>
+          </g>
+        </svg>
+        Fürstentum Liechtenstein
+      </span>
+      <span class="tb-divider">·</span>
+      <span class="tb-extra">Erste Hilfe · Anonym · Kostenlos · 24/7</span>
+    </div>
+    <div class="tb-right">
+      <a href="mailto:safeclickfl@proton.me">safeclickfl@proton.me</a>
+    </div>
+  </div>
 </div>
 
-<section style="background:linear-gradient(160deg,#1a0533,#2d1458,#5228a0);color:#fff;padding:48px 24px">
-<div class="container">
-<div style="text-align:center;margin-bottom:36px">
-<p style="font-size:15px;color:rgba(255,255,255,.6);max-width:560px;margin:0 auto">Ob Cybermobbing, Bedrohung oder Erpressung – du musst das nicht alleine durchstehen.</p></div>
+<header class="site">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">S</div>
+      <div class="brand-text">
+        <span class="brand-name">SafeClick <span class="fl">FL</span></span>
+        <span class="brand-sub">Think · Click · Act</span>
+      </div>
+    </a>
+    <ul class="nav-links" id="nv">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="module.html">Module</a></li>
+      <li><a href="downloads.html">Downloads</a></li>
+      <li><a href="notfall.html" class="active">Notfall</a></li>
+      <li><a href="partner.html">Partner</a></li>
+      <li><a href="quiz.html">Quiz</a></li>
+      <li><a href="mailto:safeclickfl@proton.me" class="cta">Kontakt</a></li>
+    </ul>
+    <button class="nav-toggle" onclick="document.getElementById('nv').classList.toggle('open')" aria-label="Menü">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+<div class="fl-stripe"></div>
 
-<div class="g2">
-<div class="ec" style="border:2px solid rgba(255,107,107,.3)"><div class="ib" style="background:#FF6B6B33;color:#FF6B6B;font-size:22px"><i class="fas fa-phone"></i></div><div><div class="en" style="font-size:28px">147</div><div class="el" style="font-size:13px;color:rgba(255,255,255,.65)">Sorgentelefon für Kinder & Jugendliche<br>Kostenlos · Anonym · 24/7</div></div></div>
-<div class="ec" style="border:2px solid rgba(95,168,211,.3)"><div class="ib" style="background:#5FA8D333;color:#5FA8D3;font-size:22px"><i class="fas fa-shield-halved"></i></div><div><div class="en" style="font-size:28px">117</div><div class="el" style="font-size:13px;color:rgba(255,255,255,.65)">Landespolizei Liechtenstein<br>Bei Bedrohung, Erpressung, verbreiteten Bildern</div></div></div>
-<div class="ec"><div class="ib" style="background:#06D6A033;color:#06D6A0"><i class="fas fa-comments"></i></div><div><div class="en en-s">+423 239 91 11</div><div class="el">aha – Tipps & Infos für junge Leute<br>Kirchstrasse 10, Vaduz · Beratung & Workshops</div></div></div>
-<div class="ec"><div class="ib" style="background:#7C4DFF33;color:#7C4DFF"><i class="fas fa-hands-holding-heart"></i></div><div><div class="en">143</div><div class="el">Dargebotene Hand · Telefonseelsorge<br>24/7 · Wenn es dir nicht gut geht</div></div></div>
-<div class="ec"><div class="ib" style="background:#FFD16633;color:#FFD166"><i class="fas fa-child-reaching"></i></div><div><div class="en en-s">oskj.li</div><div class="el">Ombudsstelle für Kinder & Jugendliche<br>Verein für Menschenrechte</div></div></div>
-<div class="ec"><div class="ib" style="background:#F472B633;color:#F472B6"><i class="fas fa-shield-heart"></i></div><div><div class="en en-s">kinderschutz.li</div><div class="el">Kinderschutz Liechtenstein<br>Beratung & Unterstützung für Familien</div></div></div>
-</div>
+<!-- Page Head -->
+<section class="page-head">
+  <div class="page-head-inner">
+    <div class="page-meta">
+      <strong style="color:var(--fl-red)">Erste Hilfe</strong>
+      <span class="pm-dot">·</span>
+      <span>Cyber-Krisen in Liechtenstein</span>
+      <span class="pm-dot">·</span>
+      <span>Anonym & kostenlos</span>
+    </div>
+    <h1 class="h1-display">Hilfe holen — <span style="color:var(--fl-red)">sofort.</span></h1>
+    <p class="page-lede">
+      Diese Nummern gelten in Liechtenstein. Cybermobbing, Bedrohung, Erpressung — du musst das nicht alleine durchstehen. Alle Stellen sind anonym, kostenlos und rund um die Uhr erreichbar. Egal wie spät. Egal was passiert ist.
+    </p>
+  </div>
+</section>
 
-<div style="margin-top:36px;padding:24px;background:rgba(255,255,255,.05);border-radius:16px;border:1px solid rgba(255,255,255,.08)">
-<h3 style="font-family:Space Grotesk;font-size:18px;font-weight:700;color:#fff;margin-bottom:14px">📋 Dein 4-Schritte-Notfallplan</h3>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px">
-<div style="background:rgba(255,255,255,.04);border-radius:12px;padding:16px;text-align:center"><div style="font-size:28px;margin-bottom:6px">📸</div><div style="font-family:Space Grotesk;font-size:14px;font-weight:700;color:#fff">1. Screenshot</div><div style="font-size:11px;color:rgba(255,255,255,.4)">Beweis sichern – sofort</div></div>
-<div style="background:rgba(255,255,255,.04);border-radius:12px;padding:16px;text-align:center"><div style="font-size:28px;margin-bottom:6px">🚫</div><div style="font-family:Space Grotesk;font-size:14px;font-weight:700;color:#fff">2. Blockieren</div><div style="font-size:11px;color:rgba(255,255,255,.4)">Person blockieren & melden</div></div>
-<div style="background:rgba(255,255,255,.04);border-radius:12px;padding:16px;text-align:center"><div style="font-size:28px;margin-bottom:6px">🤐</div><div style="font-family:Space Grotesk;font-size:14px;font-weight:700;color:#fff">3. Nicht antworten</div><div style="font-size:11px;color:rgba(255,255,255,.4)">Keine Reaktion = keine Macht</div></div>
-<div style="background:rgba(255,255,255,.04);border-radius:12px;padding:16px;text-align:center"><div style="font-size:28px;margin-bottom:6px">🤝</div><div style="font-family:Space Grotesk;font-size:14px;font-weight:700;color:#fff">4. Hilfe holen</div><div style="font-size:11px;color:rgba(255,255,255,.4)">Vertrauensperson oder 147</div></div>
-</div></div>
+<!-- Notfallnummern -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow red">Notfallnummern Liechtenstein</div>
+    <h2 class="h2">Drei Nummern, die <span class="ac">sofort helfen.</span></h2>
+    <p class="lede">Im akuten Notfall: hier anrufen. Die wichtigsten drei zuerst.</p>
 
-<div style="margin-top:28px;padding:16px 20px;background:rgba(6,214,160,.08);border-radius:12px;border:1px solid rgba(6,214,160,.15)">
-<p style="font-size:13px;color:rgba(255,255,255,.55)">💡 <strong style="color:#06D6A0">Gut zu wissen:</strong> Auf <a href="https://www.skppsc.ch" target="_blank" style="color:#06D6A0">skppsc.ch</a> und <a href="https://www.medienkompetenz.li" target="_blank" style="color:#06D6A0">medienkompetenz.li</a> findest du jederzeit weitere Informationen zu Cybercrime und Mediensicherheit.</p></div>
+    <div class="help-list">
+      <div class="help-card urgent">
+        <div class="help-num">147</div>
+        <div>
+          <div class="help-name">Sorgentelefon</div>
+          <div class="help-sub">Für Kinder & Jugendliche · Kostenlos · Anonym · 24/7</div>
+        </div>
+      </div>
+      <div class="help-card">
+        <div class="help-num">117</div>
+        <div>
+          <div class="help-name">Landespolizei FL</div>
+          <div class="help-sub">Bei Bedrohung, Erpressung, verbreiteten Bildern</div>
+        </div>
+      </div>
+      <div class="help-card calm">
+        <div class="help-num">143</div>
+        <div>
+          <div class="help-name">Dargebotene Hand</div>
+          <div class="help-sub">Telefonseelsorge · 24/7 · Wenn es dir nicht gut geht</div>
+        </div>
+      </div>
 
-<div style="text-align:center;margin-top:36px">
-<p style="font-family:Space Grotesk;font-size:24px;font-weight:700;color:#fff">Du bist nicht allein. 💛</p>
-<a href="modul-6-notfallplan-und-hilfestellen.html" class="btn btn-coral" style="margin-top:16px">Modul 6: Notfallplan im Detail →</a>
-</div></div></section>
+      <div class="help-card warm">
+        <div class="help-num sm">+423 239 91 11</div>
+        <div>
+          <div class="help-name">aha — Tipps & Infos</div>
+          <div class="help-sub">Kirchstrasse 10, Vaduz · Beratung & Workshops</div>
+        </div>
+      </div>
+      <div class="help-card warm">
+        <div class="help-num sm">oskj.li</div>
+        <div>
+          <div class="help-name">Ombudsstelle Kinder & Jugend</div>
+          <div class="help-sub">Verein für Menschenrechte Liechtenstein</div>
+        </div>
+      </div>
+      <div class="help-card urgent">
+        <div class="help-num sm">kinderschutz.li</div>
+        <div>
+          <div class="help-name">Kinderschutz Liechtenstein</div>
+          <div class="help-sub">Beratung & Unterstützung für Familien</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<footer><div class="fb">Safe<span>Click</span> FL 🇱🇮</div>
-<p>Think. Click. Act! · Pro Bono · Universität Liechtenstein · 2026</p>
-<div class="fl"><a href="mailto:safeclickfl@proton.me"><i class="fas fa-envelope"></i> safeclickfl@proton.me</a>
-<a href="https://instagram.com/safeclickfl" target="_blank"><i class="fab fa-instagram"></i> @safeclickfl</a>
-<a href="https://aha.li" target="_blank">aha.li</a></div>
-<p style="margin-top:8px;font-size:10px">CC BY-NC-SA 4.0</p>
-<div class="ff"><div style="background:#002B7F"></div><div style="background:#CE1126"></div><div style="background:#FFD700"></div></div></footer>
-<script>document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'})})})</script>
-</body></html>
+<!-- 4-Schritte-Plan -->
+<section style="background:var(--paper);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="wrap">
+    <div class="eyebrow">Wenn etwas passiert ist</div>
+    <h2 class="h2">Dein 4-Schritte-Notfallplan</h2>
+    <p class="lede">Atme tief durch. Diese vier Schritte funktionieren immer — egal um welche Plattform es geht, egal wie schlimm es sich gerade anfühlt.</p>
+
+    <div class="fourstep">
+      <div class="fs-step">
+        <div class="fs-num">SCHRITT 01</div>
+        <div class="fs-icon"><svg width="20" height="20"><use href="#i-camera"/></svg></div>
+        <div class="fs-name">Screenshot</div>
+        <div class="fs-desc">Beweis sichern, bevor etwas gelöscht wird. Profilname und Datum mit aufnehmen.</div>
+      </div>
+      <div class="fs-step">
+        <div class="fs-num">SCHRITT 02</div>
+        <div class="fs-icon"><svg width="20" height="20"><use href="#i-ban"/></svg></div>
+        <div class="fs-name">Blockieren</div>
+        <div class="fs-desc">Person blockieren und der Plattform melden. Aktiv handeln statt zuschauen.</div>
+      </div>
+      <div class="fs-step">
+        <div class="fs-num">SCHRITT 03</div>
+        <div class="fs-icon"><svg width="20" height="20"><use href="#i-mute"/></svg></div>
+        <div class="fs-name">Nicht antworten</div>
+        <div class="fs-desc">Keine Reaktion = keine Macht. Lass dich nicht in ein Spiel ziehen.</div>
+      </div>
+      <div class="fs-step">
+        <div class="fs-num">SCHRITT 04</div>
+        <div class="fs-icon"><svg width="20" height="20"><use href="#i-hands"/></svg></div>
+        <div class="fs-name">Hilfe holen</div>
+        <div class="fs-desc">Eltern, Lehrer, Vertrauensperson — oder einfach 147. Du bist nicht allein.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Persönliche Botschaft -->
+<section style="padding-top:72px;padding-bottom:64px">
+  <div class="wrap-narrow">
+    <div class="letter">
+      <div class="letter-meta">
+        <div class="letter-meta-eyebrow">An dich, falls du das hier liest</div>
+        <div>—</div>
+      </div>
+
+      <div class="letter-greeting">Falls du gerade in einer Krise bist:</div>
+
+      <div class="letter-body">
+        <p>Das, was dir gerade passiert, fühlt sich vielleicht riesig und ausweglos an. Vor allem nachts, vor allem alleine. Wir wollen dir eines sagen: <em>Es ist vorbei, sobald du jemandem davon erzählst.</em> Nicht weil das Problem dann magisch verschwindet — sondern weil du es nicht mehr alleine trägst.</p>
+
+        <p>Die 147 funktioniert wirklich anonym. Niemand erfährt deinen Namen. Niemand sagt deinen Eltern Bescheid. Du kannst auch nur zuhören, falls dir das lieber ist. Es gibt keine „dummen" Anrufe.</p>
+
+        <p>Und wenn du Lehrperson oder Elternteil bist und das gerade einem Kind zeigst: <em>Vielen Dank.</em> Schon allein das hilft.</p>
+      </div>
+
+      <div class="letter-signature">
+        <div>
+          <div class="letter-sig-text">Mit warmen Grüssen,</div>
+          <div class="letter-sig-meta">Das SafeClick-FL-Team</div>
+        </div>
+        <div class="letter-sig-avatars">
+          <div class="sig-av">UL</div>
+          <div class="sig-av gold">aha</div>
+          <div class="sig-av dark">LP</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Weitere Infos -->
+<section style="padding-top:32px;padding-bottom:80px">
+  <div class="wrap-narrow">
+    <div class="note gold">
+      <div class="note-title">Mehr Informationen</div>
+      <p>
+        Auf <a href="https://www.skppsc.ch" target="_blank">skppsc.ch</a> (Schweizerische Kriminalprävention) und <a href="https://www.medienkompetenz.li" target="_blank">medienkompetenz.li</a> (Amt für Soziale Dienste FL) findest du weitere Infos zu Cybercrime, Prävention und Mediensicherheit für Liechtenstein.
+      </p>
+    </div>
+
+    <div style="text-align:center;margin-top:56px">
+      <div style="display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-size:24px;font-weight:600;color:var(--ink);margin-bottom:10px;letter-spacing:-.018em">
+        Du bist nicht allein.
+        <svg width="20" height="20" style="color:var(--fl-red)"><use href="#i-heart"/></svg>
+      </div>
+      <p style="color:var(--muted);font-size:15px;max-width:520px;margin:0 auto 28px;line-height:1.65">
+        Sprich mit jemandem, dem du vertraust. Eltern, ältere Geschwister, Lehrperson — oder ruf einfach 147 an. Egal wie spät. Egal worum es geht.
+      </p>
+      <a href="modul-6-notfallplan-und-hilfestellen.html" class="btn">
+        <span class="ic"><svg width="16" height="16"><use href="#i-shield"/></svg></span>
+        Modul 6 · Notfallplan im Detail
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">
+        <div class="footer-mark">S</div>
+        <div class="footer-brand-text">SafeClick <span class="fl">FL</span></div>
+      </div>
+      <div class="footer-tag">Think · Click · Act</div>
+      <p class="footer-message">
+        Wir glauben, dass jedes Kind in Liechtenstein das Recht hat, sicher im Netz unterwegs zu sein. Dafür ist SafeClick FL da. Pro Bono. Für immer kostenlos.
+      </p>
+      <div class="footer-meta">
+        Pro-Bono-Projekt 2026 · Universität Liechtenstein<br>
+        in Kooperation mit aha Vaduz<br>
+        Lizenz: CC BY-NC-SA 4.0
+      </div>
+    </div>
+    <div>
+      <h4>Navigation</h4>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="module.html">Module</a></li>
+        <li><a href="downloads.html">Downloads</a></li>
+        <li><a href="notfall.html">Notfall</a></li>
+        <li><a href="partner.html">Partner</a></li>
+      <li><a href="quiz.html">Quiz</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Partner</h4>
+      <ul class="footer-links">
+        <li><a href="https://www.uni.li" target="_blank">Universität Liechtenstein</a></li>
+        <li><a href="https://www.aha.li" target="_blank">aha Vaduz</a></li>
+        <li><a href="https://www.landespolizei.li" target="_blank">Landespolizei FL</a></li>
+        <li><a href="https://www.lg.li" target="_blank">Gymnasium Vaduz</a></li>
+        <li><a href="https://www.schule-gams.ch" target="_blank">Schule Gams (CH)</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Kontakt</h4>
+      <ul class="footer-links">
+        <li><a href="mailto:safeclickfl@proton.me"><svg><use href="#i-mail"/></svg> safeclickfl@proton.me</a></li>
+        <li><a href="https://instagram.com/safeclickfl" target="_blank"><svg><use href="#i-instagram"/></svg> @safeclickfl</a></li>
+        <li><a href="https://aha.li" target="_blank"><svg><use href="#i-globe"/></svg> aha.li</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>
+      © 2026 · SafeClick FL · Mit
+      <svg width="12" height="12" style="display:inline-block;vertical-align:middle;color:var(--fl-red);margin:0 2px"><use href="#i-heart"/></svg>
+      gemacht in <strong>Vaduz</strong>
+      <svg class="fl-flag-svg" viewBox="0 0 18 12" style="display:inline-block;vertical-align:middle;margin-left:6px">
+        <rect width="18" height="6" fill="#0033A0"/>
+        <rect y="6" width="18" height="6" fill="#CE1126"/>
+        <g transform="translate(3.5,1.3)">
+          <rect width="3.6" height="2" fill="#FFD700" stroke="#000" stroke-width=".2"/>
+          <rect x=".8" width=".5" height="2.6" fill="#FFD700" stroke="#000" stroke-width=".2"/>
+        </g>
+      </svg>
+    </div>
+    <div>Set in <strong>Manrope</strong> & <strong>Inter</strong></div>
+  </div>
+</footer>
+
+</body>
+</html>
